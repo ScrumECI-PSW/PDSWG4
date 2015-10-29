@@ -15,7 +15,7 @@ public class Laboratorio {
     
     private String nombre;
     private String Descripcion;
-    private ArrayList Equipos;
+    private ArrayList<Equipo> Equipos;
 
     public Laboratorio(String nombre, String Descripcion, ArrayList Equipos) {
         this.nombre = nombre;
