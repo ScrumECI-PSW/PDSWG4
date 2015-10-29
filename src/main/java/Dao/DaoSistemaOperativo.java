@@ -5,10 +5,16 @@
  */
 package Dao;
 
+import Logica.SistemaOperativo;
+
 /**
  *
  * @author 2101240
  */
-public abstract class DaoSistemaOperativo {
+public interface DaoSistemaOperativo {
+    public void save(SistemaOperativo p) ;
+    public SistemaOperativo load(int num);
+    public void update (SistemaOperativo p);
+    public void delete(SistemaOperativo p); 
     
 }

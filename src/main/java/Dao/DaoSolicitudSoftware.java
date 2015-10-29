@@ -5,10 +5,16 @@
  */
 package Dao;
 
+
+import Logica.SolicitudSoftware;
+
 /**
  *
  * @author 2101240
  */
-public abstract class DaoSolicitudSoftware {
-    
+public interface DaoSolicitudSoftware {
+    public void save(SolicitudSoftware p) ;
+    public SolicitudSoftware load(int num);
+    public void update (SolicitudSoftware p);
+    public void delete(SolicitudSoftware p); 
 }

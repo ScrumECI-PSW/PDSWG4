@@ -5,10 +5,18 @@
  */
 package Dao;
 
+
+import Logica.ReporteProblema;
+
 /**
  *
  * @author 2101240
  */
-public abstract class DaoReporteProblema {
+public interface DaoReporteProblema {
+    
+    public void save(ReporteProblema p) ;
+    public ReporteProblema load(int num);
+    public void update (ReporteProblema p);
+    public void delete(ReporteProblema p); 
     
 }

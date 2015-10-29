@@ -5,10 +5,17 @@
  */
 package Dao;
 
+import Logica.Laboratorio;
+
+
+
 /**
  *
  * @author 2101240
  */
-public abstract class DaoLaboratorio {
-    
+public interface DaoLaboratorio {
+    public void save(Laboratorio p) ;
+    public Laboratorio load(int num);
+    public void update (Laboratorio p);
+    public void delete(Laboratorio p); 
 }

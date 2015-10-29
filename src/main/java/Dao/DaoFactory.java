@@ -63,9 +63,9 @@ public abstract class DaoFactory {
     
     public abstract void beginSession() ;
     
-    public abstract DaoEquipo getDaoProducto();
+    public abstract DaoEquipo getDaoEquipo();
     
-    public abstract DaoLaboratorio getDaoPedido();
+    public abstract DaoLaboratorio getDaoLaboratorio();
     
     public abstract DaoReporteProblema getDaoReporteProblema();
     

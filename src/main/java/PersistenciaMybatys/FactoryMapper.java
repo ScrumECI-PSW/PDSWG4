@@ -18,7 +18,7 @@ import Dao.DaoSolicitudSoftware;
  * @author 2101240
  */
 public class FactoryMapper extends DaoFactory{
-    SqlSession sql = null;
+/*    SqlSession sql = null;
     @Override
     public void beginSession()  {
         SqlSessionFactory sqlSessionFactory = null;
@@ -33,17 +33,8 @@ public class FactoryMapper extends DaoFactory{
         }
         sql = sqlSessionFactory.openSession();
     }
-
-    @Override
-    public DaoEquipo getDaoProducto() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public DaoLaboratorio getDaoPedido() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
+*/
+   
     @Override
     public DaoReporteProblema getDaoReporteProblema() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -71,6 +62,21 @@ public class FactoryMapper extends DaoFactory{
 
     @Override
     public void endSession() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void beginSession() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public DaoEquipo getDaoEquipo() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public DaoLaboratorio getDaoLaboratorio() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

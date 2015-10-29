@@ -5,6 +5,7 @@
  */
 package Logica.Facade;
 
+import Dao.DaoFactory;
 import Logica.ReporteProblema;
 import Logica.SolicitudSoftware;
 import java.util.LinkedList;
@@ -15,6 +16,16 @@ import java.util.LinkedList;
  */
 public class Facade {
     
+    private final static Facade instance=new Facade();
+    private DaoFactory factory = DaoFactory.getInstance();
+    private Facade(){
+        
+    }
+    
+    public static Facade getInstance(){
+        
+        return instance;
+    }
     
     public void registrarReporte(ReporteProblema pr){
         

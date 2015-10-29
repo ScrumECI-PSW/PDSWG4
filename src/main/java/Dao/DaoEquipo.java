@@ -5,10 +5,15 @@
  */
 package Dao;
 
+import Logica.Equipo;
+
 /**
  *
  * @author 2101240
  */
-public abstract class DaoEquipo {
-    
+public interface DaoEquipo {
+    public void save(Equipo p) ;
+    public Equipo load(int num);
+    public void update (Equipo p);
+    public void delete(Equipo p); 
 }
