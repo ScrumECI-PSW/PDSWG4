@@ -2,7 +2,7 @@ deployment:
   staging:
     branch: master
     heroku: 
-      appname: PDSWG4
+      appname: proyectolabinfo
 
 test:
   post:
