@@ -68,38 +68,6 @@ CREATE TABLE SolicitudSoftware (
 
 
 
--- foreign keys
--- Reference:  EquipoXSistema_Equipo (table: EquipoXSistema)
-
-
-ALTER TABLE EquipoXSistema ADD CONSTRAINT EquipoXSistema_Equipo FOREIGN KEY EquipoXSistema_Equipo (Equipo_ID)
-    REFERENCES Equipo (ID);
--- Reference:  EquipoXSistema_SistemaOperativo (table: EquipoXSistema)
-
-
-ALTER TABLE EquipoXSistema ADD CONSTRAINT EquipoXSistema_SistemaOperativo FOREIGN KEY EquipoXSistema_SistemaOperativo (SistemaOperativo_ID)
-    REFERENCES SistemaOperativo (ID);
--- Reference:  EquipoXSoftware_Equipo (table: EquipoXSoftware)
-
-
-ALTER TABLE EquipoXSoftware ADD CONSTRAINT EquipoXSoftware_Equipo FOREIGN KEY EquipoXSoftware_Equipo (Equipo_ID)
-    REFERENCES Equipo (ID);
--- Reference:  EquipoXSoftware_SolicitudSoftware (table: EquipoXSoftware)
-
-
-ALTER TABLE EquipoXSoftware ADD CONSTRAINT EquipoXSoftware_SolicitudSoftware FOREIGN KEY EquipoXSoftware_SolicitudSoftware (SolicitudSoftware_ID)
-    REFERENCES SolicitudSoftware (ID);
--- Reference:  Equipo_Laboratorio (table: Equipo)
-
-
-ALTER TABLE Equipo ADD CONSTRAINT Equipo_Laboratorio FOREIGN KEY Equipo_Laboratorio (Laboratorio_ID)
-    REFERENCES Laboratorio (ID);
--- Reference:  Reporte_Equipo (table: ReporteProblema)
-
-
-ALTER TABLE ReporteProblema ADD CONSTRAINT Reporte_Equipo FOREIGN KEY Reporte_Equipo (Equipo_ID)
-    REFERENCES Equipo (ID);
-
 
 
 -- End of file.
