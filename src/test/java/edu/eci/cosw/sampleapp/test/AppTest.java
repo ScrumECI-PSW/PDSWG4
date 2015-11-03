@@ -41,6 +41,8 @@ public class AppTest {
   public void sampleTest() throws SQLException {
 	Connection conn = DriverManager.getConnection("jdbc:h2:file:./target/db/testdb;MODE=MYSQL", "sa", "");
         Statement stmt = conn.createStatement();
+        stmt.execute("insert into Laboratorio values ('1','Hola Mundo')");
+        stmt.execute("insert into Equipo values (21,'1',true,'Hola Mundo')");
         stmt.execute("insert into ReporteProblema values (2101240,21,'Hola Mundo',true,'2015-10-22')");
         Facade f=Facade.getInstance("h2-applicationconfig.properties");
         LinkedList cp=f.consultarProblemas();
