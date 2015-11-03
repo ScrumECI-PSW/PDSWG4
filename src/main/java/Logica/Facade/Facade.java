@@ -8,7 +8,10 @@ package Logica.Facade;
 import Dao.DaoFactory;
 import Logica.ReporteProblema;
 import Logica.SolicitudSoftware;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.LinkedList;
+import java.util.Properties;
 
 /**
  *
@@ -16,10 +19,26 @@ import java.util.LinkedList;
  */
 public class Facade {
     
-    private final static Facade instance=new Facade();
-    private DaoFactory factory = DaoFactory.getInstance();
-    private Facade(){
-        
+    
+    private static Facade instance=null;
+    
+    private final Properties properties=new Properties();
+    
+    private Facade(String propFileName) throws IOException{        
+	InputStream input = null;
+        input = this.getClass().getClassLoader().getResourceAsStream(propFileName);        
+        properties.load(input);
+    }
+    
+    public static Facade getInstance(String propertiesFileName) throws RuntimeException{
+        if (instance==null){
+            try {
+                instance=new Facade(propertiesFileName);
+            } catch (IOException ex) {
+                throw new RuntimeException("Error on application configuration:",ex);
+            }
+        }        
+        return instance;
     }
     
     public static Facade getInstance(){

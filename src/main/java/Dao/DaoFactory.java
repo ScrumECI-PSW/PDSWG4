@@ -17,6 +17,10 @@
 package Dao;
 
 import PersistenciaMybatys.FactoryMapper;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.Properties;
 
 
 
@@ -28,17 +32,18 @@ public abstract class DaoFactory {
     
     protected DaoFactory(){}
     
-    private static final ThreadLocal<DaoFactory> perThreadInstance = new ThreadLocal<DaoFactory>() {
-        @Override
-        protected DaoFactory initialValue() {    
-            return new FactoryMapper();
-        }
-    };
+     private static volatile DaoFactory instance = null;
     
-    public static DaoFactory getInstance(){          
-        return perThreadInstance.get();
+    public static DaoFactory getInstance(Properties appProperties) {
+        if (instance == null) {
+            synchronized (DaoFactory.class) {
+                if (instance == null) {
+                       instance = new FactoryMapper(appProperties);
+                }
+            }
+        }
+        return instance;
     }
-
 
     /*
         //EL ESQUEMA ANTERIOR ES UNA ALTERNATIVA AL MECANISMO DE FÁBRICA
@@ -59,6 +64,7 @@ public abstract class DaoFactory {
     */
     
     
+
     
     
     public abstract void beginSession() ;

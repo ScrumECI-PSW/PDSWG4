@@ -5,10 +5,33 @@
  */
 package PersistenciaMybatys;
 
+import Dao.DaoEquipo;
+import Logica.Equipo;
+
 /**
  *
  * @author 2101240
  */
-public class EquipoMapper {
+public class EquipoMapper implements DaoEquipo{
+
+    @Override
+    public void save(Equipo p) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Equipo load(int num) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void update(Equipo p) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void delete(Equipo p) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }
