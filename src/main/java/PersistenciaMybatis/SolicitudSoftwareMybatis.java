@@ -3,34 +3,43 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package PersistenciaMybatys;
+package PersistenciaMybatis;
 
-import Dao.DaoEquipo;
-import Logica.Equipo;
+import Dao.DaoSolicitudSoftware;
+import Logica.ReporteProblema;
+import Logica.SolicitudSoftware;
+import java.util.LinkedList;
+
+
 
 /**
  *
  * @author 2101240
  */
-public class EquipoMapper implements DaoEquipo{
+public class SolicitudSoftwareMybatis implements DaoSolicitudSoftware {
 
     @Override
-    public void save(Equipo p) {
+    public void save(SolicitudSoftware p) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Equipo load(int num) {
+    public SolicitudSoftware load(int num) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void update(Equipo p) {
+    public void update(SolicitudSoftware p) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void delete(Equipo p) {
+    public void delete(SolicitudSoftware p) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public LinkedList<ReporteProblema> load() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

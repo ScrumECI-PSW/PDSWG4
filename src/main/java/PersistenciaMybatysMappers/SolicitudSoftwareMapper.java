@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package PersistenciaMybatys;
+package PersistenciaMybatysMappers;
 
 /**
  *
- * @author 2101240
+ * @author Dario
  */
-public class ReporteProblemaMapper {
+public interface SolicitudSoftwareMapper {
     
 }

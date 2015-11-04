@@ -6,7 +6,9 @@
 package Dao;
 
 
+import Logica.ReporteProblema;
 import Logica.SolicitudSoftware;
+import java.util.LinkedList;
 
 /**
  *
@@ -17,4 +19,5 @@ public interface DaoSolicitudSoftware {
     public SolicitudSoftware load(int num);
     public void update (SolicitudSoftware p);
     public void delete(SolicitudSoftware p); 
+    public LinkedList<ReporteProblema> load();
 }

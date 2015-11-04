@@ -5,7 +5,9 @@
  */
 package Dao;
 
+import Logica.ReporteProblema;
 import Logica.SistemaOperativo;
+import java.util.LinkedList;
 
 /**
  *
@@ -16,5 +18,5 @@ public interface DaoSistemaOperativo {
     public SistemaOperativo load(int num);
     public void update (SistemaOperativo p);
     public void delete(SistemaOperativo p); 
-    
+    public LinkedList<ReporteProblema> load();
 }

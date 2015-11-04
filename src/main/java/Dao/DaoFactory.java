@@ -16,7 +16,7 @@
  */
 package Dao;
 
-import PersistenciaMybatys.FactoryMapper;
+import PersistenciaMybatis.FactoryMyBatis;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -38,7 +38,7 @@ public abstract class DaoFactory {
         if (instance == null) {
             synchronized (DaoFactory.class) {
                 if (instance == null) {
-                       instance = new FactoryMapper(appProperties);
+                       instance = new FactoryMyBatis(appProperties);
                 }
             }
         }

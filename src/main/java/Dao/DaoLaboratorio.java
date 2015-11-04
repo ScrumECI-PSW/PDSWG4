@@ -6,6 +6,8 @@
 package Dao;
 
 import Logica.Laboratorio;
+import Logica.ReporteProblema;
+import java.util.LinkedList;
 
 
 
@@ -18,4 +20,5 @@ public interface DaoLaboratorio {
     public Laboratorio load(int num);
     public void update (Laboratorio p);
     public void delete(Laboratorio p); 
+     public LinkedList<ReporteProblema> load();
 }

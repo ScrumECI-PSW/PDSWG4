@@ -6,6 +6,7 @@
 package Logica.Facade;
 
 import Dao.DaoFactory;
+import Dao.DaoReporteProblema;
 import Logica.ReporteProblema;
 import Logica.SolicitudSoftware;
 import java.io.IOException;
@@ -51,7 +52,10 @@ public class Facade {
     }
     
     public LinkedList<ReporteProblema> consultarProblemas(){
-        return null;
+        DaoFactory daof=DaoFactory.getInstance(properties);
+        daof.beginSession();
+        LinkedList<ReporteProblema> drp=daof.getDaoReporteProblema().load();
+        return drp;
     }
     
     public LinkedList<SolicitudSoftware> consultarSolicitudesSoftware(){

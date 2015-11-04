@@ -6,6 +6,7 @@
 package Logica;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 /**
  *
@@ -15,9 +16,9 @@ public class Laboratorio {
     
     private String nombre;
     private String Descripcion;
-    private ArrayList<Equipo> Equipos;
+    private LinkedList Equipos;
 
-    public Laboratorio(String nombre, String Descripcion, ArrayList Equipos) {
+    public Laboratorio(String nombre, String Descripcion, LinkedList Equipos) {
         this.nombre = nombre;
         this.Descripcion = Descripcion;
         this.Equipos = Equipos;
@@ -42,11 +43,11 @@ public class Laboratorio {
         this.Descripcion = Descripcion;
     }
 
-    public ArrayList getEquipos() {
+    public LinkedList getEquipos() {
         return Equipos;
     }
 
-    public void setEquipos(ArrayList Equipos) {
+    public void setEquipos(LinkedList Equipos) {
         this.Equipos = Equipos;
     }
     
