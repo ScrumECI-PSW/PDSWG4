@@ -6,6 +6,7 @@
 package PersistenciaMybatis;
 
 import Dao.DaoReporteProblema;
+import Logica.Equipo;
 import Logica.ReporteProblema;
 import PersistenciaMybatysMappers.ReporteProblemaMapper;
 import java.util.LinkedList;
@@ -28,7 +29,7 @@ public class ReporteProblemaMybatis implements DaoReporteProblema {
     
     @Override
     public void save(ReporteProblema p) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        rpmap.insertarReportesProblemas(p);
     }
 
     @Override
@@ -49,6 +50,11 @@ public class ReporteProblemaMybatis implements DaoReporteProblema {
     @Override
     public LinkedList<ReporteProblema> load() {
         return rpmap.reportesProblemas();
+    }
+
+    @Override
+    public LinkedList Reportes(Equipo eqq) {
+        return rpmap.reportesProb(eqq);
     }
     
 }

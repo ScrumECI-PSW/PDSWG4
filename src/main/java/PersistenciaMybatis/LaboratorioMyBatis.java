@@ -29,6 +29,7 @@ public class LaboratorioMyBatis implements DaoLaboratorio {
     
     @Override
     public void save(Laboratorio lb) {
+        
         rpmap.insertarLaboratorio(lb);
     }
 
@@ -51,5 +52,11 @@ public class LaboratorioMyBatis implements DaoLaboratorio {
     public LinkedList<ReporteProblema> load() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public LinkedList<Laboratorio> EquiposReportados() {
+        return rpmap.getLaboratoriosProblemas();
+    }
+
     
 }

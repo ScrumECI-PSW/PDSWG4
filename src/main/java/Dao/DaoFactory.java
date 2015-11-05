@@ -84,4 +84,6 @@ public abstract class DaoFactory {
     public abstract void rollbackTransaction() ;
     
     public abstract void endSession() ;
+
+   
 }

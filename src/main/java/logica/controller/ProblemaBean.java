@@ -22,8 +22,8 @@ public class ProblemaBean {
     private final  Facade f=Facade.getInstance("h2-applicationconfig.properties");
     private Date fecha;
     private String DescripcionProblema=null;
-    private String Laboratorio=null;
-    private int Equipo=0;
+    private Laboratorio Laboratorio=null;
+    private Equipo Equipo=null;
     private Date DailyTime;
 
     public ProblemaBean() {
@@ -39,26 +39,26 @@ public class ProblemaBean {
         this.DescripcionProblema = DescripcionProblema;
     }
 
-    public String getLaboratorio() {
+    public Laboratorio getLaboratorio() {
         return Laboratorio;
     }
 
-    public void setLaboratorio(String Laboratorio) {
+    public void setLaboratorio(Laboratorio Laboratorio) {
         this.Laboratorio = Laboratorio;
     }
 
-    public int getEquipo() {
+    public Equipo getEquipo() {
         return Equipo;
     }
 
-    public void setEquipo(int Equipo) {
+    public void setEquipo(Equipo Equipo) {
         this.Equipo = Equipo;
     }
     
     public ReporteProblema InsertProblema(){
         ReporteProblema problema;
         fecha = new Date();
-        problema = new ReporteProblema(new Equipo(Equipo,DescripcionProblema,false,new Laboratorio(Laboratorio,"",null)),DescripcionProblema,false,fecha.getDay(),fecha.getMonth(),fecha.getYear());
+        problema = new ReporteProblema(Equipo,DescripcionProblema,false,fecha.getDay(),fecha.getMonth(),fecha.getYear());
         f.registrarReporte(problema);
         return problema;
     }

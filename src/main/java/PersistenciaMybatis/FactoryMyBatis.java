@@ -110,12 +110,12 @@ private static volatile SqlSessionFactory sessionFactory;
   
     @Override
     public DaoLaboratorio getDaoLaboratorio() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return new LaboratorioMyBatis(currentSession);
     }
 
     @Override
     public DaoEquipo getDaoEquipo() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return new EquipoMybatis(currentSession);
     }
 
  

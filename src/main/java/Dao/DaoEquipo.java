@@ -6,6 +6,7 @@
 package Dao;
 
 import Logica.Equipo;
+import Logica.Laboratorio;
 import Logica.ReporteProblema;
 import java.util.LinkedList;
 
@@ -19,4 +20,6 @@ public interface DaoEquipo {
     public void update (Equipo p);
     public void delete(Equipo p); 
     public LinkedList<ReporteProblema> load();
+
+    public LinkedList Reportados(Laboratorio lab);
 }

@@ -5,6 +5,7 @@
  */
 package PersistenciaMybatysMappers;
 
+import Logica.Equipo;
 import Logica.ReporteProblema;
 import java.util.LinkedList;
 import org.apache.ibatis.annotations.Insert;
@@ -31,9 +32,23 @@ public interface ReporteProblemaMapper {
     )
     LinkedList<ReporteProblema> reportesProblemas();
     
-    @Insert("Insert into ReporteProblema insert into ReporteProblema (Equipo_ID,Descripcion, Estado, Fecha) values(#{rp.equipo.id}, #{rp.descripcion}, #{rp.estado}, #{rp.fecha})")
+    @Insert("Insert into ReporteProblema (Equipo_ID,Descripcion, Estado, Fecha) values(#{rp.equipo.id}, #{rp.descripcion}, #{rp.estado}, #{rp.fecha})")
     @Options(useGeneratedKeys=true,keyProperty = "rp.id")
     int insertarReportesProblemas(@Param(value="rp")ReporteProblema rp);
+
+    
+    
+    
+    @Select("Select * from ReporteProblema where Equipo_ID=#{eqq.id}")
+    @Results(
+        value={
+            @Result(column="ID", property = "id"),
+            @Result(column="Fecha", property = "fecha"),
+            @Result(column="Descripcion", property = "descripcion"),
+            @Result(property = "equipo",one = @One(select ="PersistenciaMybatysMappers.EquipoMapper.getEquipo"),column="Equipo_ID")
+        }
+    )
+    LinkedList<ReporteProblema> reportesProb(@Param(value="eqq") Equipo eqq);
     
     
     

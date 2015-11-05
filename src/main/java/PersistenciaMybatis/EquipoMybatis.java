@@ -7,8 +7,12 @@ package PersistenciaMybatis;
 
 import Dao.DaoEquipo;
 import Logica.Equipo;
+import Logica.Laboratorio;
 import Logica.ReporteProblema;
+import PersistenciaMybatysMappers.EquipoMapper;
+import PersistenciaMybatysMappers.LaboratorioMapper;
 import java.util.LinkedList;
+import org.apache.ibatis.session.SqlSession;
 
 /**
  *
@@ -16,9 +20,15 @@ import java.util.LinkedList;
  */
 public class EquipoMybatis implements DaoEquipo{
 
+    private EquipoMapper rpmap=null;
+
+    public EquipoMybatis(SqlSession session) { 
+        rpmap=session.getMapper(EquipoMapper.class);
+    }
+    
     @Override
     public void save(Equipo p) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        rpmap.insertarEquipo(p);
     }
 
     @Override
@@ -40,6 +50,11 @@ public class EquipoMybatis implements DaoEquipo{
     @Override
     public LinkedList<ReporteProblema> load() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public LinkedList Reportados(Laboratorio lab) {
+        return rpmap.Reportados(lab);
     }
     
 }

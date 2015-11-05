@@ -21,4 +21,6 @@ public interface DaoLaboratorio {
     public void update (Laboratorio p);
     public void delete(Laboratorio p); 
      public LinkedList<ReporteProblema> load();
+
+    public LinkedList<Laboratorio> EquiposReportados();
 }

@@ -8,6 +8,7 @@ package PersistenciaMybatysMappers;
 
 import Logica.Laboratorio;
 import Logica.ReporteProblema;
+import java.util.LinkedList;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Many;
 import org.apache.ibatis.annotations.One;
@@ -26,12 +27,20 @@ public interface LaboratorioMapper {
          @Results(
             value={
             @Result(column="ID", property = "nombre"),
-            @Result(column="Descripcion", property = "Descripcion"),
-            @Result(property = "Equipos",one = @One(select ="PersistenciaMybatysMappers.EquipoMapper.getEquipos"),column="Laboratorio_ID")
-            }
+            @Result(column="Descripcion", property = "Descripcion")            }
          )
     Laboratorio getLaboratorio (@Param(value="id") int id);
     
     @Insert("insert into Laboratorio (ID, Descripcion) values(#{lb.nombre},#{lb.Descripcion})")
     int insertarLaboratorio(@Param(value="lb")Laboratorio lb);
+
+    
+    @Select("Select lab.ID as nombre, lab.Descripcion as Descripcion from Laboratorio as lab JOIN Equipo as eq ON lab.ID = eq.Laboratorio_Id JOIN ReporteProblema as rp ON eq.ID=rp.Equipo_ID")
+         @Results(
+            value={             
+            @Result(column="nombre", property = "nombre"),
+            @Result(column="Descripcion", property = "Descripcion")    
+            }
+         )
+    LinkedList<Laboratorio> getLaboratoriosProblemas();
 }

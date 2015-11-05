@@ -16,12 +16,10 @@ public class Laboratorio {
     
     private String nombre;
     private String Descripcion;
-    private LinkedList Equipos;
 
-    public Laboratorio(String nombre, String Descripcion, LinkedList Equipos) {
+    public Laboratorio(String nombre, String Descripcion) {
         this.nombre = nombre;
         this.Descripcion = Descripcion;
-        this.Equipos = Equipos;
     }
 
     public Laboratorio() {
@@ -41,14 +39,6 @@ public class Laboratorio {
 
     public void setDescripcion(String Descripcion) {
         this.Descripcion = Descripcion;
-    }
-
-    public LinkedList getEquipos() {
-        return Equipos;
-    }
-
-    public void setEquipos(LinkedList Equipos) {
-        this.Equipos = Equipos;
     }
     
 }

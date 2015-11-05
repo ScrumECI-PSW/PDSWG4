@@ -50,7 +50,11 @@ public class Facade {
     }
     
     public void registrarReporte(ReporteProblema pr){
-        
+        DaoFactory daof=DaoFactory.getInstance(properties);
+        daof.beginSession();
+        daof.getDaoReporteProblema().save(pr);
+        daof.commitTransaction();
+        daof.endSession();
     }
     
     public LinkedList<ReporteProblema> consultarProblemas(){
@@ -73,7 +77,29 @@ public class Facade {
     }
 
     public void registrarEquipo(Equipo eq) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        DaoFactory daof=DaoFactory.getInstance(properties);
+        daof.beginSession();
+        daof.getDaoEquipo().save(eq);
+        daof.commitTransaction();
+        daof.endSession();
+    }
+
+    public LinkedList consultarLaboratoriosConEquipoReporteProblemas() {
+        DaoFactory daof=DaoFactory.getInstance(properties);
+        daof.beginSession();
+        return daof.getDaoLaboratorio().EquiposReportados(); 
+    }
+
+    public LinkedList consultarEquiposProblemasLab(Laboratorio lab) {
+        DaoFactory daof=DaoFactory.getInstance(properties);
+        daof.beginSession();
+        return daof.getDaoEquipo().Reportados(lab); 
+    }
+
+    public LinkedList consultarReporteProblemasEquipos(Equipo eqq) {
+        DaoFactory daof=DaoFactory.getInstance(properties);
+        daof.beginSession();
+        return daof.getDaoReporteProblema().Reportes(eqq); 
     }
 
    
