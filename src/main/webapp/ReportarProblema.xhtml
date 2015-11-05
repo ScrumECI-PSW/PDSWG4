@@ -26,6 +26,19 @@
                         <f:selectItem itemLabel=" " itemValue="" />
                         <f:selectItems var="lab" value="#{problemaBean.equiposPorLaboratorio}" itemValue="#{lab.id}"/>
                     </p:selectOneMenu>
+                    
+                    <p:editor id="editor" widgetVar="editorWidget" value="#{problemaBean.descripcionProblema}" width="600" />
+
+                    <h:panelGrid columns="2" style="margin-top: 10px">
+                        <p:commandButton value="Submit" update="display" icon="ui-icon-disk" />
+
+                        <p:commandButton value="Clear" type="button" onclick="PF('editorWidget').clear();" icon="ui-icon-close" />
+                    </h:panelGrid>
+
+                    <p:dialog header="Content" widgetVar="dlg" showEffect="fade" hideEffect="fade">
+                        <h:outputText id="display" value="#{problemaBean.descripcionProblema}" escape="false" />
+                    </p:dialog>
+                    
                 </h:form>
             </p:layoutUnit>
         </p:layout>  

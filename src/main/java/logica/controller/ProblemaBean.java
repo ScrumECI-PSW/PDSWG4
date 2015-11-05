@@ -29,6 +29,13 @@ public class ProblemaBean {
     private String Laboratorio="";
     private Equipo Equipo=null;
     private Date DailyTime;
+    private String EquiposPorLaboratorio;
+
+    
+
+    public void setEquiposPorLaboratorio(String EquiposPorLaboratorio) {
+        this.EquiposPorLaboratorio = EquiposPorLaboratorio;
+    }
     
     
 
@@ -45,6 +52,7 @@ public class ProblemaBean {
 
     public void setDescripcionProblema(String DescripcionProblema) {
         this.DescripcionProblema = DescripcionProblema;
+        System.out.println(this.DescripcionProblema);
     }
 
     public String getLaboratorio() {

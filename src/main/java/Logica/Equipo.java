@@ -58,6 +58,8 @@ public class Equipo {
         this.laboratorio = laboratorio_ID;
     }
     
-    
+    public String toString(){
+        return Integer.toString(id);
+    }
     
 }

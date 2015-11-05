@@ -29,7 +29,7 @@ public interface LaboratorioMapper {
             @Result(column="ID", property = "nombre"),
             @Result(column="Descripcion", property = "Descripcion")            }
          )
-    Laboratorio getLaboratorio (@Param(value="id") int id);
+    Laboratorio getLaboratorio (@Param(value="id") String id);
     
     @Insert("insert into Laboratorio (ID, Descripcion) values(#{lb.nombre},#{lb.Descripcion})")
     int insertarLaboratorio(@Param(value="lb")Laboratorio lb);
