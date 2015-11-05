@@ -37,7 +37,6 @@ public class ReporteProblema {
     public ReporteProblema() {
     }
 
-    
 
     public Equipo getEquipo() {
         return equipo;
