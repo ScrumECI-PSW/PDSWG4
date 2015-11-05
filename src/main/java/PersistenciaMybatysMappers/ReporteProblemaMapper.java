@@ -49,6 +49,9 @@ public interface ReporteProblemaMapper {
         }
     )
     LinkedList<ReporteProblema> reportesProb(@Param(value="eqq") Equipo eqq);
+
+    @Select("Select * from ReporteProblema where ID=#{num}")
+    public ReporteProblema reporte(int num);
     
     
     

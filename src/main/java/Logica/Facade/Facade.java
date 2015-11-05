@@ -93,7 +93,17 @@ public class Facade {
     }
     
     public LinkedList<SolicitudSoftware> consultarSolicitudesSoftware(){
-        return null;
+        DaoFactory daof=DaoFactory.getInstance(properties);
+        daof.beginSession();
+        LinkedList<SolicitudSoftware> ss=daof.getDaoSolicitudSoftware().load();
+        return ss;
+    }
+    
+    public LinkedList<SolicitudSoftware> consultarSolicitudesSoftwareSinInstalar(){
+        DaoFactory daof=DaoFactory.getInstance(properties);
+        daof.beginSession();
+        LinkedList<SolicitudSoftware> ss=daof.getDaoSolicitudSoftware().load(false);
+        return ss;
     }
 
     public void registrarLaboratorio(Laboratorio lb) {

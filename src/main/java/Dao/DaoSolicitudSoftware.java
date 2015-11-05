@@ -19,5 +19,6 @@ public interface DaoSolicitudSoftware {
     public SolicitudSoftware load(int num);
     public void update (SolicitudSoftware p);
     public void delete(SolicitudSoftware p); 
-    public LinkedList<ReporteProblema> load();
+    public LinkedList<SolicitudSoftware> load();
+    public LinkedList<SolicitudSoftware> load(boolean estado);
 }

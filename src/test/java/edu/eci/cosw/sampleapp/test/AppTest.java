@@ -95,6 +95,7 @@ public class AppTest {
        
   }
   
+  
   @Test
   public void SegunLaboratorioReporteProblema() throws SQLException {
         
@@ -147,6 +148,7 @@ public class AppTest {
     /*
     El sistema debe informar acerca de problemas reportados que deben solucionarse
   */
+  
    @Test
      public void Identificacion_de_Problemas_SinResolver() throws SQLException {
 	Connection conn = DriverManager.getConnection("jdbc:h2:file:./target/db/testdb;MODE=MYSQL", "sa", "");
