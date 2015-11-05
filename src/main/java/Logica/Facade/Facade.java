@@ -15,6 +15,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.LinkedList;
 import java.util.Properties;
+import java.util.SortedMap;
+import java.util.TreeMap;
 
 /**
  *
@@ -64,6 +66,32 @@ public class Facade {
         return drp;
     }
     
+    public LinkedList<ReporteProblema> problemasConMasTiempoSinResolver(){
+        LinkedList<ReporteProblema> consulta=new LinkedList();
+        consulta=this.consultarProblemas();
+        java.util.Date fechaSistema=new java.util.Date();  //Fecha del sistema
+        SortedMap<Integer,ReporteProblema> diccionario=new TreeMap();
+        LinkedList<ReporteProblema> tempo=new LinkedList();
+                
+        for(int i=0; i<consulta.size(); i++){
+            if(consulta.get(i).getEstado()){
+                double dias = Math.floor((fechaSistema.getTime()-consulta.get(i).getFecha().getTime()) / (1000 * 60 * 60 * 24));
+                diccionario.put((int)dias, consulta.get(i));
+            }
+        }
+        
+        for (ReporteProblema reporte : diccionario.values()){
+            tempo.add(reporte);
+        }
+        
+        LinkedList  ordenadas= new LinkedList();          
+        for (int i = tempo.size()-1; i >=0; i--) {
+            ordenadas.add(tempo.get(i));
+         }
+        
+        return ordenadas;
+    }
+    
     public LinkedList<SolicitudSoftware> consultarSolicitudesSoftware(){
         return null;
     }
@@ -102,6 +130,7 @@ public class Facade {
         return daof.getDaoReporteProblema().Reportes(eqq); 
     }
     
+    
     public LinkedList consultarLaboratorios(){
         DaoFactory daof=DaoFactory.getInstance(properties);
         daof.beginSession();
@@ -117,6 +146,5 @@ public class Facade {
         System.out.println(list.size());
         return list;
     }
-
    
 }
