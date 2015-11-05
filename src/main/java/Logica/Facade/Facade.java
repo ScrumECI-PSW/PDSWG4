@@ -130,7 +130,6 @@ public class Facade {
         return daof.getDaoReporteProblema().Reportes(eqq); 
     }
     
-    
     public LinkedList consultarLaboratorios(){
         DaoFactory daof=DaoFactory.getInstance(properties);
         daof.beginSession();
@@ -146,5 +145,6 @@ public class Facade {
         System.out.println(list.size());
         return list;
     }
-   
+
 }
+
