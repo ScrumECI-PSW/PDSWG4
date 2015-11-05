@@ -101,6 +101,22 @@ public class Facade {
         daof.beginSession();
         return daof.getDaoReporteProblema().Reportes(eqq); 
     }
+    
+    public LinkedList consultarLaboratorios(){
+        DaoFactory daof=DaoFactory.getInstance(properties);
+        daof.beginSession();
+        LinkedList list = daof.getDaoLaboratorio().getLaboratoriosProblemas();
+        
+        return list;
+    }
+    
+    public LinkedList<Equipo> consultarEquiposPorLaboratorio(String n){
+        DaoFactory daof=DaoFactory.getInstance(properties);
+        daof.beginSession();
+        LinkedList list = daof.getDaoEquipo().EquiposPorLaboratorio(n);   
+        System.out.println(list.size());
+        return list;
+    }
 
    
 }

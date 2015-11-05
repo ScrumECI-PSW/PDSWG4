@@ -11,9 +11,9 @@
             <transactionManager type="JDBC" />
             <dataSource type="POOLED">
                 <property name="driver" value="com.mysql.jdbc.Driver" />
-                <property name="url" value="jdbc:mysql://desarrollo.is.escuelaing.edu.co:3306/bdprueba" />
-                <property name="username" value="bdprueba" />
-                <property name="password" value="bdprueba" />
+                <property name="url" value="jdbc:mysql://desarrollo.is.escuelaing.edu.co:3306/pdswg4" />
+                <property name="username" value="pdswg4" />
+                <property name="password" value="pdswg04" />
             </dataSource>
         </environment>
     </environments>

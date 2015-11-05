@@ -57,6 +57,9 @@ public class LaboratorioMyBatis implements DaoLaboratorio {
     public LinkedList<Laboratorio> EquiposReportados() {
         return rpmap.getLaboratoriosProblemas();
     }
+    public LinkedList<Laboratorio> getLaboratoriosProblemas(){
+        return rpmap.getLaboratorios();
+    }
 
     
 }

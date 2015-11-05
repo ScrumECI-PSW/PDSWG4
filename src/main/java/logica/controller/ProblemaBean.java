@@ -10,23 +10,31 @@ import Logica.Facade.Facade;
 import Logica.Laboratorio;
 import Logica.ReporteProblema;
 import java.util.Date;
-import javax.annotation.ManagedBean;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import javax.faces.bean.ManagedBean;
 /**
  *
  * @author 2099340
  */
-@ManagedBean 
-    
+@ManagedBean     
 public class ProblemaBean {
     
-    private final  Facade f=Facade.getInstance("h2-applicationconfig.properties");
+    private final  Facade f=Facade.getInstance("applicationconfig.properties");
     private Date fecha;
     private String DescripcionProblema=null;
-    private Laboratorio Laboratorio=null;
+    private String Laboratorio="";
     private Equipo Equipo=null;
     private Date DailyTime;
+    
+    
 
     public ProblemaBean() {
+       
+        
         
     }
     
@@ -39,11 +47,11 @@ public class ProblemaBean {
         this.DescripcionProblema = DescripcionProblema;
     }
 
-    public Laboratorio getLaboratorio() {
+    public String getLaboratorio() {
         return Laboratorio;
     }
 
-    public void setLaboratorio(Laboratorio Laboratorio) {
+    public void setLaboratorio(String Laboratorio) {
         this.Laboratorio = Laboratorio;
     }
 
@@ -61,6 +69,16 @@ public class ProblemaBean {
         problema = new ReporteProblema(Equipo,DescripcionProblema,false,fecha.getDay(),fecha.getMonth(),fecha.getYear());
         f.registrarReporte(problema);
         return problema;
+    }
+    
+    public List<Laboratorio> getLaboratorios(){
+        return f.consultarLaboratorios();
+    }
+    
+    public List<Equipo> getEquiposPorLaboratorio(){
+        System.out.println(Laboratorio);
+        return f.consultarEquiposPorLaboratorio(Laboratorio);
+        
     }
     
 }

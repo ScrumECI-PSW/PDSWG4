@@ -23,4 +23,5 @@ public interface DaoLaboratorio {
      public LinkedList<ReporteProblema> load();
 
     public LinkedList<Laboratorio> EquiposReportados();
+    public LinkedList<Laboratorio> getLaboratoriosProblemas();
 }

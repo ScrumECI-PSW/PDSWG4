@@ -56,5 +56,14 @@ public class EquipoMybatis implements DaoEquipo{
     public LinkedList Reportados(Laboratorio lab) {
         return rpmap.Reportados(lab);
     }
+
+    @Override
+    public LinkedList EquiposPorLaboratorio(String n) {
+        return rpmap.getEquipoLab(n);
+    }
+
+    
+
+    
     
 }

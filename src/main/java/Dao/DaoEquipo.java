@@ -22,4 +22,5 @@ public interface DaoEquipo {
     public LinkedList<ReporteProblema> load();
 
     public LinkedList Reportados(Laboratorio lab);
+    public LinkedList EquiposPorLaboratorio(String n);
 }

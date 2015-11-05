@@ -33,6 +33,17 @@ public interface EquipoMapper {
     )
     Equipo getEquipo(@Param(value = "n") int n);
     
+    @Select("Select * from Equipo where Laboratorio_ID = #{n}")
+    @Results(
+            value = {
+                @Result(column = "ID", property = "id"),
+                @Result(column = "Descripcion", property = "descripcion"),
+                @Result(column = "Estado", property = "estado"),
+                @Result(property = "laboratorio", one = @One(select = "PersistenciaMybatysMappers.LaboratorioMapper.getLaboratorio"), column = "Laboratorio_ID")
+            }
+    )
+    LinkedList<Equipo> getEquipoLab(@Param(value = "n") String n);
+    
     
     @Insert("insert into Equipo (ID,Descripcion,Estado,Laboratorio_ID) values(#{eq.id},#{eq.descripcion},#{eq.estado},#{eq.laboratorio.nombre})")
     int insertarEquipo(@Param(value="eq")Equipo lb);

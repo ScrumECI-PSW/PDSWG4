@@ -1,0 +1,33 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head></h:head>
+    <body>
+        <p:layout fullPage="true">
+            <p:layoutUnit position="east" size="800">
+                <h:form id="form2">
+
+                    <p:outputLabel value="Grouping: " />
+                    <p:selectOneMenu  value="#{problemaBean.laboratorio}" >
+                        <f:selectItem itemLabel=" " itemValue="" />
+                        <f:selectItems var="lab" value="#{problemaBean.laboratorios}" itemValue="#{lab.nombre}"/>
+                    </p:selectOneMenu> 
+                    
+                    <p:commandButton value="Elegir lab" update=":form1:labs"> </p:commandButton>
+                                      
+                </h:form>
+            </p:layoutUnit>
+            <p:layoutUnit position="center" size="800"> 
+                <h:form id="form1">
+                    <p:outputLabel value="Grouping: " />
+                    <p:selectOneMenu  id="labs" value="#{problemaBean.equipo}">
+                        <f:selectItem itemLabel=" " itemValue="" />
+                        <f:selectItems var="lab" value="#{problemaBean.equiposPorLaboratorio}" itemValue="#{lab.id}"/>
+                    </p:selectOneMenu>
+                </h:form>
+            </p:layoutUnit>
+        </p:layout>  
+    </body>
+</html>

@@ -41,4 +41,7 @@ public class Laboratorio {
         this.Descripcion = Descripcion;
     }
     
+    public String toString(){
+        return this.nombre;
+    }
 }

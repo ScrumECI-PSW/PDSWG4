@@ -42,5 +42,14 @@ public interface LaboratorioMapper {
             @Result(column="Descripcion", property = "Descripcion")    
             }
          )
-    LinkedList<Laboratorio> getLaboratoriosProblemas();
+    public LinkedList<Laboratorio> getLaboratoriosProblemas();
+
+    @Select("Select * from Laboratorio")
+         @Results(
+            value={             
+            @Result(column="ID", property = "nombre"),
+            @Result(column="Descripcion", property = "Descripcion")    
+            }
+         )
+    public LinkedList<Laboratorio> getLaboratorios();
 }
