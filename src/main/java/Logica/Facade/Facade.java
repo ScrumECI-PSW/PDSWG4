@@ -7,6 +7,8 @@ package Logica.Facade;
 
 import Dao.DaoFactory;
 import Dao.DaoReporteProblema;
+import Logica.Equipo;
+import Logica.Laboratorio;
 import Logica.ReporteProblema;
 import Logica.SolicitudSoftware;
 import java.io.IOException;
@@ -61,4 +63,18 @@ public class Facade {
     public LinkedList<SolicitudSoftware> consultarSolicitudesSoftware(){
         return null;
     }
+
+    public void registrarLaboratorio(Laboratorio lb) {
+        DaoFactory daof=DaoFactory.getInstance(properties);
+        daof.beginSession();
+        daof.getDaoLaboratorio().save(lb);
+        daof.commitTransaction();
+        daof.endSession();
+    }
+
+    public void registrarEquipo(Equipo eq) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+   
 }

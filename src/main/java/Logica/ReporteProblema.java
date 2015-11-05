@@ -12,6 +12,15 @@ import java.sql.Date;
  * @author 2101240
  */
 public class ReporteProblema {
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    private int id;
     private Equipo equipo;
     private String descripcion;
     private boolean estado;
@@ -22,6 +31,7 @@ public class ReporteProblema {
         this.descripcion = descripcion;
         this.estado = estado;
         this.fecha = new Date(dia,mes,año);
+        this.id=0;
     }
 
     public ReporteProblema() {

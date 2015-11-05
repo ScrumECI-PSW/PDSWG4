@@ -8,7 +8,10 @@ package PersistenciaMybatis;
 import Dao.DaoLaboratorio;
 import Logica.Laboratorio;
 import Logica.ReporteProblema;
+import PersistenciaMybatysMappers.LaboratorioMapper;
+import PersistenciaMybatysMappers.ReporteProblemaMapper;
 import java.util.LinkedList;
+import org.apache.ibatis.session.SqlSession;
 
 /**
  *
@@ -16,9 +19,17 @@ import java.util.LinkedList;
  */
 public class LaboratorioMyBatis implements DaoLaboratorio {
 
+    
+    private LaboratorioMapper rpmap=null;
+
+    public LaboratorioMyBatis(SqlSession session) { 
+        rpmap=session.getMapper(LaboratorioMapper.class);
+    }
+    
+    
     @Override
-    public void save(Laboratorio p) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void save(Laboratorio lb) {
+        rpmap.insertarLaboratorio(lb);
     }
 
     @Override
