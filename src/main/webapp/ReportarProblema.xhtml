@@ -6,39 +6,38 @@
     <h:head></h:head>
     <body>
         <p:layout fullPage="true">
-            <p:layoutUnit position="east" size="800">
-                <h:form id="form2">
-
-                    <p:outputLabel value="Grouping: " />
-                    <p:selectOneMenu  value="#{problemaBean.laboratorio}" >
-                        <f:selectItem itemLabel=" " itemValue="" />
-                        <f:selectItems var="lab" value="#{problemaBean.laboratorios}" itemValue="#{lab.nombre}"/>
-                    </p:selectOneMenu> 
-                    
-                    <p:commandButton value="Elegir lab" update=":form1:labs"> </p:commandButton>
-                                      
-                </h:form>
-            </p:layoutUnit>
-            <p:layoutUnit position="center" size="800"> 
+            <p:layoutUnit position="center"> 
                 <h:form id="form1">
-                    <p:outputLabel value="Grouping: " />
-                    <p:selectOneMenu  id="labs" value="#{problemaBean.equipo}">
-                        <f:selectItem itemLabel=" " itemValue="" />
-                        <f:selectItems var="lab" value="#{problemaBean.equiposPorLaboratorio}" itemValue="#{lab.id}"/>
-                    </p:selectOneMenu>
-                    
-                    <p:editor id="editor" widgetVar="editorWidget" value="#{problemaBean.descripcionProblema}" width="600" />
-
                     <h:panelGrid columns="2" style="margin-top: 10px">
-                        <p:commandButton value="Submit" update="display" icon="ui-icon-disk" />
 
-                        <p:commandButton value="Clear" type="button" onclick="PF('editorWidget').clear();" icon="ui-icon-close" />
-                    </h:panelGrid>
+                        <p:outputLabel value="Grouping: " />
+                        <p:selectOneMenu  value="#{problemaBean.laboratorio}" >
+                            <f:selectItem itemLabel=" " itemValue="" />
+                            <f:selectItems var="lab" value="#{problemaBean.laboratorios}" itemValue="#{lab.nombre}" />
+                        </p:selectOneMenu> 
 
-                    <p:dialog header="Content" widgetVar="dlg" showEffect="fade" hideEffect="fade">
-                        <h:outputText id="display" value="#{problemaBean.descripcionProblema}" escape="false" />
-                    </p:dialog>
-                    
+                        <p:commandButton value="Elegir lab" update=":form3:equipos"> </p:commandButton>
+                    </h:panelGrid >
+                </h:form>
+                <h:form id="form3">
+                    <p:dataTable id="equipos" var="car1" value="#{problemaBean.equiposPorLaboratorio}" sortBy="#{car1.id}" rowKey="#{car1.id}" >
+                        <p:column sortBy="#{car1.id}" headerText="Comentario">
+                            <h:outputText value="#{car1.id}"/>
+                        </p:column>
+                        <p:column sortBy="#{car1.descripcion}" headerText="NOMBRE">
+                            <h:outputText value="#{car1.descripcion}"/>
+                        </p:column>
+
+                        <p:column sortBy="#{car1.estado}" headerText="Estado">
+                            <h:outputText value="#{car1.estado}" />
+                            
+                        </p:column>
+                        <p:column headerText="Reportar">
+                            <p:commandLink action="SolicitudReporte" value="Reportar" >
+                                <f:setPropertyActionListener value="#{car1}" target="#{problemaBean.equipo}"/>
+                            </p:commandLink>
+                        </p:column>
+                    </p:dataTable>
                 </h:form>
             </p:layoutUnit>
         </p:layout>  

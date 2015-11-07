@@ -152,7 +152,7 @@ public class Facade {
         DaoFactory daof=DaoFactory.getInstance(properties);
         daof.beginSession();
         LinkedList list = daof.getDaoEquipo().EquiposPorLaboratorio(n);   
-        System.out.println(list.size());
+        System.out.println(list.size()+"aquiii");
         return list;
     }
 

@@ -19,6 +19,7 @@ import java.util.Map;
 import javax.faces.bean.ManagedBean;
 import java.util.LinkedList;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 
 
 /**
@@ -26,46 +27,63 @@ import javax.faces.bean.ManagedBean;
  * @author 2099340
  */
 
-@ManagedBean    
-
+@ManagedBean
+@SessionScoped
 public class ProblemaBean {
-    
-    private final  Facade f=Facade.getInstance("applicationconfig.properties");
+
+    private final Facade f = Facade.getInstance("applicationconfig.properties");
     private Date fecha;
-    private String DescripcionProblema=null;
-    private String Laboratorio="";
-    private Equipo Equipo=null;
+    private String problema = null;
+
+    private String Laboratorio = "";
+    private Equipo Equipo = null;
     private Date DailyTime;
 
-    private String EquiposPorLaboratorio;
-
-    
-
-    public void setEquiposPorLaboratorio(String EquiposPorLaboratorio) {
-        this.EquiposPorLaboratorio = EquiposPorLaboratorio;
-    }
-    
-    
+    private LinkedList<Equipo> EquiposPorLaboratorio;
 
     private LinkedList<ReporteProblema> problemas;
     private LinkedList<SolicitudSoftware> solicitudes;
-
-
-
-    public ProblemaBean() {
-       
-        
-        
-    }
+    
     
 
-    public String getDescripcionProblema() {
-        return DescripcionProblema;
+    
+
+    ReporteProblema Prob=null;
+
+    public ReporteProblema getProb() {
+        return Prob;
     }
 
-    public void setDescripcionProblema(String DescripcionProblema) {
-        this.DescripcionProblema = DescripcionProblema;
-        System.out.println(this.DescripcionProblema);
+    public void setProb(ReporteProblema Prob) {
+        this.Prob = Prob;
+    }
+
+    
+    
+    public ProblemaBean() {
+
+    }
+
+ 
+    
+    public String getProblema() {
+        System.out.println(this.problema + "get");
+        return problema;
+    }
+
+    public void setProblema(String problema) {
+        System.out.println(this.problema + "set");
+        insertProblema();
+    }
+
+    public void setEquiposPorLaboratorio(LinkedList<Equipo> EquiposPorLaboratorio) {
+        this.EquiposPorLaboratorio = EquiposPorLaboratorio;
+    }
+
+    public LinkedList<Equipo> getEquiposPorLaboratorio() {
+        
+        return f.consultarEquiposPorLaboratorio(Laboratorio);
+
     }
 
     public String getLaboratorio() {
@@ -83,7 +101,7 @@ public class ProblemaBean {
     public void setEquipo(Equipo Equipo) {
         this.Equipo = Equipo;
     }
-    
+
     public LinkedList<ReporteProblema> getProblemas() {
         return f.consultarProblemas();
     }
@@ -91,7 +109,7 @@ public class ProblemaBean {
     public void setProblemas(LinkedList<ReporteProblema> problemas) {
         this.problemas = problemas;
     }
-    
+
     public LinkedList<SolicitudSoftware> getSolicitudes() {
         return f.consultarSolicitudesSoftware();
     }
@@ -99,23 +117,17 @@ public class ProblemaBean {
     public void setSolicitudes(LinkedList<SolicitudSoftware> solicitudes) {
         this.solicitudes = solicitudes;
     }
-    
-    public ReporteProblema InsertProblema(){
-        ReporteProblema problema;
+
+    public void insertProblema() {
         fecha = new Date();
-        problema = new ReporteProblema(Equipo,DescripcionProblema,false,fecha.getDay(),fecha.getMonth(),fecha.getYear());
-        f.registrarReporte(problema);
-        return problema;
+        
+        this.Prob = new ReporteProblema(Equipo, this.problema, false, fecha.getDay(), fecha.getMonth(), fecha.getYear());
+        f.registrarReporte(this.Prob);
+       
     }
-    
-    public List<Laboratorio> getLaboratorios(){
+
+    public List<Laboratorio> getLaboratorios() {
         return f.consultarLaboratorios();
     }
-    
-    public List<Equipo> getEquiposPorLaboratorio(){
-        System.out.println(Laboratorio);
-        return f.consultarEquiposPorLaboratorio(Laboratorio);
-        
-    }
-    
+
 }

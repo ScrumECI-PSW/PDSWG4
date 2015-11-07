@@ -15,6 +15,8 @@ public class Equipo {
     private String descripcion;
     private boolean estado;
     private Laboratorio laboratorio;
+   
+
 
     public Equipo(int id, String descripcion, boolean estado, Laboratorio laboratorio_ID) {
         this.id = id;
