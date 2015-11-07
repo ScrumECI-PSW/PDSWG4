@@ -52,6 +52,6 @@ public interface SolicitudSoftwareMapper {
             @Result(column="Justificacion", property="justificacion")
         }
     )
-    public LinkedList<SolicitudSoftware> solicitudes(boolean estado);
+    public LinkedList<SolicitudSoftware> soli(boolean estado);
     
 }

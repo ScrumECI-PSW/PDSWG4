@@ -53,7 +53,7 @@ public class SolicitudSoftwareMybatis implements DaoSolicitudSoftware {
 
     @Override
     public LinkedList<SolicitudSoftware> load(boolean estado) {
-        return ssmap.solicitudes(estado);
+        return ssmap.soli(estado);
     }
 
    
