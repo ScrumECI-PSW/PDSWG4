@@ -12,49 +12,57 @@ and open the template in the editor.
       xmlns:p="http://primefaces.org/ui">
     <head></head>
     <h:body>
+        <h:form>
+        <p:growl id="growl" showDetail="true" />
+            <p:commandButton value="Problemas por Solucionar" icon="ui-icon-extlink" actionListener="#{problemaBean.problemasSinSolucionar}">
+            </p:commandButton>
+        </h:form>   
+    </h:body>
+    <!--  hhhy
+        
         <h:form id="problemas">
             <h:outputLabel id="table1" />
             
-            <p:dataTable var="prob" value="#{problemaBean.problemas}" > 
+            <p:dataTable var="prob" value="{problemaBean.problemasConPrioridad}" var> 
                 <f:facet name="header">
                      Problemas sin resolver
                 </f:facet>
                 <p:column headerText="ID">
-                    <h:outputLabel value="#{prob.ID}"></h:outputLabel>
+                    <h:outputLabel value="{prob.id}"></h:outputLabel>
                 </p:column>
                 <p:column headerText="ID Equipo">
-                   <h:outputLabel value="#{prob.Equipo_ID}"></h:outputLabel>
+                    <h:outputLabel value="{prob.equipo}"></h:outputLabel>
                 </p:column>
                 <p:column headerText="Descripcion">
-                    <h:outputLabel value="#{prob.Descripcion}"></h:outputLabel>
+                    <h:outputLabel value="{prob.descripcion}"></h:outputLabel>
                 </p:column>
                 <p:column headerText="Fecha">
-                    <h:outputLabel value="#{prob.Fecha}"></h:outputLabel>
+                    <h:outputLabel value="{prob.fecha}"></h:outputLabel>
                 </p:column>
             </p:dataTable>
         </h:form>
         
         <h:form id="pendiente">
-            <p:dataTable var="pend" value="#{problemaBean.solicitudes}" >
+            <p:dataTable var="pend" value="{problemaBean.solicitudes}" >
                 <f:facet name="header">
                     Software pendiente de instalar
                 </f:facet>
                 <p:column headerText="ID">
-                    <h:outputLabel value="#{pend.ID}"></h:outputLabel>
+                    <h:outputLabel value="{pend.id}"></h:outputLabel>
                 </p:column>
                 <p:column headerText="Descripcion">
-                    <h:outputLabel value="#{pend.Descripcion}"></h:outputLabel>
+                    <h:outputLabel value="{pend.Descripcion}"></h:outputLabel>
                 </p:column>
                 <p:column headerText="Enlaces">
-                    <h:outputLabel value="#{pend.Enlaces}"></h:outputLabel>
+                    <h:outputLabel value="{pend.Enlaces}"></h:outputLabel>
                 </p:column>
                 <p:column headerText="Fecha">
-                    <h:outputLabel value="#{pend.Fecha}"></h:outputLabel>
+                    <h:outputLabel value="{pend.Fecha}"></h:outputLabel>
                 </p:column>
                 <p:column headerText="Justificacion">
-                    <h:outputLabel value="#{pend.Justificacion}"></h:outputLabel>
+                    <h:outputLabel value="{pend.Justificacion}"></h:outputLabel>
                 </p:column>
             </p:dataTable>
         </h:form>
-    </h:body>
+        -->
 </html>

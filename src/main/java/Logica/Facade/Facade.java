@@ -51,6 +51,9 @@ public class Facade {
         return instance;
     }
     
+    /*
+    @param: pr es el reporte de un problema que se va a registrar en la base de datos
+    */
     public void registrarReporte(ReporteProblema pr){
         DaoFactory daof=DaoFactory.getInstance(properties);
         daof.beginSession();
@@ -59,6 +62,9 @@ public class Facade {
         daof.endSession();
     }
     
+    /*
+    @return: Una lista con todos los problemas reportados y sus respectivos detalles
+    */
     public LinkedList<ReporteProblema> consultarProblemas(){
         DaoFactory daof=DaoFactory.getInstance(properties);
         daof.beginSession();
@@ -66,6 +72,9 @@ public class Facade {
         return drp;
     }
     
+    /*
+    @return: Lista de problemas ordenados por prioridad de fecha en la que se reportaron
+    */
     public LinkedList<ReporteProblema> problemasConMasTiempoSinResolver(){
         LinkedList<ReporteProblema> consulta=new LinkedList();
         consulta=this.consultarProblemas();
@@ -84,7 +93,7 @@ public class Facade {
             tempo.add(reporte);
         }
         
-        LinkedList  ordenadas= new LinkedList();          
+        LinkedList<ReporteProblema> ordenadas= new LinkedList();          
         for (int i = tempo.size()-1; i >=0; i--) {
             ordenadas.add(tempo.get(i));
          }
@@ -92,6 +101,9 @@ public class Facade {
         return ordenadas;
     }
     
+    /*
+    @param: Lista con todas las solicitudes de software con sus respectivas descripciones
+    */
     public LinkedList<SolicitudSoftware> consultarSolicitudesSoftware(){
         DaoFactory daof=DaoFactory.getInstance(properties);
         daof.beginSession();
@@ -99,13 +111,19 @@ public class Facade {
         return ss;
     }
     
+    /*
+    @param: Lista con todas las solicitudes de software que tengan el estado activo (true), lo cual significa que son solicitudes sin instalar
+    */
     public LinkedList<SolicitudSoftware> consultarSolicitudesSoftwareSinInstalar(){
         DaoFactory daof=DaoFactory.getInstance(properties);
         daof.beginSession();
-        LinkedList<SolicitudSoftware> ss=daof.getDaoSolicitudSoftware().load(false);
+        LinkedList<SolicitudSoftware> ss=daof.getDaoSolicitudSoftware().load(true);
         return ss;
     }
-
+    
+    /*
+    @param: El laboratorio que se desea registar en la base de datos
+    */
     public void registrarLaboratorio(Laboratorio lb) {
         DaoFactory daof=DaoFactory.getInstance(properties);
         daof.beginSession();
@@ -113,7 +131,10 @@ public class Facade {
         daof.commitTransaction();
         daof.endSession();
     }
-
+    
+    /*
+    @param: El equipo que se desea registar en la base de datos
+    */
     public void registrarEquipo(Equipo eq) {
         DaoFactory daof=DaoFactory.getInstance(properties);
         daof.beginSession();
@@ -121,25 +142,38 @@ public class Facade {
         daof.commitTransaction();
         daof.endSession();
     }
-
+    
+    /*
+    @return: Lista con los laboratorios que tienen equipos con reporte de problemas
+    */
     public LinkedList consultarLaboratoriosConEquipoReporteProblemas() {
         DaoFactory daof=DaoFactory.getInstance(properties);
         daof.beginSession();
         return daof.getDaoLaboratorio().EquiposReportados(); 
     }
-
+    /*
+    @param: lab=Laboratorio del cual se quieren conocer los equipos con problemas
+    @return: Lista con los equipos que tienen problema en el laboratorio ingresado
+    */
     public LinkedList consultarEquiposProblemasLab(Laboratorio lab) {
         DaoFactory daof=DaoFactory.getInstance(properties);
         daof.beginSession();
         return daof.getDaoEquipo().Reportados(lab); 
     }
-
+    
+    /*
+    @param: eqq= Equipo del cual se quiere consultar sus reportes
+    @return: Lista con todos los reportes de problema que tiene el equipo ingresado
+    */
     public LinkedList consultarReporteProblemasEquipos(Equipo eqq) {
         DaoFactory daof=DaoFactory.getInstance(properties);
         daof.beginSession();
         return daof.getDaoReporteProblema().Reportes(eqq); 
     }
     
+    /*
+    @return: Lista con todos los laboratorios
+    */
     public LinkedList consultarLaboratorios(){
         DaoFactory daof=DaoFactory.getInstance(properties);
         daof.beginSession();
@@ -148,11 +182,14 @@ public class Facade {
         return list;
     }
     
+    /*
+    @param:n= ID del laboratorio sobre el cual se quiere consultar
+    @return: Lista de todos los equipos que tiene el laboratorio de ID n
+    */
     public LinkedList<Equipo> consultarEquiposPorLaboratorio(String n){
         DaoFactory daof=DaoFactory.getInstance(properties);
         daof.beginSession();
-        LinkedList list = daof.getDaoEquipo().EquiposPorLaboratorio(n);   
-        System.out.println(list.size()+"aquiii");
+        LinkedList list = daof.getDaoEquipo().EquiposPorLaboratorio(n); 
         return list;
     }
 

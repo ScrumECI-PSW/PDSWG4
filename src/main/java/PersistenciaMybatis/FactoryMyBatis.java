@@ -1,8 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
+
 package PersistenciaMybatis;
 
 import Dao.DaoEquipo;
@@ -69,7 +66,10 @@ private static volatile SqlSessionFactory sessionFactory;
         }
     }
     
-  
+    @Override
+    public DaoSolicitudSoftware getDaoSolicitudSoftware() {
+        return new SolicitudSoftwareMybatis(currentSession);
+    }
 
      @Override
     public DaoReporteProblema getDaoReporteProblema() {
@@ -78,14 +78,8 @@ private static volatile SqlSessionFactory sessionFactory;
 
     @Override
     public DaoSistemaOperativo getDaoSistemaOperativo() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return new SistemaOperativoMybatis(currentSession);
     }
-
-    @Override
-    public DaoSolicitudSoftware getDaoSolicitudSoftware() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
     
     @Override
     public void beginSession() throws PersistenceException {
@@ -118,6 +112,4 @@ private static volatile SqlSessionFactory sessionFactory;
         return new EquipoMybatis(currentSession);
     }
 
- 
-    
 }

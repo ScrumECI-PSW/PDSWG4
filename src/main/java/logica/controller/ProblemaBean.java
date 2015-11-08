@@ -18,14 +18,11 @@ import java.util.List;
 import java.util.Map;
 import javax.faces.bean.ManagedBean;
 import java.util.LinkedList;
+import java.util.SortedMap;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import org.primefaces.context.RequestContext;
 
-
-/**
- *
- * @author 2099340
- */
 
 @ManagedBean
 @SessionScoped
@@ -45,9 +42,7 @@ public class ProblemaBean {
     private LinkedList<SolicitudSoftware> solicitudes;
     
     
-
     
-
     ReporteProblema Prob=null;
 
     public ReporteProblema getProb() {
@@ -101,9 +96,17 @@ public class ProblemaBean {
     public void setEquipo(Equipo Equipo) {
         this.Equipo = Equipo;
     }
-
-    public LinkedList<ReporteProblema> getProblemas() {
-        return f.consultarProblemas();
+    /*
+    @return: Lista ordenada por fecha con todos los problemas reportados 
+    */
+    public LinkedList<ReporteProblema>  getProblemasConPrioridad() {
+        return f.problemasConMasTiempoSinResolver();
+    }
+    
+    public void problemasSinSolucionar() {
+        System.out.println("Llego a problemasin solucionar");
+        RequestContext.getCurrentInstance().openDialog("PrioridadDeProblemas");
+        System.out.println("despues de problemasin solucionar");
     }
 
     public void setProblemas(LinkedList<ReporteProblema> problemas) {
