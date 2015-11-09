@@ -16,32 +16,14 @@ and open the template in the editor.
         <p:growl id="growl" showDetail="true" />
             <p:commandButton value="Problemas por Solucionar" icon="ui-icon-extlink" actionListener="#{problemaBean.problemasSinSolucionar}">
             </p:commandButton>
+            <p:commandButton value="Software para Instalar" icon="ui-icon-extlink" actionListener="#{problemaBean.solicitudesPendientes}">
+            </p:commandButton>
         </h:form>   
+
+        
     </h:body>
     <!--  hhhy
-        
-        <h:form id="problemas">
-            <h:outputLabel id="table1" />
-            
-            <p:dataTable var="prob" value="{problemaBean.problemasConPrioridad}" var> 
-                <f:facet name="header">
-                     Problemas sin resolver
-                </f:facet>
-                <p:column headerText="ID">
-                    <h:outputLabel value="{prob.id}"></h:outputLabel>
-                </p:column>
-                <p:column headerText="ID Equipo">
-                    <h:outputLabel value="{prob.equipo}"></h:outputLabel>
-                </p:column>
-                <p:column headerText="Descripcion">
-                    <h:outputLabel value="{prob.descripcion}"></h:outputLabel>
-                </p:column>
-                <p:column headerText="Fecha">
-                    <h:outputLabel value="{prob.fecha}"></h:outputLabel>
-                </p:column>
-            </p:dataTable>
-        </h:form>
-        
+              
         <h:form id="pendiente">
             <p:dataTable var="pend" value="{problemaBean.solicitudes}" >
                 <f:facet name="header">

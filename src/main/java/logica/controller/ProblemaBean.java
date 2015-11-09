@@ -104,15 +104,21 @@ public class ProblemaBean {
     }
     
     public void problemasSinSolucionar() {
-        System.out.println("Llego a problemasin solucionar");
-        RequestContext.getCurrentInstance().openDialog("PrioridadDeProblemas");
-        System.out.println("despues de problemasin solucionar");
+        Map<String,Object> options = new HashMap<String, Object>();
+        options.put("resizable", false);
+        RequestContext.getCurrentInstance().openDialog("PrioridadDeProblemas.xhtml",options,null);
     }
 
     public void setProblemas(LinkedList<ReporteProblema> problemas) {
         this.problemas = problemas;
     }
-
+    
+    public void solicitudesPendientes() {
+        Map<String,Object> options = new HashMap<String, Object>();
+        options.put("resizable", false);
+        RequestContext.getCurrentInstance().openDialog("solicitudesSoftware.xhtml",options,null);
+    }
+    
     public LinkedList<SolicitudSoftware> getSolicitudes() {
         return f.consultarSolicitudesSoftware();
     }
