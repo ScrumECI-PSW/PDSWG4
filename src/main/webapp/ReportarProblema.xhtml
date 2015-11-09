@@ -4,13 +4,18 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:p="http://primefaces.org/ui">
     <h:head></h:head>
-    <body>
+    <body>        
         <p:layout fullPage="true">
+            
+            <p:layoutUnit position="north">
+                <p:outputLabel   value=" REPORTE DE PROBLEMAS " />
+            </p:layoutUnit>
+            
             <p:layoutUnit position="center"> 
                 <h:form id="form1">
                     <h:panelGrid columns="2" style="margin-top: 10px">
 
-                        <p:outputLabel value="Grouping: " />
+                        <p:outputLabel value="Laboratorio: " />
                         <p:selectOneMenu  value="#{problemaBean.laboratorio}" >
                             <f:selectItem itemLabel=" " itemValue="" />
                             <f:selectItems var="lab" value="#{problemaBean.laboratorios}" itemValue="#{lab.nombre}" />
@@ -28,10 +33,7 @@
                             <h:outputText value="#{car1.descripcion}"/>
                         </p:column>
 
-                        <p:column sortBy="#{car1.estado}" headerText="Estado">
-                            <h:outputText value="#{car1.estado}" />
-                            
-                        </p:column>
+                        
                         <p:column headerText="Reportar">
                             <p:commandLink action="SolicitudReporte" value="Reportar" >
                                 <f:setPropertyActionListener value="#{car1}" target="#{problemaBean.equipo}"/>

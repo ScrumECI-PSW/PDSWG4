@@ -67,7 +67,8 @@ public class ProblemaBean {
     }
 
     public void setProblema(String problema) {
-        System.out.println(this.problema + "set");
+        System.out.println(problema + "set");
+        this.problema = problema;
         insertProblema();
     }
 
