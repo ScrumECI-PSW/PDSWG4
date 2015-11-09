@@ -5,12 +5,38 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:p="http://primefaces.org/ui">
+
+
     <head>
-        <title>TODO supply a title</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Solicitudes pendientes de Software</title>
+        <style type="text/css">
+            .ui-widget {
+            font-size: 90%;
+                }
+        </style>
     </head>
     <body>
-        <div>TODO write content</div>
+        <h:form>
+            <p:dataTable var="pend" value="{problemaBean.solicitudes}" >
+                <p:column headerText="ID">
+                   <h:outputLabel value="{pend.id}"></h:outputLabel>
+                </p:column>
+                <p:column headerText="Descripcion">
+                    <h:outputLabel value="{pend.Descripcion}"></h:outputLabel>
+                </p:column>
+                <p:column headerText="Enlaces">
+                    <h:outputLabel value="{pend.Enlaces}"></h:outputLabel>
+                </p:column>
+                <p:column headerText="Fecha">
+                    <h:outputLabel value="{pend.Fecha}"></h:outputLabel>
+                </p:column>
+                <p:column headerText="Justificacion">
+                    <h:outputLabel value="{pend.Justificacion}"></h:outputLabel>
+                </p:column>
+            </p:dataTable>
+        </h:form>
     </body>
 </html>
