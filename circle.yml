@@ -2,7 +2,7 @@ deployment:
   staging:
     branch: master
     heroku: 
-      appname: proyectolabinfo
+      appname: labinfo
 
 test:
   post:
