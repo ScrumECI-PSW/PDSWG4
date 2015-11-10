@@ -20,7 +20,7 @@ xmlns:p="http://primefaces.org/ui">
     </head>
     <body>
         <h:form>
-            <p:dataTable var="pend" value="{problemaBean.solicitudes}" >
+            <p:dataTable var="pend" value="{problemaBean.solicitudes}" sortBy="#{pend.id}" rowKey="#{pend.id}">
                 <p:column headerText="ID">
                    <h:outputLabel value="{pend.id}"></h:outputLabel>
                 </p:column>
@@ -37,6 +37,6 @@ xmlns:p="http://primefaces.org/ui">
                     <h:outputLabel value="{pend.Justificacion}"></h:outputLabel>
                 </p:column>
             </p:dataTable>
-        </h:form>
+        </h:form> 
     </body>
 </html>

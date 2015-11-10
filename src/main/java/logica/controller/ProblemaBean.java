@@ -41,7 +41,9 @@ public class ProblemaBean {
     private LinkedList<ReporteProblema> problemas;
     private LinkedList<SolicitudSoftware> solicitudes;
     
-    
+    public ProblemaBean() {
+
+    }
     
     ReporteProblema Prob=null;
 
@@ -52,14 +54,6 @@ public class ProblemaBean {
     public void setProb(ReporteProblema Prob) {
         this.Prob = Prob;
     }
-
-    
-    
-    public ProblemaBean() {
-
-    }
-
- 
     
     public String getProblema() {
         System.out.println(this.problema + "get");

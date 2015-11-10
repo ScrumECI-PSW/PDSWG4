@@ -20,7 +20,7 @@ and open the template in the editor.
      
     <h:body>
         <h:form>
-            <p:dataTable var="prob" value="#{problemaBean.problemasConPrioridad}"> 
+            <p:dataTable var="prob" value="#{problemaBean.problemasConPrioridad}" sortBy="#{prob.fecha}" rowKey="#{prob.id}"> 
                 <p:column headerText="ID">
                     <h:outputLabel value="#{prob.id}"></h:outputLabel>
                 </p:column>
