@@ -39,7 +39,7 @@ public class EquipoMybatis implements DaoEquipo{
 
     @Override
     public void update(Equipo p) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        rpmap.update(p);
     }
 
     @Override

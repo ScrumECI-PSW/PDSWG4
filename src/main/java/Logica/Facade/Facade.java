@@ -58,6 +58,7 @@ public class Facade {
         DaoFactory daof=DaoFactory.getInstance(properties);
         daof.beginSession();
         daof.getDaoReporteProblema().save(pr);
+        daof.getDaoEquipo().update(pr.getEquipo());
         daof.commitTransaction();
         daof.endSession();
     }
