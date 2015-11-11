@@ -110,7 +110,7 @@ public class ProblemaBean {
     }
     
     public LinkedList<SolicitudSoftware> getSolicitudes() {
-        return f.consultarSolicitudesSoftware();
+        return f.consultarSolicitudesSoftwareSinInstalar();
     }
 
     public void setSolicitudes(LinkedList<SolicitudSoftware> solicitudes) {

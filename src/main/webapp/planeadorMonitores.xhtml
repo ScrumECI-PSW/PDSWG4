@@ -28,54 +28,51 @@ and open the template in the editor.
             <f:facet name="header">
                 Prioridad de problemas
             </f:facet>
-            <h:form id="formato">
-                <p:dataTable var="prob" value="#{problemaBean.problemasConPrioridad}" emptyMessage="No hay datos" sortBy="#{prob.fecha}" rowKey="#{prob.id}"> 
-                    <p:column headerText="ID">
+            <h:form id="prioridadProblemas">
+                <p:dataTable id="problemas" var="prob" value="#{problemaBean.problemasConPrioridad}" emptyMessage="No hay datos" sortBy="#{prob.fecha}" rowKey="#{prob.id}"> 
+                    <p:column headerText="ID" width="500">
                         <h:outputLabel value="#{prob.id}"></h:outputLabel>
                     </p:column>
-                    <p:column headerText="ID Equipo">
+                    <p:column headerText="ID Equipo" width="500">
                         <h:outputLabel value="#{prob.equipo.id}"></h:outputLabel>
                     </p:column>
-                    <p:column headerText="Descripcion">
+                    <p:column headerText="Descripcion" width="500">
                         <h:outputLabel value="#{prob.descripcion}"></h:outputLabel>
                     </p:column>
-                    <p:column headerText="Fecha">
+                    <p:column headerText="Fecha" width="500">
                         <h:outputLabel value="#{prob.fecha}"></h:outputLabel>
                     </p:column>
                 </p:dataTable>
             </h:form>
             </p:layoutUnit>
+            
+       <h:outputText value=" " />
         
-        <!--
-        
-        
-        
-        </h:form>
-        
-        
-        
-        
-        <h:form id="solicitudes">
-            <p:dataTable var="pend" value="{problemaBean.solicitudes}" sortBy="{pend.id}" rowKey="{pend.id}">
-                <p:column headerText="ID">
-                   <h:outputLabel value="{pend.id}"></h:outputLabel>
+        <p:layoutUnit position="center">
+            <f:facet name="header">
+                Solicitudes de software pendientes
+            </f:facet>
+        <h:form id="solicitudesSoftware">
+            <p:dataTable id="solicitudes" var="pend" value="#{problemaBean.solicitudes}" emptyMessage="No hay datos"  sortBy="#{pend.id}" rowKey="#{pend.id}">
+                <p:column headerText="ID" width="1000">
+                   <h:outputLabel value="#{pend.id}"></h:outputLabel>
                 </p:column>
-                <p:column headerText="Descripcion">
-                    <h:outputLabel value="{pend.Descripcion}"></h:outputLabel>
+                <p:column headerText="Descripcion" width="1000">
+                    <h:outputLabel value="#{pend.descripcion}"></h:outputLabel>
                 </p:column>
-                <p:column headerText="Enlaces">
-                    <h:outputLabel value="{pend.Enlaces}"></h:outputLabel>
+                <p:column headerText="Enlaces" width="1000">
+                    <h:outputLabel value="#{pend.enlaces}"></h:outputLabel>
                 </p:column>
-                <p:column headerText="Fecha">
-                    <h:outputLabel value="{pend.Fecha}"></h:outputLabel>
+                <p:column headerText="Fecha" width="1000">
+                    <h:outputLabel value="#{pend.fecha}"></h:outputLabel>
                 </p:column>
-                <p:column headerText="Justificacion">
-                    <h:outputLabel value="{pend.Justificacion}"></h:outputLabel>
+                <p:column headerText="Justificacion" width="1000">
+                    <h:outputLabel value="#{pend.justificacion}"></h:outputLabel>
                 </p:column>
             </p:dataTable>
         </h:form> 
-        -->
-    </p:layout>
+        </p:layoutUnit>
+        </p:layout>
     </h:body>
     
 </html>
