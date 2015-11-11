@@ -12,45 +12,72 @@ and open the template in the editor.
       xmlns:p="http://primefaces.org/ui">
     <head></head>
     <h:body>
-        <h:form id="problemas">
-            <p:dataTable var="prob" value="#{problemaBean.problemasConPrioridad}" sortBy="#{prob.fecha}" rowKey="#{prob.id}"> 
-                <p:column headerText="ID">
-                    <h:outputLabel value="#{prob.id}"></h:outputLabel>
-                </p:column>
-                <p:column headerText="ID Equipo">
-                    <h:outputLabel value="#{prob.equipo.id}"></h:outputLabel>
-                </p:column>
-                <p:column headerText="Descripcion">
-                    <h:outputLabel value="#{prob.descripcion}"></h:outputLabel>
-                </p:column>
-                <p:column headerText="Fecha">
-                    <h:outputLabel value="#{prob.fecha}"></h:outputLabel>
-                </p:column>
-            </p:dataTable>
-        </h:form>
+        <p:layout fullPage="true">
+            
+            <p:layoutUnit position="north">
+                <DIV  align="center" class="parrafos">
+                    <P>ESCUELA COLOMBIANA DE INGENIERIA JULIO GARAVITO</P>
+                </DIV>
+                <DIV align="center" class="parrafos">
+                    <P>ACTIVIDADES RECOMENDADAS PARA REALIZAR </P>
+                </DIV>  
+                
+            </p:layoutUnit>
+            
+            <p:layoutUnit position="center">
+            <f:facet name="header">
+                Prioridad de problemas
+            </f:facet>
+            <h:form id="formato">
+                <p:dataTable var="prob" value="#{problemaBean.problemasConPrioridad}" emptyMessage="No hay datos" sortBy="#{prob.fecha}" rowKey="#{prob.id}"> 
+                    <p:column headerText="ID">
+                        <h:outputLabel value="#{prob.id}"></h:outputLabel>
+                    </p:column>
+                    <p:column headerText="ID Equipo">
+                        <h:outputLabel value="#{prob.equipo.id}"></h:outputLabel>
+                    </p:column>
+                    <p:column headerText="Descripcion">
+                        <h:outputLabel value="#{prob.descripcion}"></h:outputLabel>
+                    </p:column>
+                    <p:column headerText="Fecha">
+                        <h:outputLabel value="#{prob.fecha}"></h:outputLabel>
+                    </p:column>
+                </p:dataTable>
+            </h:form>
+            </p:layoutUnit>
+        
         <!--
+        
+        
+        
+        </h:form>
+        
+        
+        
+        
         <h:form id="solicitudes">
-            <p:dataTable var="pend" value="#{problemaBean.solicitudes}" sortBy="#{pend.id}" rowKey="#{pend.id}">
+            <p:dataTable var="pend" value="{problemaBean.solicitudes}" sortBy="{pend.id}" rowKey="{pend.id}">
                 <p:column headerText="ID">
-                   <h:outputLabel value="#{pend.id}"></h:outputLabel>
+                   <h:outputLabel value="{pend.id}"></h:outputLabel>
                 </p:column>
                 <p:column headerText="Descripcion">
-                    <h:outputLabel value="#{pend.Descripcion}"></h:outputLabel>
+                    <h:outputLabel value="{pend.Descripcion}"></h:outputLabel>
                 </p:column>
                 <p:column headerText="Enlaces">
-                    <h:outputLabel value="#{pend.Enlaces}"></h:outputLabel>
+                    <h:outputLabel value="{pend.Enlaces}"></h:outputLabel>
                 </p:column>
                 <p:column headerText="Fecha">
-                    <h:outputLabel value="#{pend.Fecha}"></h:outputLabel>
+                    <h:outputLabel value="{pend.Fecha}"></h:outputLabel>
                 </p:column>
                 <p:column headerText="Justificacion">
-                    <h:outputLabel value="#{pend.Justificacion}"></h:outputLabel>
+                    <h:outputLabel value="{pend.Justificacion}"></h:outputLabel>
                 </p:column>
             </p:dataTable>
         </h:form> 
         -->
+    </p:layout>
     </h:body>
+    
 </html>
-
     
 
