@@ -31,22 +31,18 @@ public class ProblemaBean {
     private final Facade f = Facade.getInstance("applicationconfig.properties");
     private Date fecha;
     private String problema = null;
-
     private String Laboratorio = "";
     private Equipo Equipo = null;
     private Date DailyTime;
-
     private LinkedList<Equipo> EquiposPorLaboratorio;
-
     private LinkedList<ReporteProblema> problemas;
     private LinkedList<SolicitudSoftware> solicitudes;
+    ReporteProblema Prob=null;
     
     public ProblemaBean() {
 
     }
     
-    ReporteProblema Prob=null;
-
     public ReporteProblema getProb() {
         return Prob;
     }
@@ -71,7 +67,6 @@ public class ProblemaBean {
     }
 
     public LinkedList<Equipo> getEquiposPorLaboratorio() {
-        
         return f.consultarEquiposPorLaboratorio(Laboratorio);
 
     }
@@ -129,7 +124,7 @@ public class ProblemaBean {
         f.registrarReporte(this.Prob);
        
     }
-
+    
     public List<Laboratorio> getLaboratorios() {
         return f.consultarLaboratorios();
     }

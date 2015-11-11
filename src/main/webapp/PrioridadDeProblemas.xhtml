@@ -4,6 +4,7 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
+<!--
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
     xmlns:h="http://java.sun.com/jsf/html"
@@ -20,21 +21,22 @@ and open the template in the editor.
      
     <h:body>
         <h:form>
-            <p:dataTable var="prob" value="#{problemaBean.problemasConPrioridad}" sortBy="#{prob.fecha}" rowKey="#{prob.id}"> 
+            <p:dataTable var="prob" value="{problemaBean.problemasConPrioridad}" sortBy="{prob.fecha}" rowKey="{prob.id}"> 
                 <p:column headerText="ID">
-                    <h:outputLabel value="#{prob.id}"></h:outputLabel>
+                    <h:outputLabel value="{prob.id}"></h:outputLabel>
                 </p:column>
                 <p:column headerText="ID Equipo">
-                    <h:outputLabel value="#{prob.equipo}"></h:outputLabel>
+                    <h:outputLabel value="{prob.equipo}"></h:outputLabel>
                 </p:column>
                 <p:column headerText="Descripcion">
-                    <h:outputLabel value="#{prob.descripcion}"></h:outputLabel>
+                    <h:outputLabel value="{prob.descripcion}"></h:outputLabel>
                 </p:column>
                 <p:column headerText="Fecha">
-                    <h:outputLabel value="#{prob.fecha}"></h:outputLabel>
+                    <h:outputLabel value="{prob.fecha}"></h:outputLabel>
                 </p:column>
             </p:dataTable>
         </h:form>
     </h:body>
      
 </html>
+-->
