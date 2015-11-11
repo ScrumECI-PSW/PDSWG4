@@ -18,7 +18,7 @@ and open the template in the editor.
                     <h:outputLabel value="#{prob.id}"></h:outputLabel>
                 </p:column>
                 <p:column headerText="ID Equipo">
-                    <h:outputLabel value="#{prob.equipo}"></h:outputLabel>
+                    <h:outputLabel value="#{prob.equipo.id}"></h:outputLabel>
                 </p:column>
                 <p:column headerText="Descripcion">
                     <h:outputLabel value="#{prob.descripcion}"></h:outputLabel>
@@ -28,7 +28,7 @@ and open the template in the editor.
                 </p:column>
             </p:dataTable>
         </h:form>
-        
+        <!--
         <h:form id="solicitudes">
             <p:dataTable var="pend" value="#{problemaBean.solicitudes}" sortBy="#{pend.id}" rowKey="#{pend.id}">
                 <p:column headerText="ID">
@@ -48,6 +48,7 @@ and open the template in the editor.
                 </p:column>
             </p:dataTable>
         </h:form> 
+        -->
     </h:body>
 </html>
 
