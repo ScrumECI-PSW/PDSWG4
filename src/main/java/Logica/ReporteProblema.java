@@ -26,11 +26,11 @@ public class ReporteProblema {
     private boolean estado;
     private Date fecha;
 
-    public ReporteProblema(Equipo equipo, String descripcion, boolean estado,Date fecha) {
+    public ReporteProblema(Equipo equipo, String descripcion, boolean estado,int dia,int mes,int año) {
         this.equipo = equipo;
         this.descripcion = descripcion;
         this.estado = estado;
-        this.fecha = fecha;
+        this.fecha = new Date(dia,mes,año);
         this.id=0;
     }
 
