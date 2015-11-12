@@ -15,9 +15,15 @@
             </p:layoutUnit>
 
             <p:layoutUnit position="center">
-
+                  
+                
                 <h:form id="form3">
                     <p:dataTable id="problemas" var="prob" value="#{problemaBean.problemasConPrioridad}" emptyMessage="No hay datos" sortBy="#{prob.fecha}" rowKey="#{prob.id}"> 
+                        
+                        <f:facet name="header">
+                            Problemas Con Prioridad Para Resolver:
+                        </f:facet> 
+                        
                         <p:column headerText="ID" >
                             <h:outputLabel value="#{prob.id}"></h:outputLabel>
                         </p:column>
@@ -31,14 +37,19 @@
                             <h:outputLabel value="#{prob.fecha}"></h:outputLabel>
                         </p:column>
                     </p:dataTable>
+                    
                 </h:form>
 
-                <f:facet name="header">
-                    Solicitudes de software pendientes
-                </f:facet>
+                
                 <h:form id="solicitudesSoftware">
+                    
                     <h:panelGrid columns="1" style="margin-top: 10px">
                         <p:dataTable id="solicitudes" var="pend" value="#{problemaBean.solicitudes}" emptyMessage="No hay datos"  sortBy="#{pend.id}" rowKey="#{pend.id}">
+                            
+                            <f:facet name="header">                                 
+                                Solicitudes De Instalación de Software:
+                            </f:facet> 
+                            
                             <p:column headerText="ID" >
                                 <h:outputLabel value="#{pend.id}"></h:outputLabel>
                             </p:column>

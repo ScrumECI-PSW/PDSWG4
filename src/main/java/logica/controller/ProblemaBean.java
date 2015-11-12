@@ -117,9 +117,9 @@ public class ProblemaBean {
     }
 
     public void insertProblema() {
-        fecha = new Date();
+        java.util.Date fecha=new java.util.Date();
         this.Equipo.setEstado(true);
-        this.Prob = new ReporteProblema(Equipo, this.problema, true, fecha.getDay(), fecha.getMonth(), fecha.getYear());
+        this.Prob = new ReporteProblema(Equipo, this.problema, true,new java.sql.Date(fecha.getTime()));
         f.registrarReporte(this.Prob);
        
     }

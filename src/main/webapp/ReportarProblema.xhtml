@@ -30,7 +30,7 @@
                 </h:form>
                 <h:form id="form3">
                     <p:dataTable id="equipos" var="car1" value="#{problemaBean.equiposPorLaboratorio}" sortBy="#{car1.id}" rowKey="#{car1.id}" >
-                        <p:column sortBy="#{car1.id}" headerText="Comentario">
+                        <p:column sortBy="#{car1.id}" headerText="EQUIPO">
                             <h:outputText value="#{car1.id}"/>
                         </p:column>
                         <p:column sortBy="#{car1.descripcion}" headerText="NOMBRE">
@@ -38,7 +38,7 @@
                         </p:column>
 
                         
-                        <p:column headerText="Reportar">
+                        <p:column headerText="REPORTAR">
                             <p:commandLink action="SolicitudReporte" value="Reportar" >
                                 <f:setPropertyActionListener value="#{car1}" target="#{problemaBean.equipo}"/>
                             </p:commandLink>
