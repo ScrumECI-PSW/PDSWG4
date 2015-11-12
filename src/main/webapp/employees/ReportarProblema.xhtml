@@ -4,7 +4,9 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:p="http://primefaces.org/ui">
     <h:head></h:head>
-    <body>        
+    <body>    
+        
+        
         <p:layout fullPage="true">
             
             <p:layoutUnit position="north">
@@ -33,19 +35,20 @@
                         <p:column sortBy="#{car1.id}" headerText="EQUIPO">
                             <h:outputText value="#{car1.id}"/>
                         </p:column>
-                        <p:column sortBy="#{car1.descripcion}" headerText="NOMBRE">
+                        <p:column sortBy="#{car1.descripcion}" headerText="DESCRIPCION">
                             <h:outputText value="#{car1.descripcion}"/>
                         </p:column>
 
                         
-                        <p:column headerText="REPORTAR">
-                            <p:commandLink action="SolicitudReporte" value="Reportar" >
+                        <p:column headerText="REPORTAR PROBLEMA">
+                            <p:commandLink action="SolicitudReporte" value="Reportar Problema" >
                                 <f:setPropertyActionListener value="#{car1}" target="#{problemaBean.equipo}"/>
                             </p:commandLink>
                         </p:column>
                     </p:dataTable>
                 </h:form>
             </p:layoutUnit>
-        </p:layout>  
+        </p:layout> 
+        
     </body>
 </html>

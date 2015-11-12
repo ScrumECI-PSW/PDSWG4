@@ -1,22 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
     <groupId>edu.eci.pdsw</groupId>
-    <artifactId>pdsw-project-xx</artifactId>
+    <artifactId>shiru-pdsw-base-project</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
-
-    <name>pdsw-project-grupo4</name>
-
+    <name>shiru-pdsw-base-project</name>
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <apache-shiro.version>1.2.1</apache-shiro.version>
+        <slf4j.version>1.7.2</slf4j.version>
+        <logback.version>1.0.7</logback.version>
     </properties>
-    
     <dependencies>
-         
-        
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -69,19 +66,54 @@
             <artifactId>apache-log4j-extras</artifactId>
             <version>1.2.17</version>
         </dependency>
-        
-          <dependency>
+        <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
             <version>1.4.184</version>
         </dependency>
-        
+        <!--security-->
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-core</artifactId>
+            <version>${apache-shiro.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-web</artifactId>
+            <version>${apache-shiro.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-ehcache</artifactId>
+            <version>${apache-shiro.version}</version>
+        </dependency>
+        <!--security-->
+        <!--logging-->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jcl-over-slf4j</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>${logback.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+            <version>1.1.1</version>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
-    
-    
     <build>
         <plugins>
-            
             <!-- clean project (also local H2 database)-->
             <plugin>
                 <artifactId>maven-clean-plugin</artifactId>
@@ -96,7 +128,6 @@
                     </execution>
                 </executions>
             </plugin>
-            
             <!-- create local H2 database -->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
@@ -105,12 +136,12 @@
                 <dependencies>
                     <dependency>
                         <groupId>com.h2database</groupId>
-                        <artifactId>h2</artifactId> 
+                        <artifactId>h2</artifactId>
                         <version>1.4.184</version>
                     </dependency>
                 </dependencies>
                 <configuration>
-                    <driver>org.h2.Driver</driver>                    
+                    <driver>org.h2.Driver</driver>
                     <url>jdbc:h2:file:./target/db/testdb;MODE=MYSQL</url>
                     <username>sa</username>
                     <password></password>
@@ -125,14 +156,13 @@
                             <goal>execute</goal>
                         </goals>
                         <configuration>
-                            <srcFiles>                                
-                                <srcFile>tables.sql</srcFile>                                
+                            <srcFiles>
+                                <srcFile>tables.sql</srcFile>
                             </srcFiles>
                         </configuration>
                     </execution>
                 </executions>
             </plugin>
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -153,7 +183,6 @@
                     <failOnMissingWebXml>false</failOnMissingWebXml>
                 </configuration>
             </plugin>
-            
             <!-- The Jetty plugin allows us to easily test the development build by
             running jetty:run on the command line. -->
             <plugin>
@@ -164,10 +193,9 @@
                     <scanIntervalSeconds>2</scanIntervalSeconds>
                     <webApp>
                         <contextPath>/app</contextPath>
-                    </webApp>                    
+                    </webApp>
                 </configuration>
             </plugin>
-            
             <!-- Plugin configuration for Heroku compatibility. -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -190,16 +218,10 @@
                             </artifactItems>
                         </configuration>
                     </execution>
-
                 </executions>
             </plugin>
-            
-            
-            
         </plugins>
     </build>
-
-
     <!--PROJECT REPORTS-->
     <repositories>
         <repository>
@@ -241,10 +263,7 @@
                         <format>xml</format>
                     </formats>
                 </configuration>
-            </plugin>            
+            </plugin>
         </plugins>
     </reporting>
-
-
-
 </project>
