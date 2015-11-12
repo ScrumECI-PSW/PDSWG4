@@ -52,7 +52,6 @@ public class ProblemaBean {
     }
     
     public String getProblema() {
-        System.out.println(this.problema + "get");
         return problema;
     }
 
@@ -120,7 +119,7 @@ public class ProblemaBean {
     public void insertProblema() {
         fecha = new Date();
         this.Equipo.setEstado(true);
-        this.Prob = new ReporteProblema(Equipo, this.problema, false, fecha.getDay(), fecha.getMonth(), fecha.getYear());
+        this.Prob = new ReporteProblema(Equipo, this.problema, true, fecha.getDay(), fecha.getMonth(), fecha.getYear());
         f.registrarReporte(this.Prob);
        
     }
