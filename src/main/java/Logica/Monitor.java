@@ -19,7 +19,7 @@ public class Monitor {
         this.nombre = nombre;
         this.semestre = semestre;
     }
-    
+           
     public int getCarnet() {
         return carnet;
     }

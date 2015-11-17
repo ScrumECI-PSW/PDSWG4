@@ -1,0 +1,336 @@
+[33mcommit ba671659d0a67868711cd4ba7ea9c72f445cda12[m
+Author: gutierrezjuan <2100772@linux39.labinfo.is.escuelaing.edu.co>
+Date:   Tue Nov 17 12:58:07 2015 -0500
+
+    Implementacion mappers
+
+[33mcommit 200d372f4dd50f9e91387f04daa1d81ab949bf8d[m
+Author: NicolasGP <brayan.guzman@mail.escuelaing.edu.co>
+Date:   Tue Nov 17 11:57:30 2015 -0500
+
+    Cascaron segundo sprint Nicolas
+
+[33mcommit 49da4a23e902654a21bc7d52e08701cd5c6974c4[m
+Author: Andres Vega <2099340@linux82.labinfo.is.escuelaing.edu.co>
+Date:   Thu Nov 12 17:01:05 2015 -0500
+
+    Base para Seguridad
+
+[33mcommit abe42f0c698d9690f32da945d04a0cc9e13b1d97[m
+Author: Andres Vega <2099340@linux82.labinfo.is.escuelaing.edu.co>
+Date:   Thu Nov 12 15:06:58 2015 -0500
+
+     vistas
+
+[33mcommit d153408afb687f543844388cb85d73929c972edf[m
+Author: Andres Vega <2099340@linux82.labinfo.is.escuelaing.edu.co>
+Date:   Thu Nov 12 15:03:34 2015 -0500
+
+    Cambio en vistas
+
+[33mcommit 872d0b61e9ed675d73bd3b6f5d1cfbf2f8176c37[m
+Author: Andres Caicedo <2101240@linux41.labinfo.is.escuelaing.edu.co>
+Date:   Thu Nov 12 14:31:05 2015 -0500
+
+    Problema PrimeFaces
+
+[33mcommit ab4a49fc16963070281ff7d0f9560da7319d1aff[m
+Author: gutierrezjuan <juan.gutierrez-can@mail.escuelaing.edu.co>
+Date:   Wed Nov 11 11:34:30 2015 -0500
+
+    falta tabla de vistas
+
+[33mcommit 0e1f7afff7dd8cdbd7b6aeafaadcbe356c9183a4[m
+Author: NicolasGP <2100772@linux35.labinfo.is.escuelaing.edu.co>
+Date:   Wed Nov 11 10:06:30 2015 -0500
+
+    Pruebas y vista funcionando Nicolas
+
+[33mcommit 00844ea3514eab37f72b7f248098745a347ee58b[m
+Author: NicolasGP <2100772@linux35.labinfo.is.escuelaing.edu.co>
+Date:   Wed Nov 11 09:56:09 2015 -0500
+
+    config vista
+
+[33mcommit 94af7ab9fac76d4d12b0efc0cded844109707cc1[m
+Author: gutierrezjuan <juan.gutierrez-can@mail.escuelaing.edu.co>
+Date:   Tue Nov 10 19:37:48 2015 -0500
+
+    Cambio vistas
+
+[33mcommit 383016c3546995508dba8962971c4c31166bd8aa[m
+Author: Andres Vega <2099340@linux28.labinfo.is.escuelaing.edu.co>
+Date:   Tue Nov 10 17:01:12 2015 -0500
+
+    Estetica de las vistas
+
+[33mcommit 7f66fc51e89b0e67ad246d2cdaed981d424143ac[m
+Author: Andres Caicedo <2101240@linux29.labinfo.is.escuelaing.edu.co>
+Date:   Tue Nov 10 16:24:41 2015 -0500
+
+    implementacion faces Andres Caicedo
+
+[33mcommit e301f4a22fdf93a5706e4a24c66175c05e143025[m
+Author: AndresCaicedo95 <oscar.caicedo-b@mail.escuelaing.edu.co>
+Date:   Tue Nov 10 09:48:56 2015 -0500
+
+    Update circle.yml
+
+[33mcommit 51f907dbe787802b614ec9469ef27dd86a34c9e7[m
+Author: gutierrezjuan <juan.gutierrez-can@mail.escuelaing.edu.co>
+Date:   Mon Nov 9 20:32:02 2015 -0500
+
+    modificacion vistas solicitudSoftware y PrioridadDeProblemas
+
+[33mcommit c8c0605aa792804f291805dd3cd4c6223d03dff8[m
+Author: Andres Vega <2099340@linux43.labinfo.is.escuelaing.edu.co>
+Date:   Mon Nov 9 18:21:42 2015 -0500
+
+     modificando la vista de reporte problemas
+
+[33mcommit 0b9ec722f8e99f12ec9b9eac53ec76bb19427dbd[m
+Author: gutierrezjuan <juan.gutierrez-can@mail.escuelaing.edu.co>
+Date:   Mon Nov 9 16:32:01 2015 -0500
+
+    vista SolicitudSoftware Juan Carlos
+
+[33mcommit d1f2e673acdd1c7e7b23ec358806be5d28e28966[m
+Author: NicolasGP <brayan.guzman@mail.escuelaing.edu.co>
+Date:   Mon Nov 9 16:04:08 2015 -0500
+
+    Vista planeadorMonitores Nicolas
+
+[33mcommit 5c24ade3e2b6641eb203d479fd97f26ba69e76bf[m
+Author: NicolasGP <brayan.guzman@mail.escuelaing.edu.co>
+Date:   Sun Nov 8 17:28:53 2015 -0500
+
+    Documentacion y vista Nicolas
+
+[33mcommit 694156d7f8372abbd2162863ce909ca130432dd9[m
+Author: 2101240 <oscar.caicedo-b@mail.escuelaing.edu.co>
+Date:   Sat Nov 7 18:55:54 2015 -0500
+
+    CaicedoterminavistayregistroReporteProblemaEquipo
+
+[33mcommit 3d5852e434390b085f9eb50c503a946d4137fbfe[m
+Author: 2101240 <oscar.caicedo-b@mail.escuelaing.edu.co>
+Date:   Sat Nov 7 16:04:11 2015 -0500
+
+    Arreglo de la ultima prueba Solicitud Software
+
+[33mcommit 0f9f927eaf967ecc4fab8e1fc5491d9acc66b8ce[m
+Author: gutierrezjuan <2098165@linux80.labinfo.is.escuelaing.edu.co>
+Date:   Thu Nov 5 18:56:16 2015 -0500
+
+    ImplementoSolicitudMapperSoftware
+
+[33mcommit 8f8df9996a8e6ad543a8481cc51b557710fd8a28[m
+Author: NicolasGP <2100772@linux81.labinfo.is.escuelaing.edu.co>
+Date:   Thu Nov 5 18:52:40 2015 -0500
+
+    TiempoProblemasSinResolver Nicolas
+
+[33mcommit 3bdec4dcfdf7070c53af91c2760573858e28099f[m
+Author: NicolasGP <2100772@linux81.labinfo.is.escuelaing.edu.co>
+Date:   Thu Nov 5 18:29:28 2015 -0500
+
+    ProblemasSinResolver Nicolas
+
+[33mcommit 0d7180a3f4d40051b6bedaba81e156aef3869116[m
+Author: NicolasGP <2100772@linux81.labinfo.is.escuelaing.edu.co>
+Date:   Thu Nov 5 17:24:10 2015 -0500
+
+    Problemas con mas tiempo sin resolver Nicolas
+
+[33mcommit a4128be721a76864eab69e28c56ec897735ed64e[m
+Author: NicolasGP <2100772@linux81.labinfo.is.escuelaing.edu.co>
+Date:   Thu Nov 5 17:15:17 2015 -0500
+
+    Problemas con mas tiempo sin resolver Nicolas
+
+[33mcommit c6df8b2362abf519793aaa8555182f582e03d461[m
+Author: Andres Vega <2099340@linux82.labinfo.is.escuelaing.edu.co>
+Date:   Thu Nov 5 18:34:58 2015 -0500
+
+    AplicacionesVista
+
+[33mcommit 110d406fbb96b26702085460d0c4487a1eda6d33[m
+Merge: 8db8015 bcaa7cb
+Author: Andres Vega <2099340@linux82.labinfo.is.escuelaing.edu.co>
+Date:   Thu Nov 5 17:24:59 2015 -0500
+
+    Merge https://github.com/ScrumECI-PSW/PDSWG4
+
+[33mcommit 8db801582a5a4ed861533a76fc9fd4d3654c5684[m
+Author: Andres Vega <2099340@linux82.labinfo.is.escuelaing.edu.co>
+Date:   Thu Nov 5 17:23:48 2015 -0500
+
+    Vista Reporte Problema
+
+[33mcommit bcaa7cb0114d58efae72ddbd727f226602a44906[m
+Author: NicolasGP <2100772@linux81.labinfo.is.escuelaing.edu.co>
+Date:   Thu Nov 5 14:42:16 2015 -0500
+
+    PruebasNicolas
+
+[33mcommit e4e893644c8f91f7120055085ea9fd8e75d045d1[m
+Author: 2101240 <oscar.caicedo-b@mail.escuelaing.edu.co>
+Date:   Thu Nov 5 00:25:46 2015 -0500
+
+    NuevaPruebasNuevaIdeaVista
+
+[33mcommit fb10e03340561b511725ffbd3a7726431f437906[m
+Author: Andres Caicedo <2101240@linux32.labinfo.is.escuelaing.edu.co>
+Date:   Wed Nov 4 19:03:22 2015 -0500
+
+    InsertarLaboratorioyReporteProblema
+
+[33mcommit 7c9f790ebe17007ad6c10d6b48b91e5c673de918[m
+Author: Andres Vega <2099340@linux31.labinfo.is.escuelaing.edu.co>
+Date:   Wed Nov 4 18:34:58 2015 -0500
+
+    Vista historia de usuario 1 y Bean
+
+[33mcommit 2830d954ce23a7c716efa1b06f4816949a5714b1[m
+Author: 2101240 <oscar.caicedo-b@mail.escuelaing.edu.co>
+Date:   Wed Nov 4 00:44:23 2015 -0500
+
+    CapaLogicaMybatisPruebaPasadaAndresCaicedo
+
+[33mcommit 478fc2aecdd8a767d96cb885ccb4a66746379b17[m
+Author: estudiante <estudiante@ismac05.local>
+Date:   Tue Nov 3 16:21:00 2015 -0500
+
+    Agregar Foraneas
+
+[33mcommit 14ab27febf1a376457a82052a732459b9f8314ea[m
+Author: Andres Caicedo <2100772@linux83.labinfo.is.escuelaing.edu.co>
+Date:   Tue Nov 3 14:17:28 2015 -0500
+
+    AndresyNicolasConfiguracionPruebas
+
+[33mcommit 957d4f7a19f0c8faa017ec265f8657e04b5afef5[m
+Author: Andres Caicedo <2100772@linux83.labinfo.is.escuelaing.edu.co>
+Date:   Tue Nov 3 14:16:16 2015 -0500
+
+    AndresyNicolasConfiguracionPruebas
+
+[33mcommit df47249174802aa72614fed6a58525d2bd90e341[m
+Author: Andres Caicedo <2101240@linux81.labinfo.is.escuelaing.edu.co>
+Date:   Thu Oct 29 17:41:52 2015 -0500
+
+    CreacionBaseDatosFaltaForaneasGeneraError
+
+[33mcommit 6f9700ee43482bed98b48537b1d59f9ab582bcf5[m
+Author: Andres Caicedo <2101240@linux81.labinfo.is.escuelaing.edu.co>
+Date:   Thu Oct 29 17:28:16 2015 -0500
+
+    BaseProyectoAndresCaicedo
+
+[33mcommit 63160be0f72c811e4e264a789b2608a2953036eb[m
+Merge: 11af96f bbedffa
+Author: Andres Caicedo <2101240@linux81.labinfo.is.escuelaing.edu.co>
+Date:   Thu Oct 29 17:07:00 2015 -0500
+
+    Merge https://github.com/ScrumECI-PSW/PDSWG4
+
+[33mcommit 11af96f1b5ca3d568913bedcf6109471ea1dde3d[m
+Author: Andres Caicedo <2101240@linux81.labinfo.is.escuelaing.edu.co>
+Date:   Thu Oct 29 17:06:16 2015 -0500
+
+    mybatysDaos
+
+[33mcommit bbedffa3f2fc1312992efc88e133dac6eaf9b567[m
+Author: Andres Vega <2099340@linux82.labinfo.is.escuelaing.edu.co>
+Date:   Thu Oct 29 17:04:36 2015 -0500
+
+    creacion fachada historia 1
+
+[33mcommit ecd7fbd0138f857894c6973991b77680ca3aef9f[m
+Merge: b3b9957 160eb16
+Author: Andres Caicedo <2101240@linux81.labinfo.is.escuelaing.edu.co>
+Date:   Thu Oct 29 16:43:09 2015 -0500
+
+    Merge https://github.com/ScrumECI-PSW/PDSWG4
+
+[33mcommit b3b9957b59a26675ca80752739529d9e2ff3bfb9[m
+Author: Andres Caicedo <2101240@linux81.labinfo.is.escuelaing.edu.co>
+Date:   Thu Oct 29 16:41:53 2015 -0500
+
+    Andres Caicedo
+
+[33mcommit 160eb16295f20e4f0678fc12d3e55a4eb70ec105[m
+Merge: 891ca34 c5322b9
+Author: AndresCaicedo95 <oscar.caicedo-b@mail.escuelaing.edu.co>
+Date:   Thu Oct 29 16:33:39 2015 -0500
+
+    Merge pull request #1 from andresvega82/patch-1
+    
+    Update tables.sql
+
+[33mcommit c5322b9750951179edfcc64bde1cfb245b96c8ff[m
+Author: andresvega82 <andresvega82@hotmail.com>
+Date:   Thu Oct 29 16:28:33 2015 -0500
+
+    Update tables.sql
+
+[33mcommit 891ca349c9cd8a488072f9a5dc0cd30f35d914d9[m
+Author: Andres Caicedo <2101240@linux81.labinfo.is.escuelaing.edu.co>
+Date:   Thu Oct 29 14:59:53 2015 -0500
+
+    Andres
+
+[33mcommit 130cf12ca279c0a2eb38bfbae6c8e7e2334cbff1[m
+Author: AndresCaicedo95 <oscar.caicedo-b@mail.escuelaing.edu.co>
+Date:   Wed Oct 28 18:43:38 2015 -0500
+
+    Update circle.yml
+
+[33mcommit d4090d39413fd8fad5c0d2e4e33047a622a28e1f[m
+Merge: 9cac3a7 fa4faa5
+Author: Andres Caicedo <2101240@linux26.labinfo.is.escuelaing.edu.co>
+Date:   Wed Oct 28 18:32:03 2015 -0500
+
+    Merge https://github.com/ScrumECI-PSW/PDSWG4
+
+[33mcommit fa4faa524c06ccc9d437fc0e15011dff58c8acac[m
+Author: AndresCaicedo95 <oscar.caicedo-b@mail.escuelaing.edu.co>
+Date:   Wed Oct 28 17:53:57 2015 -0500
+
+    Initial commit
+
+[33mcommit 9cac3a74fd1333f1c2404c9467c4e56fb89776e0[m
+Author: Hector <hector.cadavid@gmail.com>
+Date:   Tue Oct 27 15:20:27 2015 -0500
+
+    base revision
+
+[33mcommit 09281fd145734691720adb0c675ae56d1df34f10[m
+Author: Hector <hector.cadavid@gmail.com>
+Date:   Tue Oct 27 15:16:14 2015 -0500
+
+    base revision
+
+[33mcommit 4c5ce896e869664c62f715bfeb6f509b01651400[m
+Author: Hector <hector.cadavid@gmail.com>
+Date:   Tue Oct 27 13:42:02 2015 -0500
+
+    base revision
+
+[33mcommit f41c4d1ab3f40f791a229abf85822d3165fb256c[m
+Author: Hector <hector.cadavid@gmail.com>
+Date:   Tue Oct 27 13:34:34 2015 -0500
+
+    base revision
+
+[33mcommit 929ae21402a2ebef9de1b728265b0e6c121e3366[m
+Author: Hector <hector.cadavid@gmail.com>
+Date:   Tue Oct 27 13:31:47 2015 -0500
+
+    base revision
+
+[33mcommit fb6b35554850b54f88240b9853bb46dcef321619[m
+Author: Hector <hector.cadavid@gmail.com>
+Date:   Tue Oct 27 13:24:09 2015 -0500
+
+    base revision
