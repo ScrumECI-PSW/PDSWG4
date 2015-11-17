@@ -64,8 +64,33 @@ CREATE TABLE SolicitudSoftware (
     CONSTRAINT SolicitudSoftware_pk PRIMARY KEY (ID)
 );
 
+--Table SoporteAcademico
+CREATE TABLE SoporteAcademico (
+    ID int  NOT NULL  AUTO_INCREMENT,
+    Monitor_ID int NOT NULL,
+    Solucionado bool  NOT NULL,
+    Lenguaje varchar(50) NOT NULL,
+    Fecha date  NOT NULL,
+    Tema char(255)  NOT NULL,
+    Comentarios char(255)  NOT NULL,
+    CONSTRAINT SoporteAcademico_pk PRIMARY KEY (ID)
+);
 
+--Table Monitor
+CREATE TABLE Monitor (
+    Carnet int  NOT NULL,
+    Nombre varchar(50) NOT NULL,
+    Semestre int  NOT NULL,
+    CONSTRAINT Monitor_pk PRIMARY KEY (Carnet)
+);
 
+--Table UsuarioLab
+CREATE TABLE UsuarioLab (
+    Carnet int  NOT NULL,
+    Nombre varchar(50) NOT NULL,
+    Semestre int  NOT NULL,
+    CONSTRAINT UsuarioLab_pk PRIMARY KEY (Carnet)
+);
 
 -- foreign keys
 -- Reference:  EquipoXSistema_Equipo (table: EquipoXSistema)
@@ -99,7 +124,9 @@ REFERENCES Laboratorio (ID);
 ALTER TABLE ReporteProblema ADD CONSTRAINT Reporte_Equipo FOREIGN KEY (Equipo_ID)
 REFERENCES Equipo (ID);
 
-
+ALTER TABLE SoporteAcademico ADD CONSTRAINT SoporteAcademico_Monitor FOREIGN KEY (Monitor_ID)
+    REFERENCES Monitor (Carnet);
+-- Reference:  SoporteAcademico (table: SoporteAcademico)
 
 
 
