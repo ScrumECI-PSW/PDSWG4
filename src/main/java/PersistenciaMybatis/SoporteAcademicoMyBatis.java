@@ -8,6 +8,8 @@ package PersistenciaMybatis;
 import Dao.DaoSoporteAcademico;
 import Logica.SoporteAcademico;
 import PersistenciaMybatysMappers.SoporteAcademicoMapper;
+import java.util.LinkedList;
+import org.apache.ibatis.session.SqlSession;
 
 /**
  *
@@ -15,20 +17,20 @@ import PersistenciaMybatysMappers.SoporteAcademicoMapper;
  */
 public class SoporteAcademicoMyBatis implements DaoSoporteAcademico{
 
-    private SoporteAcademicoMyBatis rp=null;
+    private SoporteAcademicoMapper samap=null;
     
-    public SoporteAcademicoMyBatis() {
-        //rp= session.getMapper(SoporteAcademicoMapper.class);
+    public SoporteAcademicoMyBatis(SqlSession session) {
+        samap= session.getMapper(SoporteAcademicoMapper.class);
     }
 
     @Override
     public void save(SoporteAcademico s) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        samap.insertarSoporte(s);
     }
 
     @Override
     public SoporteAcademico load(int num) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return samap.soporte(num);
     }
 
     @Override
@@ -39,6 +41,16 @@ public class SoporteAcademicoMyBatis implements DaoSoporteAcademico{
     @Override
     public void delete(SoporteAcademico s) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public LinkedList<SoporteAcademico> load() {
+        return samap.soportes();
+    }
+
+    @Override
+    public LinkedList<SoporteAcademico> load(boolean solucionado) {
+        return samap.soportesSinSolucionar(solucionado); 
     }
     
 }

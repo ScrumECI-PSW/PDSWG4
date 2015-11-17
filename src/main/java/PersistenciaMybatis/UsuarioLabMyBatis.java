@@ -6,38 +6,48 @@
 package PersistenciaMybatis;
 
 import Dao.DaoSoporteAcademico;
+import Dao.DaoUsuarioLab;
 import Logica.SoporteAcademico;
+import Logica.UsuarioLab;
+import PersistenciaMybatysMappers.UsuarioLabMapper;
+import java.util.LinkedList;
+import org.apache.ibatis.session.SqlSession;
 
 /**
  *
  * @author 2100772
  */
-public class UsuarioLabMyBatis implements DaoSoporteAcademico{
+public class UsuarioLabMyBatis implements DaoUsuarioLab{
 
-    private UsuarioLabMyBatis rp=null;
+    private UsuarioLabMapper ulmap=null;
     
-    public UsuarioLabMyBatis() {
-        // rp= session.getMapper(UsuarioLabMapper.class);
+    public UsuarioLabMyBatis(SqlSession session) {
+        ulmap= session.getMapper(UsuarioLabMapper.class);
     }
 
     @Override
-    public void save(SoporteAcademico s) {
+    public void save(UsuarioLab u) {
+        ulmap.insertarUsuario(u);
+    }
+
+    @Override
+    public UsuarioLab load(int num) {
+        return ulmap.usuario(num);
+    }
+
+    @Override
+    public void update(UsuarioLab u) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public SoporteAcademico load(int num) {
+    public void delete(UsuarioLab u) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void update(SoporteAcademico s) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public LinkedList<UsuarioLab> load() {
+        return ulmap.usuarios();
     }
 
-    @Override
-    public void delete(SoporteAcademico s) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
 }

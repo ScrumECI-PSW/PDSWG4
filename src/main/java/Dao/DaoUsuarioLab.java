@@ -5,7 +5,9 @@
  */
 package Dao;
 
+
 import Logica.UsuarioLab;
+import java.util.LinkedList;
 
 
 /**
@@ -16,5 +18,6 @@ public interface DaoUsuarioLab {
     public void save(UsuarioLab u) ;
     public UsuarioLab load(int num);
     public void update (UsuarioLab u);
-    public void delete(UsuarioLab u); 
+    public void delete(UsuarioLab u);
+    public LinkedList<UsuarioLab> load();
 }

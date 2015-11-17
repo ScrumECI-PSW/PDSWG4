@@ -6,7 +6,6 @@
 package Dao;
 
 import Logica.Monitor;
-import Logica.ReporteProblema;
 import java.util.LinkedList;
 
 /**
@@ -17,5 +16,6 @@ public interface DaoMonitor {
     public void save(Monitor m) ;
     public Monitor load(int num);
     public void update (Monitor m);
-    public void delete(Monitor m); 
+    public void delete(Monitor m);
+    public LinkedList<Monitor> load();
 }

@@ -8,6 +8,7 @@ package PersistenciaMybatis;
 import Dao.DaoMonitor;
 import Logica.Monitor;
 import PersistenciaMybatysMappers.MonitorMapper;
+import java.util.LinkedList;
 import org.apache.ibatis.session.SqlSession;
 
 /**
@@ -16,20 +17,20 @@ import org.apache.ibatis.session.SqlSession;
  */
 public class MonitorMyBatis implements DaoMonitor {
     
-    private MonitorMyBatis rp=null;
+    private MonitorMapper mmap=null;
 
     public MonitorMyBatis(SqlSession session) {
-       // rp= session.getMapper(MonitorMapper.class);
+       mmap= session.getMapper(MonitorMapper.class);
     }
     
     @Override
     public void save(Monitor m) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        mmap.insertarMonitor(m);
     }
 
     @Override
     public Monitor load(int num) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return mmap.monitor(num);
     }
 
     @Override
@@ -40,6 +41,11 @@ public class MonitorMyBatis implements DaoMonitor {
     @Override
     public void delete(Monitor m) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public LinkedList<Monitor> load() {
+        return mmap.monitores();
     }
     
 }

@@ -5,7 +5,10 @@
  */
 package Dao;
 
+
+
 import Logica.SoporteAcademico;
+import java.util.LinkedList;
 
 /**
  *
@@ -15,5 +18,7 @@ public interface DaoSoporteAcademico {
     public void save(SoporteAcademico s) ;
     public SoporteAcademico load(int num);
     public void update (SoporteAcademico s);
-    public void delete(SoporteAcademico s); 
+    public void delete(SoporteAcademico s);
+    public LinkedList<SoporteAcademico> load();
+    public LinkedList<SoporteAcademico> load(boolean solucionado);
 }
