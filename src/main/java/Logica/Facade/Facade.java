@@ -190,7 +190,9 @@ public class Facade {
     public LinkedList<Equipo> consultarEquiposPorLaboratorio(String n){
         DaoFactory daof=DaoFactory.getInstance(properties);
         daof.beginSession();
+        System.out.println("llamada facade antes");
         LinkedList list = daof.getDaoEquipo().EquiposPorLaboratorio(n); 
+        System.out.println("llamada facade despues");
         return list;
     }
 

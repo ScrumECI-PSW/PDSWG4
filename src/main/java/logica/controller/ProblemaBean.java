@@ -38,6 +38,7 @@ public class ProblemaBean {
     private LinkedList<ReporteProblema> problemas;
     private LinkedList<SolicitudSoftware> solicitudes;
     ReporteProblema Prob=null;
+    private LinkedList<Equipo> pv=null;
     
     public ProblemaBean() {
 
@@ -66,7 +67,10 @@ public class ProblemaBean {
     }
 
     public LinkedList<Equipo> getEquiposPorLaboratorio() {
-        return f.consultarEquiposPorLaboratorio(Laboratorio);
+        if(this.pv==null || this.pv.size()==0 || !(this.pv.getFirst().getLaboratorio().getNombre().equals(this.Laboratorio))){
+            this.pv=f.consultarEquiposPorLaboratorio(Laboratorio);
+        }
+        return this.pv;
 
     }
 
