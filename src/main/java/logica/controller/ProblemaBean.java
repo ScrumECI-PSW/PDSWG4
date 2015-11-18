@@ -8,6 +8,7 @@ package logica.controller;
 import Logica.Equipo;
 import Logica.Facade.Facade;
 import Logica.Laboratorio;
+import Logica.ReporteDiario;
 import Logica.ReporteProblema;
 import Logica.SolicitudSoftware;
 import java.util.Date;
@@ -30,6 +31,7 @@ public class ProblemaBean {
 
     private final Facade f = Facade.getInstance("applicationconfig.properties");
     private Date fecha;
+    private ReporteDiario repD = null;
     private String problema = null;
     private String Laboratorio = "";
     private Equipo Equipo = null;
@@ -37,8 +39,22 @@ public class ProblemaBean {
     private LinkedList<Equipo> EquiposPorLaboratorio;
     private LinkedList<ReporteProblema> problemas;
     private LinkedList<SolicitudSoftware> solicitudes;
-    ReporteProblema Prob=null;
+
     private LinkedList<Equipo> pv=null;
+
+    private ReporteProblema Prob=null;
+    
+    
+
+    public ReporteDiario getRepD() {
+        return repD;
+    }
+
+    public void setRepD(ReporteDiario repD) {
+        this.repD = repD;
+    }
+    
+
     
     public ProblemaBean() {
 

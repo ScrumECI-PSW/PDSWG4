@@ -195,6 +195,8 @@ public class Facade {
         System.out.println("llamada facade despues");
         return list;
     }
+    
+    
 
 }
 
