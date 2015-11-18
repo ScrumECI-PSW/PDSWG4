@@ -193,6 +193,8 @@ public class Facade {
         LinkedList list = daof.getDaoEquipo().EquiposPorLaboratorio(n); 
         return list;
     }
+    
+    
 
 }
 
