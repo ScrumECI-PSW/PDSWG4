@@ -3,6 +3,7 @@ package edu.eci.cosw.sampleapp.test;
 import Logica.Equipo;
 import Logica.Facade.Facade;
 import Logica.Laboratorio;
+import Logica.Monitor;
 import Logica.ReporteProblema;
 import Logica.SoporteAcademico;
 import java.sql.Connection;
@@ -38,9 +39,9 @@ public class AppTest {
         stmt.execute("delete from EquipoXSistema");
         stmt.execute("delete from EquipoXSoftware");
         stmt.execute("delete from Equipo");
-       // stmt.execute("delete from Monitor");
+        stmt.execute("delete from Monitor");
         stmt.execute("delete from Laboratorio");
-       // stmt.execute("delte from SoporteAcademico");
+        stmt.execute("delete from SoporteAcademico");
         
         conn.commit();
         conn.close();
@@ -231,35 +232,34 @@ public class AppTest {
      
      
      /*
-        El sistema debe permiter conocer si fue posible o no dar el soporte academico 
+        Se deben poder reportar los soportes academicos realizados, indicando si fue solucionado (True) o no (False)
      */
      /*
       @Test
-     public void Reporta_un_Soporte_Academico_resuelto() throws SQLException {
+     public void Reporta_Soporte_Academico() throws SQLException {
 	Connection conn = DriverManager.getConnection("jdbc:h2:file:./target/db/testdb;MODE=MYSQL", "sa", "");
         Statement stmt = conn.createStatement();
-        java.sql.Date fechaSistema=new java.sql.Date();  //Fecha del sistema
+        java.util.Date d = new java.util.Date();
+        java.sql.Date fecha = new java.sql.Date(d.getDate());
         Facade f=Facade.getInstance("h2-applicationconfig.properties");
         
-        stmt.execute("insert into Monitor(Carnet,Nombre,Semestre) values (2098165,'Juan Carlos',6)");
-        stmt.execute("insert into Monitor(Carnet,Nombre,Semestre) values (2100772,'Nicolas Guzman',6)");
-        stmt.execute("insert into Monitor(Carnet,Nombre,Semestre) values (2101751,'Alejandro Villagladys',2)");
-        stmt.execute("insert into Monitor(Carnet,Nombre,Semestre) values (2145075,'Leonardo',4)");
-        
-        SoporteAcademico s=new SoporteAcademico(1,2098165, true,fechaSistema,"Programacion en mathematica","Fue posible dar el soporte");
+        Monitor m1=new Monitor(2100772,"Nicolas Guzman",6);
+        Monitor m2=new Monitor(2101751,"Alejandro Villagladys",2);
        
-        conn.commit();
+        SoporteAcademico s1=new SoporteAcademico(1,2100772, true,"C++",fecha,"Desarrollo","Fue posible dar el soporte");
+        SoporteAcademico s2=new SoporteAcademico(3,2101751, false,"Python",fecha,"Desarrollo","No fue posible dar el soporte porque no maneja el lenguaje");
+
+  
+        f.registrarSoporte(s1);
+        f.registrarSoporte(s2);
         
-        f.registrarSoporte(null);
+        LinkedList<SoporteAcademico> orden=f.consultaSoporteAcademico();
         
-        LinkedList<SoporteAcademico> orden=f.();
+        assertTrue(orden.getFirst().isSolucionado() && orden.getLast().isSolucionado()==false);
         
-        assertTrue(orden.getFirst().getId()==1);
-        
-        conn.commit();
-        conn.close();
      }
-         */
+     */    
+     
      /*
         El sistema debe permiter conocer si fue posible o no dar el soporte academico 
      */    
@@ -275,18 +275,25 @@ public class AppTest {
         stmt.execute("insert into Monitor(Carnet,Nombre,Semestre) values (2101751,'Alejandro Villagladys',2)");
         stmt.execute("insert into Monitor(Carnet,Nombre,Semestre) values (2145075,'Leonardo',4)");
         
-        stmt.execute("insert into SoporteAcademico(ID,Monitor_ID,Solucionado,Lenguaje,Fecha,Tema,Comentarios) values (1,2098165, true,'2015-10-10','Programacion en mathematica','Fue posible dar el soporte')");
-        stmt.execute("insert into SoporteAcademico(ID,Monitor_ID,Solucionado,Lenguaje,Fecha,Tema,Comentarios) values (1,2100772, true,'2015-09-23','Programacion en C++','Fue posible dar el soporte')");
-        stmt.execute("insert into SoporteAcademico(ID,Monitor_ID,Solucionado,Lenguaje,Fecha,Tema,Comentarios) values (1,2101751, false,'2015-09-23','Programacion en Python','No fue posible dar el soporte porque no maneja el lenguaje')");
-        stmt.execute("insert into SoporteAcademico(ID,Monitor_ID,Solucionado,Lenguaje,Fecha,Tema,Comentarios) values (1,2145075, true,'2015-09-12','Programacion en java','Fue posible dar el soporte')");
+        stmt.execute("insert into SoporteAcademico(ID,Monitor_ID,Solucionado,Lenguaje,Fecha,Tema,Comentarios) values (1,2101751, false,'Programacion en Python','2015-09-23','Desarrollo',No fue posible dar el soporte porque no maneja el lenguaje')");
+        stmt.execute("insert into SoporteAcademico(ID,Monitor_ID,Solucionado,Lenguaje,Fecha,Tema,Comentarios) values (2,2098165, true,'Programacion en mathematica','2015-09-23','Desarrollo','Fue posible dar el soporte')");
+        stmt.execute("insert into SoporteAcademico(ID,Monitor_ID,Solucionado,Lenguaje,Fecha,Tema,Comentarios) values (3,2100772, true,'Programacion en C++','2015-09-23','Desarrollo','Fue posible dar el soporte')");
+        stmt.execute("insert into SoporteAcademico(ID,Monitor_ID,Solucionado,Lenguaje,Fecha,Tema,Comentarios) values (4,2145075, true,'Programacion en java','2015-09-23','Desarrollo','Fue posible dar el soporte')");
         
         conn.commit();
         
-        LinkedList<SoporteAcademico> orden=f.();
+        LinkedList<SoporteAcademico> orden=f.consultaSoporteAcademico();
+        LinkedList<SoporteAcademico> resueltos=new LinkedList <SoporteAcademico>();
         
-        assertTrue(orden.getFirst().getId()==1);
-        
-        conn.commit();
+        Iterator<SoporteAcademico> i =orden.iterator();
+        while(i.hasNext()){
+            SoporteAcademico reporte=i.next();
+            //Si el reporte esesta solucionado su atributo sera TRUE
+            if (reporte.isSolucionado()){
+                resueltos.add(reporte);
+            }
+        }
+        assertTrue(orden.getFirst()!=resueltos.getFirst());
         conn.close();
      }
      */

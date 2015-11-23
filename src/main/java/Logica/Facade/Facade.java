@@ -64,12 +64,25 @@ public class Facade {
         daof.endSession();
     }
     
+    /*
+    @param: sa es el soporte academico que se hiz y se desea registrar en la base de datos
+    */
     public void registrarSoporte(SoporteAcademico sa){
         DaoFactory daof=DaoFactory.getInstance(properties);
         daof.beginSession();
         daof.getDaoSoporteAcademico().save(sa);
         daof.commitTransaction();
         daof.endSession();
+    }
+    
+    /*
+    @return: Una lista con todos los soportes academicos reportados y sus respectivos detalles
+    */
+    public LinkedList<SoporteAcademico> consultaSoporteAcademico(){
+        DaoFactory daof=DaoFactory.getInstance(properties);
+        daof.beginSession();
+        LinkedList<SoporteAcademico> soa=daof.getDaoSoporteAcademico().load();
+        return soa;
     }
     
     /*
