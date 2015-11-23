@@ -11,6 +11,7 @@ import Logica.Equipo;
 import Logica.Laboratorio;
 import Logica.ReporteProblema;
 import Logica.SolicitudSoftware;
+import Logica.SoporteAcademico;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.LinkedList;
@@ -59,6 +60,14 @@ public class Facade {
         daof.beginSession();
         daof.getDaoReporteProblema().save(pr);
         daof.getDaoEquipo().update(pr.getEquipo());
+        daof.commitTransaction();
+        daof.endSession();
+    }
+    
+    public void registrarSoporte(SoporteAcademico sa){
+        DaoFactory daof=DaoFactory.getInstance(properties);
+        daof.beginSession();
+        daof.getDaoSoporteAcademico().save(sa);
         daof.commitTransaction();
         daof.endSession();
     }

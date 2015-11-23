@@ -8,6 +8,7 @@ import Dao.DaoLaboratorio;
 import Dao.DaoReporteProblema;
 import Dao.DaoSistemaOperativo;
 import Dao.DaoSolicitudSoftware;
+import Dao.DaoSoporteAcademico;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
@@ -110,6 +111,11 @@ private static volatile SqlSessionFactory sessionFactory;
     @Override
     public DaoEquipo getDaoEquipo() {
         return new EquipoMybatis(currentSession);
+    }
+
+    @Override
+    public DaoSoporteAcademico getDaoSoporteAcademico() {
+        return new SoporteAcademicoMyBatis(currentSession);
     }
 
 }

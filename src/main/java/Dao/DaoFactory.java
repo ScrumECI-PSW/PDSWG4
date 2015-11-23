@@ -77,6 +77,8 @@ public abstract class DaoFactory {
     
     public abstract DaoSistemaOperativo getDaoSistemaOperativo();
     
+    public abstract DaoSoporteAcademico getDaoSoporteAcademico();
+    
     public abstract DaoSolicitudSoftware getDaoSolicitudSoftware();
     
     public abstract void commitTransaction() ;

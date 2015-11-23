@@ -4,6 +4,7 @@ import Logica.Equipo;
 import Logica.Facade.Facade;
 import Logica.Laboratorio;
 import Logica.ReporteProblema;
+import Logica.SoporteAcademico;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.DriverManager;
@@ -37,7 +38,9 @@ public class AppTest {
         stmt.execute("delete from EquipoXSistema");
         stmt.execute("delete from EquipoXSoftware");
         stmt.execute("delete from Equipo");
+       // stmt.execute("delete from Monitor");
         stmt.execute("delete from Laboratorio");
+       // stmt.execute("delte from SoporteAcademico");
         
         conn.commit();
         conn.close();
@@ -225,6 +228,67 @@ public class AppTest {
         conn.commit();
         conn.close();
      }
-          
+     
+     
+     /*
+        El sistema debe permiter conocer si fue posible o no dar el soporte academico 
+     */
+     /*
+      @Test
+     public void Reporta_un_Soporte_Academico_resuelto() throws SQLException {
+	Connection conn = DriverManager.getConnection("jdbc:h2:file:./target/db/testdb;MODE=MYSQL", "sa", "");
+        Statement stmt = conn.createStatement();
+        java.sql.Date fechaSistema=new java.sql.Date();  //Fecha del sistema
+        Facade f=Facade.getInstance("h2-applicationconfig.properties");
+        
+        stmt.execute("insert into Monitor(Carnet,Nombre,Semestre) values (2098165,'Juan Carlos',6)");
+        stmt.execute("insert into Monitor(Carnet,Nombre,Semestre) values (2100772,'Nicolas Guzman',6)");
+        stmt.execute("insert into Monitor(Carnet,Nombre,Semestre) values (2101751,'Alejandro Villagladys',2)");
+        stmt.execute("insert into Monitor(Carnet,Nombre,Semestre) values (2145075,'Leonardo',4)");
+        
+        SoporteAcademico s=new SoporteAcademico(1,2098165, true,fechaSistema,"Programacion en mathematica","Fue posible dar el soporte");
+       
+        conn.commit();
+        
+        f.registrarSoporte(null);
+        
+        LinkedList<SoporteAcademico> orden=f.();
+        
+        assertTrue(orden.getFirst().getId()==1);
+        
+        conn.commit();
+        conn.close();
+     }
+         */
+     /*
+        El sistema debe permiter conocer si fue posible o no dar el soporte academico 
+     */    
+     /*
+      @Test
+     public void Consulta_Soporte_Academico_resuelto() throws SQLException {
+	Connection conn = DriverManager.getConnection("jdbc:h2:file:./target/db/testdb;MODE=MYSQL", "sa", "");
+        Statement stmt = conn.createStatement();
+        Facade f=Facade.getInstance("h2-applicationconfig.properties");
+        
+        stmt.execute("insert into Monitor(Carnet,Nombre,Semestre) values (2098165,'Juan Carlos',6)");
+        stmt.execute("insert into Monitor(Carnet,Nombre,Semestre) values (2100772,'Nicolas Guzman',6)");
+        stmt.execute("insert into Monitor(Carnet,Nombre,Semestre) values (2101751,'Alejandro Villagladys',2)");
+        stmt.execute("insert into Monitor(Carnet,Nombre,Semestre) values (2145075,'Leonardo',4)");
+        
+        stmt.execute("insert into SoporteAcademico(ID,Monitor_ID,Solucionado,Lenguaje,Fecha,Tema,Comentarios) values (1,2098165, true,'2015-10-10','Programacion en mathematica','Fue posible dar el soporte')");
+        stmt.execute("insert into SoporteAcademico(ID,Monitor_ID,Solucionado,Lenguaje,Fecha,Tema,Comentarios) values (1,2100772, true,'2015-09-23','Programacion en C++','Fue posible dar el soporte')");
+        stmt.execute("insert into SoporteAcademico(ID,Monitor_ID,Solucionado,Lenguaje,Fecha,Tema,Comentarios) values (1,2101751, false,'2015-09-23','Programacion en Python','No fue posible dar el soporte porque no maneja el lenguaje')");
+        stmt.execute("insert into SoporteAcademico(ID,Monitor_ID,Solucionado,Lenguaje,Fecha,Tema,Comentarios) values (1,2145075, true,'2015-09-12','Programacion en java','Fue posible dar el soporte')");
+        
+        conn.commit();
+        
+        LinkedList<SoporteAcademico> orden=f.();
+        
+        assertTrue(orden.getFirst().getId()==1);
+        
+        conn.commit();
+        conn.close();
+     }
+     */
 } 
 
