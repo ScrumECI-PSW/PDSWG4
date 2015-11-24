@@ -9,6 +9,7 @@ import Dao.DaoFactory;
 import Dao.DaoReporteProblema;
 import Logica.Equipo;
 import Logica.Laboratorio;
+import Logica.ReporteDiario;
 import Logica.ReporteProblema;
 import Logica.SolicitudSoftware;
 import Logica.SoporteAcademico;
@@ -211,14 +212,19 @@ public class Facade {
     */
     public LinkedList<Equipo> consultarEquiposPorLaboratorio(String n){
         DaoFactory daof=DaoFactory.getInstance(properties);
-        daof.beginSession();
-        System.out.println("llamada facade antes");
+        daof.beginSession();    
         LinkedList list = daof.getDaoEquipo().EquiposPorLaboratorio(n); 
-        System.out.println("llamada facade despues");
         return list;
     }
-    
-    
+
+    public void registrarReporteDiario(ReporteDiario rpd) {
+        DaoFactory daof=DaoFactory.getInstance(properties);
+        daof.beginSession();
+        daof.getDaoReporteDiario();
+        daof.commitTransaction();
+        daof.endSession();
+    }
+  
 
 }
 
