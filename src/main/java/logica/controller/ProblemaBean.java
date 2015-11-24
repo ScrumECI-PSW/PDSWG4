@@ -39,7 +39,10 @@ public class ProblemaBean {
     private LinkedList<Equipo> EquiposPorLaboratorio;
     private LinkedList<ReporteProblema> problemas;
     private LinkedList<SolicitudSoftware> solicitudes;
-
+    private boolean intento=true;
+    private boolean intentoLab=true;
+    private List<Laboratorio> lab;    
+    
     private LinkedList<Equipo> pv=null;
 
     private ReporteProblema Prob=null;
@@ -55,9 +58,8 @@ public class ProblemaBean {
     }
     
 
-    
     public ProblemaBean() {
-
+     
     }
     
     public ReporteProblema getProb() {
@@ -83,8 +85,12 @@ public class ProblemaBean {
     }
 
     public LinkedList<Equipo> getEquiposPorLaboratorio() {
-        if(this.pv==null || this.pv.size()==0 || !(this.pv.getFirst().getLaboratorio().getNombre().equals(this.Laboratorio))){
+        System.out.println("intento hacer algo" + this.intento);
+        if(this.intento){
             this.pv=f.consultarEquiposPorLaboratorio(Laboratorio);
+            this.intento=false;
+            this.intentoLab=true;
+            System.out.println(this.pv.size());
         }
         return this.pv;
 
@@ -95,6 +101,8 @@ public class ProblemaBean {
     }
 
     public void setLaboratorio(String Laboratorio) {
+        System.out.println("Entro por aca");
+        this.intento=true;
         this.Laboratorio = Laboratorio;
     }
 
@@ -145,7 +153,12 @@ public class ProblemaBean {
     }
     
     public List<Laboratorio> getLaboratorios() {
-        return f.consultarLaboratorios();
+        System.out.println("Entro a laboratorios");
+        if(this.intentoLab){
+            this.lab=f.consultarLaboratorios();
+            this.intentoLab=false;
+        }
+        return this.lab; 
     }
 
 }
