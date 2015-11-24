@@ -212,27 +212,31 @@ public class Facade {
     */
     public LinkedList<Equipo> consultarEquiposPorLaboratorio(String n){
         DaoFactory daof=DaoFactory.getInstance(properties);
-        daof.beginSession();
-        System.out.println("llamada facade antes");
+        daof.beginSession();    
         LinkedList list = daof.getDaoEquipo().EquiposPorLaboratorio(n); 
-        System.out.println("llamada facade despues");
         return list;
     }
+
 
     public void actualizarEstadoProblema(ReporteProblema Prob) {
         DaoFactory daof=DaoFactory.getInstance(properties);
         daof.beginSession();
         Prob.setEstado(true);
         daof.getDaoReporteProblema().update(Prob);
-    }
+    } 
     
-    public void registrarReporteDiario(ReporteDiario repDi){
+    
+    
+
+    public void registrarReporteDiario(ReporteDiario rpd) {
         DaoFactory daof=DaoFactory.getInstance(properties);
         daof.beginSession();
-        daof.getDaoReporteDiario().save(repDi);
+        daof.getDaoReporteDiario();
+        daof.commitTransaction();
+        daof.endSession();
     }
-    
-    
+  
+
 
 }
 

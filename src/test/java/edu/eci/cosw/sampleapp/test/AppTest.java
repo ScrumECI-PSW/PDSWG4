@@ -4,6 +4,7 @@ import Logica.Equipo;
 import Logica.Facade.Facade;
 import Logica.Laboratorio;
 import Logica.Monitor;
+import Logica.ReporteDiario;
 import Logica.ReporteProblema;
 import Logica.SoporteAcademico;
 import java.sql.Connection;
@@ -228,6 +229,32 @@ public class AppTest {
         
         conn.commit();
         conn.close();
+     }
+     
+     @Test
+     public void RegistrarAvanceProblema() throws SQLException {
+       
+        Laboratorio lb1=new Laboratorio("redes","holaMundo");
+        Laboratorio lb=new Laboratorio("plataformas","holaMundo");
+        Equipo eq= new Equipo(2101240,"holaMundo",true, lb);
+        Equipo eq1= new Equipo(21012,"holaMundo",true, lb1);
+        Equipo eq2= new Equipo(2101,"holaMundo",true, lb);
+        ReporteProblema rpp=new ReporteProblema(eq, "Nofunciona", true,22,10,2015);
+        ReporteDiario rpd=new ReporteDiario("Avance un 10%",rpp);
+        ReporteDiario rpd1=new ReporteDiario("Avance un 50%",rpp);
+        ReporteDiario rpd2=new ReporteDiario("Avance un 60%",rpp);
+        
+        Facade f=Facade.getInstance("h2-applicationconfig.properties");
+        f.registrarLaboratorio(lb);
+        f.registrarLaboratorio(lb1);
+        f.registrarEquipo(eq);
+        f.registrarEquipo(eq1);
+        f.registrarEquipo(eq2);
+        f.registrarReporte(rpp);
+        f.registrarReporteDiario(rpd);
+        f.registrarReporteDiario(rpd1);
+        f.registrarReporteDiario(rpd2);
+        
      }
      
      

@@ -34,14 +34,20 @@
                         <p:column  headerText="REPORTAR AVANACE">
                             
                             <p:selectOneMenu  value="#{problemaBean.estadoProblema}" >
-                                <f:selectItem itemLabel="" itemValue="" />
+                                <f:selectItem itemLabel="selecccione estado" itemValue="seleccione estado" />
                                 <f:selectItem itemLabel="Avanzado" itemValue="Avanzado" />
                                 <f:selectItem itemLabel="Terminado" itemValue="Terminado"/>
-                            </p:selectOneMenu>                  
-                            
+                            </p:selectOneMenu>    
                             
                         </p:column>
+                        
+                        <p:column sortBy="#{car1.descripcion}" headerText="CONTINUAR">
+                            <p:commandButton action="DescripcionReporteDiario" value="next" >
+                                <f:setPropertyActionListener value="#{car1}" target="#{problemaBean.prob}"/>
+                            </p:commandButton>
+                        </p:column>
                     </p:dataTable>
+                    
                 </h:form>
             </p:layoutUnit>
         </p:layout> 

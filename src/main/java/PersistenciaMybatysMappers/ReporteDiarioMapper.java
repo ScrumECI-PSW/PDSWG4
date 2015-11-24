@@ -8,6 +8,7 @@ package PersistenciaMybatysMappers;
 
 import Logica.ReporteDiario;
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Param;
 
 /**
@@ -16,6 +17,7 @@ import org.apache.ibatis.annotations.Param;
  */
 public interface ReporteDiarioMapper {
     
-    @Insert("insert into Equipo (ID,Descripcion) values(#{eq.id},#{eq.descripcion})")
+    @Insert("insert into Equipo (Descripcion) values(#{eq.descripcion})")
+    @Options(useGeneratedKeys=true,keyProperty = "eq.id")
     void insertarDiario(@Param(value="eq")ReporteDiario lb);
 }
