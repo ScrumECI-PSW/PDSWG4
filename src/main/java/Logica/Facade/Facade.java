@@ -217,6 +217,17 @@ public class Facade {
         return list;
     }
 
+
+    public void actualizarEstadoProblema(ReporteProblema Prob) {
+        DaoFactory daof=DaoFactory.getInstance(properties);
+        daof.beginSession();
+        Prob.setEstado(true);
+        daof.getDaoReporteProblema().update(Prob);
+    } 
+    
+    
+    
+
     public void registrarReporteDiario(ReporteDiario rpd) {
         DaoFactory daof=DaoFactory.getInstance(properties);
         daof.beginSession();
@@ -234,6 +245,7 @@ public class Facade {
        return list; 
     }
   
+
 
 }
 

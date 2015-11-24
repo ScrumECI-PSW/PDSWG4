@@ -1,0 +1,58 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head></h:head>
+    <h:body>    
+        <h:outputLink value="../logout">logout</h:outputLink>
+        <pre>  
+        
+        <p:layout fullPage="true">
+            
+            <p:layoutUnit position="north">
+                <DIV  align="center" class="parrafos">
+                    <P>Escuela Colombiana De Ingenieria Julio Garavito</P>
+                    <P>Reporte de Problemas</P>
+                </DIV>               
+            </p:layoutUnit>
+            
+            <p:layoutUnit position="center"> 
+                
+                <h:form id="form3">
+                    <p:dataTable id="equipos" var="car1" value="#{problemaBean.problemasConPrioridad}" sortBy="#{car1.id}" rowKey="#{car1.id}" >
+                        <p:column sortBy="#{car1.equipo.laboratorio}" headerText="LABORATORIO">
+                            <h:outputText value="#{car1.equipo.laboratorio}"/>
+                        </p:column>
+                        <p:column sortBy="#{car1.equipo.id}" headerText="EQUIPO">
+                            <h:outputText value="#{car1.equipo.id}"/>
+                        </p:column>
+                        <p:column sortBy="#{car1.descripcion}" headerText="DESCRIPCION">
+                            <h:outputText value="#{car1.descripcion}"/>
+                        </p:column>
+                        
+                        <p:column  headerText="REPORTAR AVANACE">
+                            
+                            <p:selectOneMenu  value="#{problemaBean.estadoProblema}" >
+                                <f:selectItem itemLabel="selecccione estado" itemValue="seleccione estado" />
+                                <f:selectItem itemLabel="Avanzado" itemValue="Avanzado" />
+                                <f:selectItem itemLabel="Terminado" itemValue="Terminado"/>
+                            </p:selectOneMenu>    
+                            
+                        </p:column>
+                        
+                        <p:column sortBy="#{car1.descripcion}" headerText="CONTINUAR">
+                            <p:commandButton action="DescripcionReporteDiario" value="next" >
+                                <f:setPropertyActionListener value="#{car1}" target="#{problemaBean.prob}"/>
+                            </p:commandButton>
+                        </p:column>
+                    </p:dataTable>
+                    
+                </h:form>
+            </p:layoutUnit>
+        </p:layout> 
+
+
+        </pre>  
+    </h:body>
+</html>

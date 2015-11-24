@@ -29,6 +29,9 @@ import org.primefaces.context.RequestContext;
 @SessionScoped
 public class ProblemaBean {
 
+    
+    private String descripcionReporteDiario="";    
+    private String estadoProblema = "";
     private final Facade f = Facade.getInstance("applicationconfig.properties");
     private Date fecha;
     private ReporteDiario repD = null;
@@ -48,7 +51,26 @@ public class ProblemaBean {
     private ReporteProblema Prob=null;
     
     
+    public String getDescripcionReporteDiario() {
+        return descripcionReporteDiario;
+    }
 
+    public void setDescripcionReporteDiario(String descripcionReporteDiario) {
+        this.descripcionReporteDiario = descripcionReporteDiario;
+    }
+    
+    public String getEstadoProblema() {
+        return estadoProblema;
+    }
+
+    public void setEstadoProblema(String estadoProblema) {
+        this.estadoProblema = estadoProblema;
+        if(this.estadoProblema.equals("Terminado")){
+            f.actualizarEstadoProblema(Prob);
+        }
+    }
+    
+    
     public ReporteDiario getRepD() {
         return repD;
     }
@@ -160,5 +182,12 @@ public class ProblemaBean {
         }
         return this.lab; 
     }
+    
+    public void ReportarUnDiario(){
+        f.registrarReporteDiario(new ReporteDiario(descripcionReporteDiario,Prob));
+    }
+    
+    
+    
 
 }
