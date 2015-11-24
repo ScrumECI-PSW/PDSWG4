@@ -220,9 +220,18 @@ public class Facade {
     public void registrarReporteDiario(ReporteDiario rpd) {
         DaoFactory daof=DaoFactory.getInstance(properties);
         daof.beginSession();
-        daof.getDaoReporteDiario();
+        daof.getDaoReporteDiario().insertarDiario(rpd);
+        daof.commitTransaction();
+        daof.getDaoReporteDiario().insertarDairioxProblema(rpd);
         daof.commitTransaction();
         daof.endSession();
+    }
+
+    public LinkedList<ReporteDiario> consultarReporteDiario(ReporteProblema rpp) {
+       DaoFactory daof=DaoFactory.getInstance(properties);
+       daof.beginSession();    
+       LinkedList list = daof.getDaoReporteDiario().consultar(rpp);
+       return list; 
     }
   
 

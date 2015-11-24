@@ -6,6 +6,8 @@
 package Dao;
 
 import Logica.ReporteDiario;
+import Logica.ReporteProblema;
+import java.util.LinkedList;
 
 /**
  *
@@ -14,4 +16,6 @@ import Logica.ReporteDiario;
 public interface DaoReporteDiario {
     
     public void insertarDiario(ReporteDiario lb);
+    public LinkedList<ReporteDiario> consultar(ReporteProblema rp);
+    public void insertarDairioxProblema(ReporteDiario lb);
 }

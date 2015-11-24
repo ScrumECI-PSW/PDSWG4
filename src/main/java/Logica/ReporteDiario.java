@@ -12,7 +12,7 @@ package Logica;
 public class ReporteDiario {
     
     private String Descripcion = null;
-    private int id = 0;
+    private int id;
     private ReporteProblema reporteProblema=null;
 
     public ReporteProblema getReporteProblema() {

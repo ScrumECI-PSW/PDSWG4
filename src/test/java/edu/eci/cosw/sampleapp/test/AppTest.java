@@ -240,9 +240,9 @@ public class AppTest {
         Equipo eq1= new Equipo(21012,"holaMundo",true, lb1);
         Equipo eq2= new Equipo(2101,"holaMundo",true, lb);
         ReporteProblema rpp=new ReporteProblema(eq, "Nofunciona", true,22,10,2015);
-        ReporteDiario rpd=new ReporteDiario("Avance un 10%",rpp);
-        ReporteDiario rpd1=new ReporteDiario("Avance un 50%",rpp);
-        ReporteDiario rpd2=new ReporteDiario("Avance un 60%",rpp);
+        ReporteDiario rpd=new ReporteDiario("A10%",rpp);
+        ReporteDiario rpd1=new ReporteDiario("A50%",rpp);
+        ReporteDiario rpd2=new ReporteDiario("A60%",rpp);
         
         Facade f=Facade.getInstance("h2-applicationconfig.properties");
         f.registrarLaboratorio(lb);
@@ -254,7 +254,17 @@ public class AppTest {
         f.registrarReporteDiario(rpd);
         f.registrarReporteDiario(rpd1);
         f.registrarReporteDiario(rpd2);
-        
+        LinkedList rd= f.consultarReporteDiario(rpp);
+        Iterator<ReporteDiario> i= rd.iterator();
+        int count=0;
+        while (i.hasNext()){
+            ReporteDiario r=i.next();
+            if(rpd.getId()==r.getId() || rpd1.getId()==r.getId() || rpd2.getId()==r.getId())
+            {
+                count++;
+            }
+        }
+        assertTrue(count==3);
      }
      
      

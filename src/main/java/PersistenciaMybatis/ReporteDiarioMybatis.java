@@ -7,7 +7,9 @@ package PersistenciaMybatis;
 
 import Dao.DaoReporteDiario;
 import Logica.ReporteDiario;
+import Logica.ReporteProblema;
 import PersistenciaMybatysMappers.ReporteDiarioMapper;
+import java.util.LinkedList;
 import org.apache.ibatis.session.SqlSession;
 
 /**
@@ -27,6 +29,16 @@ public class ReporteDiarioMybatis implements DaoReporteDiario{
     @Override
     public void insertarDiario(ReporteDiario lb) {
         rpmap.insertarDiario(lb);
+    }
+    
+    public void insertarDairioxProblema(ReporteDiario lb){
+        System.out.println(lb.getId() +" "+ lb.getReporteProblema().getId());
+        rpmap.insertarDiarioxProblema(lb.getId(), lb.getReporteProblema().getId());
+    }
+
+    @Override
+    public LinkedList<ReporteDiario> consultar(ReporteProblema rp) {
+        return rpmap.Consultar(rp);
     }
     
 }

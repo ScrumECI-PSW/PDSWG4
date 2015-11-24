@@ -5,6 +5,21 @@
 
 
 -- tables
+-- Table DiarioxProblema
+CREATE TABLE DiarioxProblema (
+    ReporteProblema_ID int  NOT NULL,
+    ReporteDiario_ID int  NOT NULL,
+    CONSTRAINT DiarioxProblema_pk PRIMARY KEY (ReporteProblema_ID,ReporteDiario_ID)
+);
+
+-- Table ReporteDiario
+CREATE TABLE ReporteDiario (
+    ID int  NOT NULL  AUTO_INCREMENT,
+    descripcion char(250)  NOT NULL,
+    CONSTRAINT ReporteDiario_pk PRIMARY KEY (ID)
+);
+
+
 -- Table Equipo
 CREATE TABLE Equipo (
     ID int  NOT NULL  AUTO_INCREMENT,
@@ -92,10 +107,14 @@ CREATE TABLE UsuarioLab (
     CONSTRAINT UsuarioLab_pk PRIMARY KEY (Carnet)
 );
 
+
+
 -- foreign keys
+-- Reference:  DiarioxProblema_ReporteDiario (table: DiarioxProblema)
+
+
+
 -- Reference:  EquipoXSistema_Equipo (table: EquipoXSistema)
-
-
 ALTER TABLE EquipoXSistema ADD CONSTRAINT EquipoXSistema_Equipo FOREIGN KEY (Equipo_ID)
     REFERENCES Equipo (ID);
 -- Reference:  EquipoXSistema_SistemaOperativo (table: EquipoXSistema)
