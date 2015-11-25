@@ -1,18 +1,56 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
         xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
         xmlns:p="http://primefaces.org/ui">
 <h:head>
 </h:head>
 <h:body>
+    <pre> 
+    
+    <p:layout fullPage="true">
 
-    <h:outputLink value="../logout">logout</h:outputLink>
-    <pre>     
-    subject = <p:outputLabel value="#{loginBean.subject}"/>
-    principal = <p:outputLabel value="#{loginBean.subject.principal}"/>
-    session = <p:outputLabel value="#{loginBean.subject.session}"/>
-    role user = <p:outputLabel value="#{loginBean.subject.hasRole('user')}"/>
-    role admin = <p:outputLabel value="#{loginBean.subject.hasRole('admin')}"/>
-    role employee = <p:outputLabel value="#{loginBean.subject.hasRole('employee')}"/>
+        <p:layoutUnit  position="north">
+            <DIV  align="center" class="parrafos">
+                <P>Escuela Colombiana De Ingenieria Julio Garavito</P>
+                <P>PAGINA PRINCIPAL MONITOR</P>                
+            </DIV>                  
+            <DIV class="parrafos">
+                <h:outputLink value="../logout" >logout</h:outputLink>
+            </DIV>
+        </p:layoutUnit>
+        
+        <p:layoutUnit  position="center" >
+            
+                
+                <DIV  align="center" class="parrafos">
+                    <p:commandButton value="Reporte De Problemas" action="ReportarProblema"> </p:commandButton>  
+                    <p:commandButton value="Reporte De Diario" action="ReporteDiario"> </p:commandButton>
+                </DIV>               
+                <DIV  align="center" class="parrafos">                
+                    <p:commandButton value="Planeador de monitores" action="planeadorMonitores"> </p:commandButton>
+                    
+                </DIV>
+                      
+            
+            
+            
+        </p:layoutUnit>
+
+        <p:layoutUnit position="south">
+            
+            
+            subject = <p:outputLabel value="#{loginBean.subject}"/>
+            principal = <p:outputLabel value="#{loginBean.subject.principal}"/>
+            session = <p:outputLabel value="#{loginBean.subject.session}"/>
+            role user = <p:outputLabel value="#{loginBean.subject.hasRole('user')}"/>
+            role admin = <p:outputLabel value="#{loginBean.subject.hasRole('admin')}"/>
+            role employee = <p:outputLabel value="#{loginBean.subject.hasRole('employee')}"/>
+        </p:layoutUnit>
+        
+        
+
+    </p:layout>
     </pre>
         
     
