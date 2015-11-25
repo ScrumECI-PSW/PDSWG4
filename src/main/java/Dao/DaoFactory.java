@@ -71,6 +71,8 @@ public abstract class DaoFactory {
     
     public abstract DaoEquipo getDaoEquipo();
     
+    public abstract DaoMonitor getDaoMonitor();
+    
     public abstract DaoLaboratorio getDaoLaboratorio();
     
     public abstract DaoReporteProblema getDaoReporteProblema();

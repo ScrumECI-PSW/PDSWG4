@@ -9,6 +9,7 @@ import Dao.DaoFactory;
 import Dao.DaoReporteProblema;
 import Logica.Equipo;
 import Logica.Laboratorio;
+import Logica.Monitor;
 import Logica.ReporteDiario;
 import Logica.ReporteProblema;
 import Logica.SolicitudSoftware;
@@ -168,6 +169,17 @@ public class Facade {
     }
     
     /*
+    @param: El monitor que se desea registar en la base de datos
+    */
+    public void registrarMonitor(Monitor m1) {
+        DaoFactory daof=DaoFactory.getInstance(properties);
+        daof.beginSession();
+        daof.getDaoMonitor().save(m1);
+        daof.commitTransaction();
+        daof.endSession();
+    }
+    
+    /*
     @return: Lista con los laboratorios que tienen equipos con reporte de problemas
     */
     public LinkedList consultarLaboratoriosConEquipoReporteProblemas() {
@@ -244,7 +256,9 @@ public class Facade {
        LinkedList list = daof.getDaoReporteDiario().consultar(rpp);
        return list; 
     }
-  
+
+    
+
 
 
 }

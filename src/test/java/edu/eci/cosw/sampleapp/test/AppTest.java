@@ -286,10 +286,14 @@ public class AppTest {
         
         Monitor m1=new Monitor(2100772,"Nicolas Guzman",6);
         Monitor m2=new Monitor(2101751,"Alejandro Villagladys",2);
-       
+        
+        f.registrarMonitor(m1);
+        f.registrarMonitor(m2);
+     
         SoporteAcademico s1=new SoporteAcademico(1,2100772, true,"C++",fecha,"Desarrollo","Fue posible dar el soporte");
         SoporteAcademico s2=new SoporteAcademico(3,2101751, false,"Python",fecha,"Desarrollo","No fue posible dar el soporte porque no maneja el lenguaje");
-
+        
+                                          // id, int monitor_id, boolean solucionado, String lenguaje, Date fecha, String tema, String comentario
   
         f.registrarSoporte(s1);
         f.registrarSoporte(s2);
@@ -299,8 +303,8 @@ public class AppTest {
         assertTrue(orden.getFirst().isSolucionado() && orden.getLast().isSolucionado()==false);
         
      }
-     */    
-     
+       */ 
+    
      /*
         El sistema debe permiter conocer si fue posible o no dar el soporte academico 
      */    

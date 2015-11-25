@@ -5,6 +5,7 @@ package PersistenciaMybatis;
 import Dao.DaoEquipo;
 import Dao.DaoFactory;
 import Dao.DaoLaboratorio;
+import Dao.DaoMonitor;
 import Dao.DaoReporteDiario;
 import Dao.DaoReporteProblema;
 import Dao.DaoSistemaOperativo;
@@ -122,6 +123,11 @@ private static volatile SqlSessionFactory sessionFactory;
     @Override
     public DaoReporteDiario getDaoReporteDiario() {
         return new ReporteDiarioMybatis(currentSession);
+    }
+
+    @Override
+    public DaoMonitor getDaoMonitor() {
+        return new MonitorMyBatis(currentSession);
     }
 
 }
