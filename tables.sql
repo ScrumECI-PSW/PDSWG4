@@ -108,9 +108,18 @@ CREATE TABLE UsuarioLab (
 );
 
 
-
 -- foreign keys
 -- Reference:  DiarioxProblema_ReporteDiario (table: DiarioxProblema)
+
+
+ALTER TABLE DiarioxProblema ADD CONSTRAINT DiarioxProblema_ReporteDiario FOREIGN KEY  (ReporteDiario_ID)
+    REFERENCES ReporteDiario (ID);
+-- Reference:  DiarioxProblema_ReporteProblema (table: DiarioxProblema)
+
+
+ALTER TABLE DiarioxProblema ADD CONSTRAINT DiarioxProblema_ReporteProblema FOREIGN KEY  (ReporteProblema_ID)
+    REFERENCES ReporteProblema (ID);
+-- Reference:  EquipoXSistema_Equipo (table: EquipoXSistema)
 
 
 

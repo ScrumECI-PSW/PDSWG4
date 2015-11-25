@@ -57,6 +57,7 @@ public class ProblemaBean {
 
     public void setDescripcionReporteDiario(String descripcionReporteDiario) {
         this.descripcionReporteDiario = descripcionReporteDiario;
+        ReportarUnDiario();
     }
     
     public String getEstadoProblema() {

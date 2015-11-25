@@ -34,6 +34,8 @@ public class AppTest {
     public void clearDB() throws SQLException {
         Connection conn = DriverManager.getConnection("jdbc:h2:file:./target/db/testdb;MODE=MYSQL", "sa", "");
         Statement stmt = conn.createStatement();
+        stmt.execute("delete from DiarioxProblema");
+        stmt.execute("delete from ReporteDiario");
         stmt.execute("delete from SistemaOperativo");
         stmt.execute("delete from SolicitudSoftware");
         stmt.execute("delete from ReporteProblema");
@@ -44,6 +46,7 @@ public class AppTest {
         stmt.execute("delete from Laboratorio");
         stmt.execute("delete from SoporteAcademico");
         
+      
         conn.commit();
         conn.close();
     }
@@ -71,7 +74,7 @@ public class AppTest {
                 count++;
             }
         }
-        assertTrue(count==2);
+        assertTrue("Reporte Problema incompletos sin equipo y sin laboratorio", count==2);
         
         conn.close();
   }
@@ -96,7 +99,7 @@ public class AppTest {
                 count++;
             }
         }
-        assertTrue(count==2);
+        assertTrue("error Reporte Problema con fecha", count==2);
        
   }
   
@@ -145,7 +148,7 @@ public class AppTest {
             }
         }        
         
-        assertTrue(count==4);
+        assertTrue("Error unico equipo, laboratorio y reporte problema", count==4);
        
         
   }
@@ -231,6 +234,7 @@ public class AppTest {
         conn.close();
      }
      
+     /*Se realiza el registro de avances en un problema*/
      @Test
      public void RegistrarAvanceProblema() throws SQLException {
        
@@ -264,7 +268,7 @@ public class AppTest {
                 count++;
             }
         }
-        assertTrue(count==3);
+        assertTrue("Avances incomletos" ,count==3);
      }
      
      
