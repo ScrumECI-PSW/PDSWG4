@@ -50,7 +50,9 @@
                     
                     
                     <p:inputTextarea rows="10" cols="50" completeMethod="#{problemaBean.comentariosSoporte}" queryDelay="750" minQueryLength="4" />
+                   
                     <p:commandButton value="Submit" oncomplete="PF('dlg').show()" icon="ui-icon-disk" action="#{problemaBean.registarSoporte}"/>
+                    <p:commandButton action="index.xhtml" value="BACK" />
                 </h:form>
             </p:layoutUnit>
             

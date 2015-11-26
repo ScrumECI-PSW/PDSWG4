@@ -33,13 +33,13 @@
                         
                         
                         <p:column sortBy="#{car1.descripcion}" headerText="CONTINUAR">
-                            <p:commandButton action="DescripcionReporteDiario" value="next" >
+                            <p:commandButton action="DescripcionReporteDiario.xhtml" value="next" >
                                 <f:setPropertyActionListener value="#{car1}" target="#{problemaBean.prob}"/>
                             </p:commandButton>
                         </p:column>
                     </p:dataTable>
                     
-                    <p:commandButton action="index" value="BACK" />        
+                    <p:commandButton action="index.xhtml" value="BACK" />        
                     
                 </h:form>
             </p:layoutUnit>
