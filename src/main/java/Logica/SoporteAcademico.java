@@ -20,14 +20,14 @@ public class SoporteAcademico {
     private String tema;
     private String comentario;
 
-    public SoporteAcademico(int id, int monitor_id, boolean solucionado, String lenguaje, Date fecha, String tema, String comentario) {
-        this.id = id;
+    public SoporteAcademico(int monitor_id, boolean solucionado, String lenguaje, Date fecha, String tema, String comentario) {
         this.monitor_id = monitor_id;
         this.solucionado = solucionado;
         this.lenguaje = lenguaje;
         this.fecha = fecha;
         this.tema = tema;
         this.comentario = comentario;
+        this.id = 0;
     }
 
     public int getId() {

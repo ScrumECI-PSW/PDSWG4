@@ -44,12 +44,32 @@ public class ProblemaBean {
     private LinkedList<SolicitudSoftware> solicitudes;
     private boolean intento=true;
     private boolean intentoLab=true;
-    private List<Laboratorio> lab;    
-    
+    private List<Laboratorio> lab; 
+    private String lenguaje = "";
+    private String tema = "";
     private LinkedList<Equipo> pv=null;
-
     private ReporteProblema Prob=null;
     
+    public ProblemaBean() {
+     
+    }
+    
+    public String getTema() {
+        return tema;
+    }
+
+    public void setTema(String tema) {
+        this.tema = tema;
+        //reportarSoporteAcademico(); falta registrar el SoporteAcademico
+    }
+    
+     public String getLenguaje() {
+        return lenguaje;
+    }
+
+    public void setLenguaje(String lenguaje) {
+        this.lenguaje = lenguaje;
+    }
     
     public String getDescripcionReporteDiario() {
         return descripcionReporteDiario;
@@ -78,11 +98,6 @@ public class ProblemaBean {
 
     public void setRepD(ReporteDiario repD) {
         this.repD = repD;
-    }
-    
-
-    public ProblemaBean() {
-     
     }
     
     public ReporteProblema getProb() {
@@ -187,8 +202,12 @@ public class ProblemaBean {
     public void ReportarUnDiario(){
         f.registrarReporteDiario(new ReporteDiario(descripcionReporteDiario,Prob));
     }
+/*
+    public void reportarSoporteAcademico() {
+        f.registrarSoporte(new SoporteAcademico());
+    }
     
-    
+  */  
     
 
 }
