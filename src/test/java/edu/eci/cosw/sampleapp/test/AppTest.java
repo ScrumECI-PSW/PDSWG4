@@ -17,6 +17,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.SortedMap;
 import java.util.TreeMap;
+import java.util.logging.Logger;
 import org.junit.After;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
@@ -26,6 +27,8 @@ import org.junit.Test;
 
 public class AppTest {
 
+    
+    
      @Before
     public void setUp() {
     }
@@ -34,6 +37,7 @@ public class AppTest {
     public void clearDB() throws SQLException {
         Connection conn = DriverManager.getConnection("jdbc:h2:file:./target/db/testdb;MODE=MYSQL", "sa", "");
         Statement stmt = conn.createStatement();
+        stmt.execute("delete from SoporteAcademico");
         stmt.execute("delete from DiarioxProblema");
         stmt.execute("delete from ReporteDiario");
         stmt.execute("delete from SistemaOperativo");
@@ -44,7 +48,7 @@ public class AppTest {
         stmt.execute("delete from Equipo");
         stmt.execute("delete from Monitor");
         stmt.execute("delete from Laboratorio");
-        stmt.execute("delete from SoporteAcademico");
+        
         
       
         conn.commit();
@@ -52,7 +56,7 @@ public class AppTest {
     }
 
   @Test
-  public void PersistenciaReporteProblema() throws SQLException {
+  public void PersistenciaReporteProblemaTest() throws SQLException {
 	Connection conn = DriverManager.getConnection("jdbc:h2:file:./target/db/testdb;MODE=MYSQL", "sa", "");
         Statement stmt = conn.createStatement();
         stmt.execute("insert into Laboratorio values ('Redes','Hola Mundo')");
@@ -79,7 +83,7 @@ public class AppTest {
         conn.close();
   }
   @Test
-  public void RegistroReporteProblema() throws SQLException {
+  public void RegistroReporteProblemaTest() throws SQLException {
         
         Laboratorio lb=new Laboratorio("1","holaMundo");
         Equipo eq= new Equipo(2101240,"holaMundo",true, lb);
@@ -105,7 +109,7 @@ public class AppTest {
   
   
   @Test
-  public void SegunLaboratorioReporteProblema() throws SQLException {
+  public void SegunLaboratorioReporteProblemaTest() throws SQLException {
         
         Laboratorio lb1=new Laboratorio("2","holaMundo");
         Laboratorio lb=new Laboratorio("1","holaMundo");
@@ -158,7 +162,7 @@ public class AppTest {
   */
   
    @Test
-     public void Identificacion_de_Problemas_SinResolver() throws SQLException {
+     public void IdentificacionDeProblemasSinResolverTest() throws SQLException {
 	Connection conn = DriverManager.getConnection("jdbc:h2:file:./target/db/testdb;MODE=MYSQL", "sa", "");
         Statement stmt = conn.createStatement();
         Facade f=Facade.getInstance("h2-applicationconfig.properties");
@@ -202,7 +206,7 @@ public class AppTest {
         El sistema debe permitir al usuario identificar qué problema lleva más tiempo sin resolverse.
      */     
       @Test
-     public void Identificacion_de_Problemas_Con_Mas_Tiempo_Sin_Resolver() throws SQLException {
+     public void IdentificacionProblemasConMasTiempoSinResolverTest() throws SQLException {
 	Connection conn = DriverManager.getConnection("jdbc:h2:file:./target/db/testdb;MODE=MYSQL", "sa", "");
         Statement stmt = conn.createStatement();
         Facade f=Facade.getInstance("h2-applicationconfig.properties");
@@ -236,7 +240,7 @@ public class AppTest {
      
      /*Se realiza el registro de avances en un problema*/
      @Test
-     public void RegistrarAvanceProblema() throws SQLException {
+     public void RegistrarAvanceProblemaTest() throws SQLException {
        
         Laboratorio lb1=new Laboratorio("redes","holaMundo");
         Laboratorio lb=new Laboratorio("plataformas","holaMundo");
@@ -275,10 +279,11 @@ public class AppTest {
      /*
         Se deben poder reportar los soportes academicos realizados, indicando si fue solucionado (True) o no (False)
      */
-     /*
+     
       @Test
-     public void Reporta_Soporte_Academico() throws SQLException {
-	Connection conn = DriverManager.getConnection("jdbc:h2:file:./target/db/testdb;MODE=MYSQL", "sa", "");
+     public void ReportaSoporteAcademicoTest() throws SQLException {
+        LOG.info("testReportaSoporteAcademicoTest()");
+         Connection conn = DriverManager.getConnection("jdbc:h2:file:./target/db/testdb;MODE=MYSQL", "sa", "");
         Statement stmt = conn.createStatement();
         java.util.Date d = new java.util.Date();
         java.sql.Date fecha = new java.sql.Date(d.getDate());
@@ -290,8 +295,8 @@ public class AppTest {
         f.registrarMonitor(m1);
         f.registrarMonitor(m2);
      
-        SoporteAcademico s1=new SoporteAcademico(1,2100772, true,"C++",fecha,"Desarrollo","Fue posible dar el soporte");
-        SoporteAcademico s2=new SoporteAcademico(3,2101751, false,"Python",fecha,"Desarrollo","No fue posible dar el soporte porque no maneja el lenguaje");
+        SoporteAcademico s1=new SoporteAcademico(2100772, true,"C++",fecha,"Desarrollo","Fue posible dar el soporte");
+        SoporteAcademico s2=new SoporteAcademico(2101751, false,"Python",fecha,"Desarrollo","No fue posible dar el soporte porque no maneja el lenguaje");
         
                                           // id, int monitor_id, boolean solucionado, String lenguaje, Date fecha, String tema, String comentario
   
@@ -303,14 +308,14 @@ public class AppTest {
         assertTrue(orden.getFirst().isSolucionado() && orden.getLast().isSolucionado()==false);
         
      }
-       */ 
+       
     
      /*
         El sistema debe permiter conocer si fue posible o no dar el soporte academico 
      */    
-     /*
+     
       @Test
-     public void Consulta_Soporte_Academico_resuelto() throws SQLException {
+     public void ConsultaSoporteAcademicoResueltoTest() throws SQLException {
 	Connection conn = DriverManager.getConnection("jdbc:h2:file:./target/db/testdb;MODE=MYSQL", "sa", "");
         Statement stmt = conn.createStatement();
         Facade f=Facade.getInstance("h2-applicationconfig.properties");
@@ -320,7 +325,7 @@ public class AppTest {
         stmt.execute("insert into Monitor(Carnet,Nombre,Semestre) values (2101751,'Alejandro Villagladys',2)");
         stmt.execute("insert into Monitor(Carnet,Nombre,Semestre) values (2145075,'Leonardo',4)");
         
-        stmt.execute("insert into SoporteAcademico(ID,Monitor_ID,Solucionado,Lenguaje,Fecha,Tema,Comentarios) values (1,2101751, false,'Programacion en Python','2015-09-23','Desarrollo',No fue posible dar el soporte porque no maneja el lenguaje')");
+        stmt.execute("insert into SoporteAcademico(ID,Monitor_ID,Solucionado,Lenguaje,Fecha,Tema,Comentarios) values (1,2101751, false,'Programacion en Python','2015-09-23','Desarrollo','No fue posible dar el soporte porque no maneja el lenguaje')");
         stmt.execute("insert into SoporteAcademico(ID,Monitor_ID,Solucionado,Lenguaje,Fecha,Tema,Comentarios) values (2,2098165, true,'Programacion en mathematica','2015-09-23','Desarrollo','Fue posible dar el soporte')");
         stmt.execute("insert into SoporteAcademico(ID,Monitor_ID,Solucionado,Lenguaje,Fecha,Tema,Comentarios) values (3,2100772, true,'Programacion en C++','2015-09-23','Desarrollo','Fue posible dar el soporte')");
         stmt.execute("insert into SoporteAcademico(ID,Monitor_ID,Solucionado,Lenguaje,Fecha,Tema,Comentarios) values (4,2145075, true,'Programacion en java','2015-09-23','Desarrollo','Fue posible dar el soporte')");
@@ -341,6 +346,7 @@ public class AppTest {
         assertTrue(orden.getFirst()!=resueltos.getFirst());
         conn.close();
      }
-     */
+     
+    private static final Logger LOG = Logger.getLogger(AppTest.class.getName());
 } 
 
