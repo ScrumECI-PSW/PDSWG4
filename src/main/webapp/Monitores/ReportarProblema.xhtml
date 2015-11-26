@@ -44,12 +44,12 @@
 
                         
                         <p:column headerText="REPORTAR PROBLEMA">
-                            <p:commandLink action="SolicitudReporte" value="Reportar Problema" >
+                            <p:commandLink action="SolicitudReporte.xhtml" value="Reportar Problema" >
                                 <f:setPropertyActionListener value="#{car1}" target="#{problemaBean.equipo}"/>
                             </p:commandLink>
                         </p:column>
                     </p:dataTable>
-                    <p:commandButton action="index" value="BACK" />   
+                    <p:commandButton action="index.xhtml" value="BACK" />   
                 </h:form>
             </p:layoutUnit>
         </p:layout> 

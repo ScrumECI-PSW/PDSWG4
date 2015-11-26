@@ -25,7 +25,7 @@
                     <p:editor id="editor" widgetVar="editorWidget" value="#{problemaBean.problema}" width="600" />
 
                     <h:panelGrid columns="2" style="margin-top: 10px">
-                        <p:commandButton value="Submit" update="display" oncomplete="PF('dlg').show()" icon="ui-icon-disk" action="ReportarProblema"/>
+                        <p:commandButton value="Submit" update="display" oncomplete="PF('dlg').show()" icon="ui-icon-disk" action="ReportarProblema.xhtml"/>
 
                         <p:commandButton value="Clear" type="button" onclick="PF('editorWidget').clear();" icon="ui-icon-close" />
                     </h:panelGrid>

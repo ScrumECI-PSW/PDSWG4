@@ -107,6 +107,7 @@ public class ProblemaBean {
             this.descripcionReporteDiario = descripcionReporteDiario;
             ReportarUnDiario();
             this.bandera=false;
+            this.descripcionReporteDiario = "";
         }
         
     }
@@ -120,6 +121,7 @@ public class ProblemaBean {
         this.estadoProblema = estadoProblema;
         if(this.estadoProblema.equals("Terminado") & this.Prob!=null){
             f.actualizarEstadoProblema(Prob);
+            this.estadoProblema="selecccione estado";
         }
     }
     

@@ -38,7 +38,7 @@
                     <p:editor id="editor" widgetVar="editorWidget" value="#{problemaBean.descripcionReporteDiario}" width="600" />
 
                     <h:panelGrid columns="2" style="margin-top: 10px">
-                        <p:commandButton value="Reportar" update="display" oncomplete="PF('dlg').show()" icon="ui-icon-disk" action="ReporteDiario"/>
+                        <p:commandButton value="Reportar" update="display" oncomplete="PF('dlg').show()" icon="ui-icon-disk" action="ReporteDiario.xhtml"/>
 
                         <p:commandButton value="Clear" type="button" onclick="PF('editorWidget').clear();" icon="ui-icon-close" />
                     </h:panelGrid>
