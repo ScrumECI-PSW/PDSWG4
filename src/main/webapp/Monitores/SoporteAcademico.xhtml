@@ -45,11 +45,12 @@
                     
                     <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
                     <h:outputText value="Se soluciono?: " />
-                    <p:selectBooleanButton id="value1" value="#{selectBooleanView.value1}" onLabel="Si" offLabel="No" style="width:60px" />
+                    <p:selectBooleanButton id="value1" value="#{problemaBean.soporteSolucionado}" onLabel="Si" offLabel="No" style="width:60px" />
                     </h:panelGrid>
                     
-                    <p:editor id="temaProblema" widgetVar="editorWidget" value="#{problemaBean.tema}" width="600" /> 
-                    <p:commandButton value="Submit" oncomplete="PF('dlg').show()" icon="ui-icon-disk" />
+                    
+                    <p:inputTextarea rows="10" cols="50" completeMethod="#{problemaBean.comentariosSoporte}" queryDelay="750" minQueryLength="4" />
+                    <p:commandButton value="Submit" oncomplete="PF('dlg').show()" icon="ui-icon-disk" action="#{problemaBean.registarSoporte}"/>
                 </h:form>
             </p:layoutUnit>
             

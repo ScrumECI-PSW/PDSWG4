@@ -11,6 +11,7 @@ import Logica.Laboratorio;
 import Logica.ReporteDiario;
 import Logica.ReporteProblema;
 import Logica.SolicitudSoftware;
+import Logica.SoporteAcademico;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -49,9 +50,21 @@ public class ProblemaBean {
     private String tema = "";
     private LinkedList<Equipo> pv=null;
     private ReporteProblema Prob=null;
+    private boolean soporteSolucionado;
+    private String comentariosSoporte;
+
+    
     
     public ProblemaBean() {
      
+    }
+    
+    public String getComentariosSoporte() {
+        return comentariosSoporte;
+    }
+
+    public void setComentariosSoporte(String comentariosSoporte) {
+        this.comentariosSoporte = comentariosSoporte;
     }
     
     public String getTema() {
@@ -62,8 +75,18 @@ public class ProblemaBean {
         this.tema = tema;
         //reportarSoporteAcademico(); falta registrar el SoporteAcademico
     }
+
+    public boolean isSoporteSolucionado() {
+        return soporteSolucionado;
+    }
+
+    public void setSoporteSolucionado(boolean soporteSolucionado) {
+        this.soporteSolucionado = soporteSolucionado;
+    }
     
-     public String getLenguaje() {
+    
+    
+    public String getLenguaje() {
         return lenguaje;
     }
 
@@ -201,6 +224,10 @@ public class ProblemaBean {
     
     public void ReportarUnDiario(){
         f.registrarReporteDiario(new ReporteDiario(descripcionReporteDiario,Prob));
+    }
+    
+    public void registarSoporte(){
+        f.registrarSoporte(new SoporteAcademico());
     }
 /*
     public void reportarSoporteAcademico() {
