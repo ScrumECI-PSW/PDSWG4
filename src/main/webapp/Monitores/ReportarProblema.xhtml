@@ -28,10 +28,14 @@
                             <f:selectItems var="lab" value="#{problemaBean.laboratorios}" itemValue="#{lab.nombre}" />
                         </p:selectOneMenu> 
 
-                        <p:commandButton value="Elegir lab" update=":form3:equipos"> </p:commandButton>
+                        <p:commandButton value="Elegir lab" update=":form3:equipos" onclick="start()" widgetVar="Lab"> </p:commandButton>
 
-
+                        <br /><br />
+                        <p:progressBar id="progressBarClient" widgetVar="pbClient" style="width:300px"/>
                     </h:panelGrid >
+                    
+                    
+                    
                 </h:form>
                 <h:form id="form3">
                     <p:dataTable id="equipos" var="car1" value="#{problemaBean.equiposPorLaboratorio}" sortBy="#{car1.id}" rowKey="#{car1.id}" >
@@ -44,7 +48,7 @@
 
                         
                         <p:column headerText="REPORTAR PROBLEMA">
-                            <p:commandLink action="SolicitudReporte" value="Reportar Problema" >
+                            <p:commandLink action="SolicitudReporte" value="Reportar Problema" onclick="start()">
                                 <f:setPropertyActionListener value="#{car1}" target="#{problemaBean.equipo}"/>
                             </p:commandLink>
                         </p:column>
@@ -54,7 +58,35 @@
             </p:layoutUnit>
         </p:layout> 
 
-
+<script type="text/javascript">
+function start() {
+    cancel();
+    PF('Lab').disable();
+ 
+    window['progress'] = setInterval(function() {
+        var pbClient = PF('pbClient'),
+        oldValue = pbClient.getValue(),
+        newValue = oldValue + 50;
+ 
+        pbClient.setValue(pbClient.getValue() + 50);
+ 
+       
+        if(newValue === 100) {
+            clearInterval(window['progress']);
+            PF('Lab').enable();
+        }
+        
+ 
+    }, 1000);
+    
+}
+ 
+function cancel() {
+    clearInterval(window['progress']);
+    PF('pbClient').setValue(0);
+    
+}
+</script>
         </pre>  
     </h:body>
 </html>
