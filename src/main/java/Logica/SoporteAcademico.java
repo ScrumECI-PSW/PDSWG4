@@ -29,6 +29,9 @@ public class SoporteAcademico {
         this.comentario = comentario;
         this.id = 0;
     }
+    
+    public SoporteAcademico(){
+    }
 
     public int getId() {
         return id;

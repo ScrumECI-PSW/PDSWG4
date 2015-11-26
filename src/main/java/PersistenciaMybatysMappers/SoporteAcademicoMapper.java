@@ -20,7 +20,8 @@ import org.apache.ibatis.annotations.Select;
  */
 public interface SoporteAcademicoMapper {
     
-    @Insert("Insert into SoporteAcademico (ID, Monitor_ID, Solucionado, Lenguaje, Fecha, Tema, Comentarios) values(#{sa.id}, #{sa.monitor_id}, #{sa.solucionado}, #{sa.lenguaje}, #{sa.fecha}, #{sa.tema}, #{sa.comentario})")
+    @Insert("Insert into SoporteAcademico (Monitor_ID, Solucionado, Lenguaje, Fecha, Tema, Comentarios) values(#{sa.monitor_id}, #{sa.solucionado}, #{sa.lenguaje}, #{sa.fecha}, #{sa.tema}, #{sa.comentario})")
+    @Options(useGeneratedKeys=true,keyProperty = "sa.id")
     public void insertarSoporte(@Param(value="sa")SoporteAcademico s);
 
     @Select("Select * from SoporteAcademico where ID=#{num}")

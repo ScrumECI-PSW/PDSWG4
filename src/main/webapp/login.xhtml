@@ -5,7 +5,20 @@
 </h:head>
 <h:body>
     <h:form prependId="false">
+        
+            <p:panel id="panel" header="Bienvenido" style="margin-top:20px" >
+     
+        
+        <h:panelGrid columns="1"  >
+            <DIV  align="center" class="parrafos"></DIV>
+            <p><h:outputLabel for="name" value="Escuela Colombiana De Ingenieria Julio Garavito"   /></p>
+            <p><h:outputLabel for="name" value="Pagina Principal Login"/></p>
+        </h:panelGrid>
+                
         <h:panelGrid columns="2">
+                  
+
+        
             <h:outputText value="Login:"/>
             <p:inputText id="username" required="true" value="#{loginBean.username}"/>
 
@@ -20,6 +33,7 @@
         </h:panelGrid>
 
         <p:messages id="messages" autoUpdate="true" closable="true" />
+        </p:panel>
     </h:form>
 </h:body>
 </html>
