@@ -1,58 +1,38 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
-        xmlns:h="http://java.sun.com/jsf/html"
-        xmlns:f="http://java.sun.com/jsf/core"
-        xmlns:ui="http://java.sun.com/jsf/facelets"
-        xmlns:p="http://primefaces.org/ui">
-<h:head>
-</h:head>
-<h:body>
-    <pre> 
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+    </h:head>
+    <h:body>
+        <pre> 
     
-    <p:layout fullPage="true">
+<h:form>   
+ 
+    <p:panel id="panel" header="#{loginBean.subject.principal}" style="margin-top:20px" >
+        <p:messages id="messages" />
+                  
 
-        <p:layoutUnit  position="north">
-            <DIV  align="center" class="parrafos">
-                <P>Escuela Colombiana De Ingenieria Julio Garavito</P>
-                <P>PAGINA PRINCIPAL MONITOR</P>                
-            </DIV>                  
-            <DIV class="parrafos">
-                <h:outputLink value="../logout" >logout</h:outputLink>
-            </DIV>
-        </p:layoutUnit>
-        
-        <p:layoutUnit  position="center" >
-            
-                
-                <DIV  align="center" class="parrafos">
-                    <p:commandButton value="Reporte De Problemas" action="ReportarProblema"> </p:commandButton>  
+        <h:panelGrid columns="1"  >
+            <DIV  align="center" class="parrafos"></DIV>
+            <p><h:outputLabel for="name" value="Escuela Colombiana De Ingenieria Julio Garavito"   /></p>
+            <p><h:outputLabel for="name" value="Pagina Principal Monitor"/></p>
+            <p><h:outputLink value="../login.xhtml">Sign out</h:outputLink></p>
+        </h:panelGrid>
+ 
+    <h:panelGrid columns="2" cellpadding="5">
+                    <p:commandButton value="Reporte De Problemas" action="ReportarProblema" > </p:commandButton>  
                     <p:commandButton value="Reporte De Diario" action="ReporteDiario"> </p:commandButton>
-                </DIV>               
-                <DIV  align="center" class="parrafos">                
                     <p:commandButton value="Planeador de monitores" action="planeadorMonitores"> </p:commandButton>
-                    
-                </DIV>
-                      
-            
-            
-            
-        </p:layoutUnit>
+                    <p:commandButton value="Soporte Academico" action="SoporteAcademico"> </p:commandButton>
+         </h:panelGrid>           
+         
+       </p:panel>
+       </h:form>  
 
-        <p:layoutUnit position="south">
-            
-            
-            subject = <p:outputLabel value="#{loginBean.subject}"/>
-            principal = <p:outputLabel value="#{loginBean.subject.principal}"/>
-            session = <p:outputLabel value="#{loginBean.subject.session}"/>
-            role user = <p:outputLabel value="#{loginBean.subject.hasRole('user')}"/>
-            role admin = <p:outputLabel value="#{loginBean.subject.hasRole('admin')}"/>
-            role employee = <p:outputLabel value="#{loginBean.subject.hasRole('employee')}"/>
-        </p:layoutUnit>
-        
-        
+        </pre>
 
-    </p:layout>
-    </pre>
-        
-    
-</h:body>
+
+    </h:body>
 </html>

@@ -34,6 +34,7 @@ public class AppTest {
     public void clearDB() throws SQLException {
         Connection conn = DriverManager.getConnection("jdbc:h2:file:./target/db/testdb;MODE=MYSQL", "sa", "");
         Statement stmt = conn.createStatement();
+        stmt.execute("delete from SoporteAcademico");
         stmt.execute("delete from DiarioxProblema");
         stmt.execute("delete from ReporteDiario");
         stmt.execute("delete from SistemaOperativo");
@@ -44,7 +45,7 @@ public class AppTest {
         stmt.execute("delete from Equipo");
         stmt.execute("delete from Monitor");
         stmt.execute("delete from Laboratorio");
-        stmt.execute("delete from SoporteAcademico");
+        
         
       
         conn.commit();
@@ -275,7 +276,7 @@ public class AppTest {
      /*
         Se deben poder reportar los soportes academicos realizados, indicando si fue solucionado (True) o no (False)
      */
-     /*
+     
       @Test
      public void Reporta_Soporte_Academico() throws SQLException {
 	Connection conn = DriverManager.getConnection("jdbc:h2:file:./target/db/testdb;MODE=MYSQL", "sa", "");
@@ -290,8 +291,8 @@ public class AppTest {
         f.registrarMonitor(m1);
         f.registrarMonitor(m2);
      
-        SoporteAcademico s1=new SoporteAcademico(1,2100772, true,"C++",fecha,"Desarrollo","Fue posible dar el soporte");
-        SoporteAcademico s2=new SoporteAcademico(3,2101751, false,"Python",fecha,"Desarrollo","No fue posible dar el soporte porque no maneja el lenguaje");
+        SoporteAcademico s1=new SoporteAcademico(2100772, true,"C++",fecha,"Desarrollo","Fue posible dar el soporte");
+        SoporteAcademico s2=new SoporteAcademico(2101751, false,"Python",fecha,"Desarrollo","No fue posible dar el soporte porque no maneja el lenguaje");
         
                                           // id, int monitor_id, boolean solucionado, String lenguaje, Date fecha, String tema, String comentario
   
@@ -303,12 +304,12 @@ public class AppTest {
         assertTrue(orden.getFirst().isSolucionado() && orden.getLast().isSolucionado()==false);
         
      }
-       */ 
+       
     
      /*
         El sistema debe permiter conocer si fue posible o no dar el soporte academico 
      */    
-     /*
+     
       @Test
      public void Consulta_Soporte_Academico_resuelto() throws SQLException {
 	Connection conn = DriverManager.getConnection("jdbc:h2:file:./target/db/testdb;MODE=MYSQL", "sa", "");
@@ -341,6 +342,6 @@ public class AppTest {
         assertTrue(orden.getFirst()!=resueltos.getFirst());
         conn.close();
      }
-     */
+     
 } 
 
