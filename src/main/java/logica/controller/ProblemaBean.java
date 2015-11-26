@@ -49,6 +49,7 @@ public class ProblemaBean {
     private String tema = "";
     private LinkedList<Equipo> pv=null;
     private ReporteProblema Prob=null;
+    private boolean bandera = true;
     
     public ProblemaBean() {
      
@@ -76,8 +77,13 @@ public class ProblemaBean {
     }
 
     public void setDescripcionReporteDiario(String descripcionReporteDiario) {
-        this.descripcionReporteDiario = descripcionReporteDiario;
-        ReportarUnDiario();
+        if(this.bandera){
+            System.out.println("ENTRA A ACTUALIZAR");
+            this.descripcionReporteDiario = descripcionReporteDiario;
+            ReportarUnDiario();
+            this.bandera=false;
+        }
+        
     }
     
     public String getEstadoProblema() {
@@ -85,8 +91,9 @@ public class ProblemaBean {
     }
 
     public void setEstadoProblema(String estadoProblema) {
+        System.out.println("ENTRA A ACTUALIZAR "+estadoProblema);
         this.estadoProblema = estadoProblema;
-        if(this.estadoProblema.equals("Terminado")){
+        if(this.estadoProblema.equals("Terminado") & this.Prob!=null){
             f.actualizarEstadoProblema(Prob);
         }
     }
@@ -105,6 +112,7 @@ public class ProblemaBean {
     }
 
     public void setProb(ReporteProblema Prob) {
+        this.bandera=true;
         this.Prob = Prob;
     }
     
@@ -113,7 +121,6 @@ public class ProblemaBean {
     }
 
     public void setProblema(String problema) {
-        System.out.println(problema + "set");
         this.problema = problema;
         insertProblema();
     }
@@ -123,7 +130,6 @@ public class ProblemaBean {
     }
 
     public LinkedList<Equipo> getEquiposPorLaboratorio() {
-        System.out.println("intento hacer algo" + this.intento);
         if(this.intento){
             this.pv=f.consultarEquiposPorLaboratorio(Laboratorio);
             this.intento=false;
@@ -139,7 +145,6 @@ public class ProblemaBean {
     }
 
     public void setLaboratorio(String Laboratorio) {
-        System.out.println("Entro por aca");
         this.intento=true;
         this.Laboratorio = Laboratorio;
     }

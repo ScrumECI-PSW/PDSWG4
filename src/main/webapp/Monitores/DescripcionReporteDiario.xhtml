@@ -5,9 +5,10 @@
       xmlns:p="http://primefaces.org/ui">
     <h:head></h:head>
     <h:body>
+        <h:form id="form1"> 
 
-        <h:outputLink value="../logout">logout</h:outputLink>
-        <pre>  
+            <h:outputLink value="../logout">logout</h:outputLink>
+            <pre>  
         <p:layout fullPage="true">
             
             <p:layoutUnit position="north">
@@ -20,8 +21,20 @@
                 
             </p:layoutUnit>
             
-            <p:layoutUnit position="center">
-                <h:form id="form2"> 
+            <p:layoutUnit position="west" size="180">
+                            
+                    <p:selectOneMenu  value="#{problemaBean.estadoProblema}" >
+                        <f:selectItem itemLabel="selecccione estado" itemValue="seleccione estado" />
+                        <f:selectItem itemLabel="Avanzado" itemValue="Avanzado" />
+                        <f:selectItem itemLabel="Terminado" itemValue="Terminado"/>
+                    </p:selectOneMenu>  
+                
+                            
+                        
+            </p:layoutUnit>
+            
+            <p:layoutUnit position="center" >
+                
                     <p:editor id="editor" widgetVar="editorWidget" value="#{problemaBean.descripcionReporteDiario}" width="600" />
 
                     <h:panelGrid columns="2" style="margin-top: 10px">
@@ -34,10 +47,11 @@
                         <h:outputText id="display" value="#{problemaBean.descripcionReporteDiario}" escape="false" />
                     </p:dialog>
 
-                </h:form>
+                
             </p:layoutUnit>
 
         </p:layout>
-        </pre>
+            </pre>
+        </h:form>
     </h:body>
 </html>

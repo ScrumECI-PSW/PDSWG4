@@ -29,17 +29,8 @@
                         </p:column>
                         <p:column sortBy="#{car1.descripcion}" headerText="DESCRIPCION">
                             <h:outputText value="#{car1.descripcion}"/>
-                        </p:column>
+                        </p:column>                        
                         
-                        <p:column  headerText="REPORTAR AVANACE">
-                            
-                            <p:selectOneMenu  value="#{problemaBean.estadoProblema}" >
-                                <f:selectItem itemLabel="selecccione estado" itemValue="seleccione estado" />
-                                <f:selectItem itemLabel="Avanzado" itemValue="Avanzado" />
-                                <f:selectItem itemLabel="Terminado" itemValue="Terminado"/>
-                            </p:selectOneMenu>    
-                            
-                        </p:column>
                         
                         <p:column sortBy="#{car1.descripcion}" headerText="CONTINUAR">
                             <p:commandButton action="DescripcionReporteDiario" value="next" >
@@ -47,6 +38,8 @@
                             </p:commandButton>
                         </p:column>
                     </p:dataTable>
+                    
+                    <p:commandButton action="index" value="BACK" />        
                     
                 </h:form>
             </p:layoutUnit>

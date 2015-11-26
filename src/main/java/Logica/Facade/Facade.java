@@ -84,6 +84,7 @@ public class Facade {
         DaoFactory daof=DaoFactory.getInstance(properties);
         daof.beginSession();
         LinkedList<SoporteAcademico> soa=daof.getDaoSoporteAcademico().load();
+        daof.endSession();
         return soa;
     }
     
@@ -94,6 +95,7 @@ public class Facade {
         DaoFactory daof=DaoFactory.getInstance(properties);
         daof.beginSession();
         LinkedList<ReporteProblema> drp=daof.getDaoReporteProblema().load();
+        daof.endSession();
         return drp;
     }
     
@@ -133,6 +135,7 @@ public class Facade {
         DaoFactory daof=DaoFactory.getInstance(properties);
         daof.beginSession();
         LinkedList<SolicitudSoftware> ss=daof.getDaoSolicitudSoftware().load();
+        daof.endSession();
         return ss;
     }
     
@@ -143,6 +146,7 @@ public class Facade {
         DaoFactory daof=DaoFactory.getInstance(properties);
         daof.beginSession();
         LinkedList<SolicitudSoftware> ss=daof.getDaoSolicitudSoftware().load(true);
+        daof.endSession();
         return ss;
     }
     
@@ -185,7 +189,9 @@ public class Facade {
     public LinkedList consultarLaboratoriosConEquipoReporteProblemas() {
         DaoFactory daof=DaoFactory.getInstance(properties);
         daof.beginSession();
-        return daof.getDaoLaboratorio().EquiposReportados(); 
+        LinkedList list =daof.getDaoLaboratorio().EquiposReportados(); 
+        daof.endSession();
+        return list; 
     }
     /*
     @param: lab=Laboratorio del cual se quieren conocer los equipos con problemas
@@ -194,7 +200,9 @@ public class Facade {
     public LinkedList consultarEquiposProblemasLab(Laboratorio lab) {
         DaoFactory daof=DaoFactory.getInstance(properties);
         daof.beginSession();
-        return daof.getDaoEquipo().Reportados(lab); 
+        LinkedList list = daof.getDaoEquipo().Reportados(lab); 
+        daof.endSession();
+        return list;
     }
     
     /*
@@ -204,7 +212,9 @@ public class Facade {
     public LinkedList consultarReporteProblemasEquipos(Equipo eqq) {
         DaoFactory daof=DaoFactory.getInstance(properties);
         daof.beginSession();
-        return daof.getDaoReporteProblema().Reportes(eqq); 
+        LinkedList list = daof.getDaoReporteProblema().Reportes(eqq); 
+        daof.endSession();
+        return list;
     }
     
     /*
@@ -214,7 +224,7 @@ public class Facade {
         DaoFactory daof=DaoFactory.getInstance(properties);
         daof.beginSession();
         LinkedList list = daof.getDaoLaboratorio().getLaboratoriosProblemas();
-        
+        daof.endSession();
         return list;
     }
     
@@ -226,6 +236,7 @@ public class Facade {
         DaoFactory daof=DaoFactory.getInstance(properties);
         daof.beginSession();    
         LinkedList list = daof.getDaoEquipo().EquiposPorLaboratorio(n); 
+        daof.endSession();
         return list;
     }
 
@@ -233,8 +244,9 @@ public class Facade {
     public void actualizarEstadoProblema(ReporteProblema Prob) {
         DaoFactory daof=DaoFactory.getInstance(properties);
         daof.beginSession();
-        Prob.setEstado(true);
+        System.out.println("ENTRA A ACTUALIZAR");
         daof.getDaoReporteProblema().update(Prob);
+        daof.endSession();
     } 
     
     
@@ -254,6 +266,7 @@ public class Facade {
        DaoFactory daof=DaoFactory.getInstance(properties);
        daof.beginSession();    
        LinkedList list = daof.getDaoReporteDiario().consultar(rpp);
+       daof.endSession();
        return list; 
     }
 

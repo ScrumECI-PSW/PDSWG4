@@ -15,6 +15,7 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 /**
  *
@@ -52,6 +53,11 @@ public interface ReporteProblemaMapper {
 
     @Select("Select * from ReporteProblema where ID=#{num}")
     public ReporteProblema reporte(int num);
+    
+    
+    @Update("Update ReporteProblema set Estado=false where ID=#{pro.id}")
+    public void update(@Param(value="pro")ReporteProblema prob); 
+    
     
     
     

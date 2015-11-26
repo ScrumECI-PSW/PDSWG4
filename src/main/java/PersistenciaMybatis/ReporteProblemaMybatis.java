@@ -39,7 +39,7 @@ public class ReporteProblemaMybatis implements DaoReporteProblema {
 
     @Override
     public void update(ReporteProblema p) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        rpmap.update(p);
     }
 
     @Override
