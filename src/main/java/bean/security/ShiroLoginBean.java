@@ -43,7 +43,9 @@ public class ShiroLoginBean implements Serializable {
         Subject subject = SecurityUtils.getSubject();
 
         UsernamePasswordToken token = new UsernamePasswordToken(getUsername(), getPassword(), getRememberMe());
-
+        
+            
+        
         try {
             subject.login(token);
 

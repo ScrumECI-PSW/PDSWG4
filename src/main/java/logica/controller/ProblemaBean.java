@@ -23,6 +23,7 @@ import java.util.LinkedList;
 import java.util.SortedMap;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import org.apache.shiro.authc.UsernamePasswordToken;
 import org.primefaces.context.RequestContext;
 
 
@@ -86,8 +87,6 @@ public class ProblemaBean {
     public void setSoporteSolucionado(boolean soporteSolucionado) {
         this.soporteSolucionado = soporteSolucionado;
     }
-    
-    
     
     public String getLenguaje() {
         return lenguaje;
@@ -236,14 +235,10 @@ public class ProblemaBean {
     }
     
     public void registarSoporte(){
-        f.registrarSoporte(new SoporteAcademico());
-    }
-/*
-    public void reportarSoporteAcademico() {
-        f.registrarSoporte(new SoporteAcademico());
-    }
-    
-  */  
-    
-
+        System.out.println("llego a registrar soporte");
+        UsernamePasswordToken monitor=new UsernamePasswordToken();
+        java.util.Date d = new java.util.Date();
+        java.sql.Date fecha = new java.sql.Date(d.getDate());
+        f.registrarSoporte(new SoporteAcademico(2100772,soporteSolucionado,lenguaje,fecha,tema,comentariosSoporte));
+    } 
 }
