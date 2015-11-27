@@ -5,17 +5,20 @@
       xmlns:p="http://primefaces.org/ui">
     <h:head></h:head>
     <h:body>
-        <h:outputLink value="../logout">logout</h:outputLink>
+     
         <pre>  
-        <p:layout fullPage="true">
+        <p:panel id="panel" header="#{loginBean.subject.principal}" style="margin-top:20px" >
             
-            <p:layoutUnit position="north">
-                <DIV  align="center" class="parrafos">
-                    <P>Escuela Colombiana De Ingenieria Julio Garavito</P>
-                </DIV>                
-            </p:layoutUnit>
             
-            <p:layoutUnit position="center">
+            <h:panelGrid columns="1"  >
+                <p:graphicImage value="./imagenes/imagen.jpg" />
+                <p><h:outputLabel for="panel" value="Escuela Colombiana De Ingenieria Julio Garavito"   /></p>
+                <p><h:outputLabel for="panel" value="Solicitud Academica"/></p>
+                <p><h:outputLink value="../login.xhtml">Sign out</h:outputLink></p>
+                
+           </h:panelGrid>
+            
+            <h:panelGrid columns="2" cellpadding="5">
                 <h:form id="form2">  
                     <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
                     <p:outputLabel for="lenguajeP" value="Lenguaje de programacion utilizado:" />
@@ -61,23 +64,12 @@
                       <h:outputText id="display" value="#{problemaBean.comentariosSoporte}" escape="false" />
                     </p:dialog>
                     
-                    <!--
-                    <p:inputTextarea rows="10" cols="50" completeMethod="{problemaBean.comentariosSoporte}" queryDelay="750" minQueryLength="4" />
-                    
-                    
-                    <h:panelGrid columns="2" style="margin-top: 10px">
-                        <p:commandButton value="REGISTRAR" update="display" oncomplete="PF('dlg').show()" icon="ui-icon-disk" action="index.xhtml"/>
-                        <p:commandButton action="index.xhtml" value="BACK" />
-                    </h:panelGrid>
-                    <p:dialog header="Content" widgetVar="dlg" showEffect="fade" hideEffect="fade">
-                        <h:outputText id="display" value="{problemaBean.registarSoporte}" escape="false" />
-                    </p:dialog>
-                    -->
+                 
                 </h:form>
-            </p:layoutUnit>
+            </h:panelGrid>
             
             
-        </p:layout>
+       </p:panel>
         </pre>
     </h:body>
 </html>

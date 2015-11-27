@@ -8,16 +8,17 @@
         <h:outputLink value="../logout">logout</h:outputLink>
         <pre>  
         
-        <p:layout fullPage="true">
+        <p:panel id="panel" header="#{loginBean.subject.principal}" style="margin-top:20px" >
             
-            <p:layoutUnit position="north">
-                <DIV  align="center" class="parrafos">
-                    <P>Escuela Colombiana De Ingenieria Julio Garavito</P>
-                    <P>Reporte de Problemas</P>
-                </DIV>               
-            </p:layoutUnit>
+            <h:panelGrid columns="1"  >
+                <p:graphicImage value="./imagenes/imagen.jpg" />
+                <p><h:outputLabel for="panel" value="Escuela Colombiana De Ingenieria Julio Garavito"   /></p>
+                <p><h:outputLabel for="panel" value="Reportar Problema"/></p>
+                <p><h:outputLink value="../login.xhtml">Sign out</h:outputLink></p>
+                
+           </h:panelGrid>
             
-            <p:layoutUnit position="center"> 
+            <h:panelGrid columns="2" cellpadding="5">
                 <h:form id="form1">
                     <h:panelGrid columns="2" style="margin-top: 10px">
                         
@@ -58,8 +59,8 @@
                     </p:dataTable>
                     <p:commandButton action="index.xhtml" value="BACK" />   
                 </h:form>
-            </p:layoutUnit>
-        </p:layout> 
+            </h:panelGrid>
+       </p:panel>
 
 <script type="text/javascript">
 function start() {

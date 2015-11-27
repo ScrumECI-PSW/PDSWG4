@@ -4,14 +4,19 @@
 <h:head>
 </h:head>
 <h:body>
-    Application root page
-    <br></br>
-    <h:outputLink value="restricted/">Admin</h:outputLink>
-    <br></br>
-    <h:outputLink value="employees/">Employees</h:outputLink>
-    <br></br>   
-    <h:outputLink value="open/">Open content</h:outputLink>
-    
+    <p:panel id="panel" header="Bienvenido" style="margin-top:20px" >
+        <h:form>
+        <h:panelGrid columns="1"  >
+            
+            <p:graphicImage value="./imagenes/imagen.jpg" />
+            <p><h:outputLabel for="panel" value="Escuela Colombiana De Ingenieria Julio Garavito"   /></p>
+            <p><h:outputLabel for="panel" value="Pagina Principal"/></p>
+        </h:panelGrid>
+         <h:panelGrid columns="2" cellpadding="5">
+                    <p:commandButton value="Login" action="login.xhtml" > </p:commandButton> 
+          </h:panelGrid>   
+            </h:form>
+    </p:panel>
     
     
     

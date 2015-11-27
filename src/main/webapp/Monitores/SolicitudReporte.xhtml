@@ -8,19 +8,17 @@
 
         <h:outputLink value="../logout">logout</h:outputLink>
         <pre>  
-        <p:layout fullPage="true">
+        <p:panel id="panel" header="#{loginBean.subject.principal}" style="margin-top:20px" >
             
-            <p:layoutUnit position="north">
-                <DIV  align="center" class="parrafos">
-                    <P>Escuela Colombiana De Ingenieria Julio Garavito</P>
-                </DIV>
-                <DIV class="parrafos">
-                    <P>Ingrese la Descripción del Problema : </P>
-                </DIV>  
+            <h:panelGrid columns="1"  >
+                <p:graphicImage value="./imagenes/imagen.jpg" />
+                <p><h:outputLabel for="panel" value="Escuela Colombiana De Ingenieria Julio Garavito"   /></p>
+                <p><h:outputLabel for="panel" value="Reportar Problema"/></p>
+                <p><h:outputLink value="../login.xhtml">Sign out</h:outputLink></p>
                 
-            </p:layoutUnit>
+           </h:panelGrid>
             
-            <p:layoutUnit position="center">
+            <h:panelGrid columns="2" cellpadding="5">
                 <h:form id="form2"> 
                     <p:editor id="editor" widgetVar="editorWidget" value="#{problemaBean.problema}" width="600" />
 
@@ -35,9 +33,9 @@
                     </p:dialog>
 
                 </h:form>
-            </p:layoutUnit>
+            </h:panelGrid>
 
-        </p:layout>
+       </p:panel>
         </pre>
     </h:body>
 </html>

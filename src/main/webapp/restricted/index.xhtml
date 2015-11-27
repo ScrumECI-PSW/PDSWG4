@@ -4,16 +4,17 @@
 <h:head>
 </h:head>
 <h:body>
-    <h1>RESTRICTED PAGE!</h1>
-    <h:outputLink value="../logout">logout</h:outputLink>
-    <pre>     
-    subject = <p:outputLabel value="#{loginBean.subject}"/>
-    principal = <p:outputLabel value="#{loginBean.subject.principal}"/>
-    session = <p:outputLabel value="#{loginBean.subject.session}"/>
-    role user = <p:outputLabel value="#{loginBean.subject.hasRole('user')}"/>
-    role admin = <p:outputLabel value="#{loginBean.subject.hasRole('admin')}"/>
-    role employee = <p:outputLabel value="#{loginBean.subject.hasRole('employee')}"/>
-    </pre>
+    <h1></h1>
+    <p:panel id="panel" header="Pagina Restringida!" style="margin-top:20px" >
+         
+        <h:panelGrid columns="1"  >
+            
+            <p:graphicImage value="./imagenes/imagen.jpg" />
+            <p><h:outputLabel for="panel" value="Escuela Colombiana De Ingenieria Julio Garavito"   /></p>
+            <p><h:outputLabel for="panel" value="Pagina Restringida"/></p>
+            <p><h:outputLink value="../login.xhtml">Sign out</h:outputLink></p>
+        </h:panelGrid>
+    </p:panel>
         
     
 </h:body>
