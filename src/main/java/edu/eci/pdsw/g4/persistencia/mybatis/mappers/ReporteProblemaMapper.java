@@ -28,7 +28,7 @@ public interface ReporteProblemaMapper {
             @Result(column="ID", property = "id"),
             @Result(column="Fecha", property = "fecha"),
             @Result(column="Descripcion", property = "descripcion"),
-            @Result(property = "equipo",one = @One(select ="PersistenciaMybatysMappers.EquipoMapper.getEquipo"),column="Equipo_ID")
+            @Result(property = "equipo",one = @One(select ="edu.eci.pdsw.g4.persistencia.mybatis.mappers.EquipoMapper.getEquipo"),column="Equipo_ID")
         }
     )
     LinkedList<ReporteProblema> reportesProblemas();
@@ -46,7 +46,7 @@ public interface ReporteProblemaMapper {
             @Result(column="ID", property = "id"),
             @Result(column="Fecha", property = "fecha"),
             @Result(column="Descripcion", property = "descripcion"),
-            @Result(property = "equipo",one = @One(select ="PersistenciaMybatysMappers.EquipoMapper.getEquipo"),column="Equipo_ID")
+            @Result(property = "equipo",one = @One(select ="edu.eci.pdsw.g4.persistencia.mybatis.mappers.EquipoMapper.getEquipo"),column="Equipo_ID")
         }
     )
     LinkedList<ReporteProblema> reportesProb(@Param(value="eqq") Equipo eqq);

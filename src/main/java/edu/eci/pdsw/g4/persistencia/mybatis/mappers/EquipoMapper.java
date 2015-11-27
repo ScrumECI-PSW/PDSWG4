@@ -29,7 +29,7 @@ public interface EquipoMapper {
                 @Result(column = "ID", property = "id"),
                 @Result(column = "Descripcion", property = "descripcion"),
                 @Result(column = "Estado", property = "estado"),
-                @Result(property = "laboratorio", one = @One(select = "PersistenciaMybatysMappers.LaboratorioMapper.getLaboratorio"), column = "Laboratorio_ID")
+                @Result(property = "laboratorio", one = @One(select = "edu.eci.pdsw.g4.persistencia.mybatis.mappers.LaboratorioMapper.getLaboratorio"), column = "Laboratorio_ID")
             }
     )
     Equipo getEquipo(@Param(value = "n") int n);
@@ -40,7 +40,7 @@ public interface EquipoMapper {
                 @Result(column = "ID", property = "id"),
                 @Result(column = "Descripcion", property = "descripcion"),
                 @Result(column = "Estado", property = "estado"),
-                @Result(property = "laboratorio", one = @One(select = "PersistenciaMybatysMappers.LaboratorioMapper.getLaboratorio"), column = "Laboratorio_ID")
+                @Result(property = "laboratorio", one = @One(select = "edu.eci.pdsw.g4.persistencia.mybatis.mappers.LaboratorioMapper.getLaboratorio"), column = "Laboratorio_ID")
             }
     )
     LinkedList<Equipo> getEquipoLab(@Param(value = "n") String n);
@@ -55,7 +55,7 @@ public interface EquipoMapper {
                 @Result(column = "ID", property = "id"),
                 @Result(column = "Descripcion", property = "descripcion"),
                 @Result(column = "Estado", property = "estado"),
-                @Result(property = "laboratorio", one = @One(select = "PersistenciaMybatysMappers.LaboratorioMapper.getLaboratorio"), column = "Laboratorio_ID")
+                @Result(property = "laboratorio", one = @One(select = "edu.eci.pdsw.g4.persistencia.mybatis.mappers.LaboratorioMapper.getLaboratorio"), column = "Laboratorio_ID")
             }
     )
     LinkedList<Equipo>  Reportados(@Param(value="lab")Laboratorio lab);

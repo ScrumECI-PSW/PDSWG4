@@ -19,7 +19,7 @@
     </environments>
         
     <mappers>
-        <package name="PersistenciaMybatysMappers"/>
+        <package name="edu.eci.pdsw.g4.persistencia.mybatis.mappers"/>
     </mappers> 
         
 </configuration>
