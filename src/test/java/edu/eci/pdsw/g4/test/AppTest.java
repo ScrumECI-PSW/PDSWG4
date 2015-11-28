@@ -276,6 +276,60 @@ public class AppTest {
      }
      
      
+     /*Se realiza el registro de avances en un problema*/
+     @Test
+     public void RegistrarTerminacionProblemaTest() throws SQLException {
+       
+        Laboratorio lb1=new Laboratorio("redes","holaMundo");
+        Laboratorio lb=new Laboratorio("plataformas","holaMundo");
+        Equipo eq= new Equipo(2101240,"holaMundo",true, lb);
+        Equipo eq1= new Equipo(21012,"holaMundo",true, lb1);
+        Equipo eq2= new Equipo(2101,"holaMundo",true, lb);
+        ReporteProblema rpp=new ReporteProblema(eq, "Nofunciona", true,22,10,2015);
+        ReporteProblema rpp2=new ReporteProblema(eq2, "Nofunciona", true,22,10,2015);
+        ReporteDiario rpd=new ReporteDiario("A10%",rpp);
+        ReporteDiario rpd1=new ReporteDiario("A50%",rpp);
+        ReporteDiario rpd2=new ReporteDiario("A60%",rpp);
+        ReporteDiario rpd3=new ReporteDiario("Terminacion",rpp);
+        ReporteDiario rpd4=new ReporteDiario("A60%",rpp2);
+        ReporteDiario rpd5=new ReporteDiario("Terminacion",rpp2);
+        
+        Facade f=Facade.getInstance("h2-applicationconfig.properties");
+        f.registrarLaboratorio(lb);
+        f.registrarLaboratorio(lb1);
+        f.registrarEquipo(eq);
+        f.registrarEquipo(eq1);
+        f.registrarEquipo(eq2);
+        f.registrarReporte(rpp);
+        f.registrarReporte(rpp2);
+        f.registrarReporteDiario(rpd);
+        f.registrarReporteDiario(rpd1);
+        f.registrarReporteDiario(rpd2);
+        f.registrarReporteDiario(rpd3);
+        f.registrarReporteDiario(rpd4);
+        f.registrarReporteDiario(rpd5);
+        f.actualizarEstadoProblema(rpp);
+        f.actualizarEstadoProblema(rpp2);
+        LinkedList<ReporteDiario> rd= f.consultarReporteDiario(rpp2);
+        rd.addAll(f.consultarReporteDiario(rpp));
+        Iterator<ReporteDiario> i= rd.iterator();
+        int count=0;
+        int countT=0;
+        while (i.hasNext()){
+            ReporteDiario r=i.next();
+            if(rpd.getId()==r.getId() || rpd1.getId()==r.getId() || rpd2.getId()==r.getId()
+                    || rpd3.getId()==r.getId() || rpd4.getId()==r.getId() || rpd5.getId()==r.getId())
+            {
+                if(!r.getReporteProblema().getEstado()){
+                    countT++;
+                }
+                count++;
+            }
+        }
+        assertTrue("Avances incompletos y Reportes Terminados" ,count==6 & countT==6);
+     }
+     
+     
      /*
         Se deben poder reportar los soportes academicos realizados, indicando si fue solucionado (True) o no (False)
      */

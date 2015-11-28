@@ -59,7 +59,6 @@ public class EquipoMybatis implements DaoEquipo{
 
     @Override
     public LinkedList EquiposPorLaboratorio(String n) {
-        System.out.println("llamada base de datos");
         return rpmap.getEquipoLab(n);
     }
 

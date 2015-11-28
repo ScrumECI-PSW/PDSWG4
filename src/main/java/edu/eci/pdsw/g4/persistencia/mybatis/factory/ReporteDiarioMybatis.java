@@ -31,8 +31,8 @@ public class ReporteDiarioMybatis implements DaoReporteDiario{
         rpmap.insertarDiario(lb);
     }
     
+    @Override
     public void insertarDairioxProblema(ReporteDiario lb){
-        System.out.println(lb.getId() +" "+ lb.getReporteProblema().getId());
         rpmap.insertarDiarioxProblema(lb.getId(), lb.getReporteProblema().getId());
     }
 

@@ -46,13 +46,23 @@ public interface ReporteProblemaMapper {
             @Result(column="ID", property = "id"),
             @Result(column="Fecha", property = "fecha"),
             @Result(column="Descripcion", property = "descripcion"),
+            @Result(column="estado", property = "estado"),
             @Result(property = "equipo",one = @One(select ="edu.eci.pdsw.g4.persistencia.mybatis.mappers.EquipoMapper.getEquipo"),column="Equipo_ID")
         }
     )
     LinkedList<ReporteProblema> reportesProb(@Param(value="eqq") Equipo eqq);
 
-    @Select("Select * from ReporteProblema where ID=#{num}")
-    public ReporteProblema reporte(int num);
+    @Select("Select * from ReporteProblema where ID=#{eqq}")
+    @Results(
+        value={
+            @Result(column="ID", property = "id"),
+            @Result(column="Fecha", property = "fecha"),
+            @Result(column="Descripcion", property = "descripcion"),
+            @Result(column="estado", property = "estado"),
+            @Result(property = "equipo",one = @One(select ="edu.eci.pdsw.g4.persistencia.mybatis.mappers.EquipoMapper.getEquipo"),column="Equipo_ID")
+        }
+    )
+    ReporteProblema reporte(@Param(value="eqq") int eqq);
     
     
     @Update("Update ReporteProblema set Estado=false where ID=#{pro.id}")

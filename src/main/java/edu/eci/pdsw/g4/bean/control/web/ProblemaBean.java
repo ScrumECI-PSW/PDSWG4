@@ -225,7 +225,6 @@ public class ProblemaBean {
             this.pv=f.consultarEquiposPorLaboratorio(laboratorio);
             this.intento=false;
             this.intentoLab=true;
-            System.out.println(this.pv.size());
         }
         return this.pv;
 

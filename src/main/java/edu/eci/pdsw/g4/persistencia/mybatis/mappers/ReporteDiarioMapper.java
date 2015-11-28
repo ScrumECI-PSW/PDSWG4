@@ -10,6 +10,7 @@ import edu.eci.pdsw.g4.logica.estructura.ReporteDiario;
 import edu.eci.pdsw.g4.logica.estructura.ReporteProblema;
 import java.util.LinkedList;
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.One;
 import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Result;
@@ -30,14 +31,15 @@ public interface ReporteDiarioMapper {
     void insertarDiarioxProblema(@Param(value="rp")int lb , @Param(value="eq")int rp );
     
      
-    @Select("Select rep.ID, rep.descripcion from ReporteDiario as rep JOIN DiarioxProblema as dp ON rep.ID = dp.ReporteDiario_ID JOIN ReporteProblema as rp ON rp.ID=dp.ReporteProblema_ID")
+    @Select("Select rep.ID, rep.descripcion, dp.ReporteProblema_ID from ReporteDiario as rep JOIN DiarioxProblema as dp ON rep.ID = dp.ReporteDiario_ID JOIN ReporteProblema as rp ON rp.ID=dp.ReporteProblema_ID where dp.ReporteProblema_ID = #{rp.id}")
          @Results(
             value={             
             @Result(column="rep.ID", property = "id"),
             @Result(column="repo.descripcion", property = "Descripcion"),
+            @Result(property = "reporteProblema", one = @One(select = "edu.eci.pdsw.g4.persistencia.mybatis.mappers.ReporteProblemaMapper.reporte"), column = "ReporteProblema_ID")
             }
          )
-    public LinkedList<ReporteDiario> Consultar(ReporteProblema rp);
+    public LinkedList<ReporteDiario> Consultar(@Param(value="rp")ReporteProblema rp);
     
     
     

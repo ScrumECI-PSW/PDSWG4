@@ -244,8 +244,8 @@ public class Facade {
     public void actualizarEstadoProblema(ReporteProblema Prob) {
         DaoFactory daof=DaoFactory.getInstance(properties);
         daof.beginSession();
-        System.out.println("ENTRA A ACTUALIZAR");
         daof.getDaoReporteProblema().update(Prob);
+        daof.commitTransaction();
         daof.endSession();
     } 
     

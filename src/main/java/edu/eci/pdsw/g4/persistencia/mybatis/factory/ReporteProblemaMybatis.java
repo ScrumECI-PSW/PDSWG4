@@ -40,6 +40,7 @@ public class ReporteProblemaMybatis implements DaoReporteProblema {
     @Override
     public void update(ReporteProblema p) {
         rpmap.update(p);
+        
     }
 
     @Override
