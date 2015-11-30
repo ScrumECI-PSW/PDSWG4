@@ -84,10 +84,11 @@ public class AppTest {
   }
   @Test
   public void RegistroReporteProblemaTest() throws SQLException {
-        
+        java.util.Date d = new java.util.Date();
+        java.sql.Date fecha = new java.sql.Date(d.getDate());
         Laboratorio lb=new Laboratorio("1","holaMundo");
         Equipo eq= new Equipo(2101240,"holaMundo",true, lb);
-        ReporteProblema rpp=new ReporteProblema(eq, "HOLAMUNDO", true,22,10,2015);
+        ReporteProblema rpp=new ReporteProblema(eq, "HOLAMUNDO", true,fecha);
         Facade f=Facade.getInstance("h2-applicationconfig.properties");
         f.registrarLaboratorio(lb);
         f.registrarEquipo(eq);
@@ -110,13 +111,14 @@ public class AppTest {
   
   @Test
   public void SegunLaboratorioReporteProblemaTest() throws SQLException {
-        
+        java.util.Date d = new java.util.Date();
+        java.sql.Date fecha = new java.sql.Date(d.getDate());
         Laboratorio lb1=new Laboratorio("2","holaMundo");
         Laboratorio lb=new Laboratorio("1","holaMundo");
         Equipo eq= new Equipo(2101240,"holaMundo",true, lb);
         Equipo eq1= new Equipo(21012,"holaMundo",true, lb1);
         Equipo eq2= new Equipo(2101,"holaMundo",true, lb);
-        ReporteProblema rpp=new ReporteProblema(eq, "HOLAMUNDO", true,22,10,2015);
+        ReporteProblema rpp=new ReporteProblema(eq, "HOLAMUNDO", true,fecha);
         Facade f=Facade.getInstance("h2-applicationconfig.properties");
         f.registrarLaboratorio(lb);
         f.registrarLaboratorio(lb1);
@@ -241,13 +243,15 @@ public class AppTest {
      /*Se realiza el registro de avances en un problema*/
      @Test
      public void RegistrarAvanceProblemaTest() throws SQLException {
-       
+        java.util.Date d = new java.util.Date();
+        java.sql.Date fecha = new java.sql.Date(d.getDate()); 
+         
         Laboratorio lb1=new Laboratorio("redes","holaMundo");
         Laboratorio lb=new Laboratorio("plataformas","holaMundo");
         Equipo eq= new Equipo(2101240,"holaMundo",true, lb);
         Equipo eq1= new Equipo(21012,"holaMundo",true, lb1);
         Equipo eq2= new Equipo(2101,"holaMundo",true, lb);
-        ReporteProblema rpp=new ReporteProblema(eq, "Nofunciona", true,22,10,2015);
+        ReporteProblema rpp=new ReporteProblema(eq, "Nofunciona", true,fecha);
         ReporteDiario rpd=new ReporteDiario("A10%",rpp);
         ReporteDiario rpd1=new ReporteDiario("A50%",rpp);
         ReporteDiario rpd2=new ReporteDiario("A60%",rpp);
@@ -279,14 +283,16 @@ public class AppTest {
      /*Se realiza el registro de avances en un problema*/
      @Test
      public void RegistrarTerminacionProblemaTest() throws SQLException {
-       
+        java.util.Date d = new java.util.Date();
+        java.sql.Date fecha = new java.sql.Date(d.getDate()); 
+         
         Laboratorio lb1=new Laboratorio("redes","holaMundo");
         Laboratorio lb=new Laboratorio("plataformas","holaMundo");
         Equipo eq= new Equipo(2101240,"holaMundo",true, lb);
         Equipo eq1= new Equipo(21012,"holaMundo",true, lb1);
         Equipo eq2= new Equipo(2101,"holaMundo",true, lb);
-        ReporteProblema rpp=new ReporteProblema(eq, "Nofunciona", true,22,10,2015);
-        ReporteProblema rpp2=new ReporteProblema(eq2, "Nofunciona", true,22,10,2015);
+        ReporteProblema rpp=new ReporteProblema(eq, "Nofunciona", true,fecha);
+        ReporteProblema rpp2=new ReporteProblema(eq2, "Nofunciona", true,fecha);
         ReporteDiario rpd=new ReporteDiario("A10%",rpp);
         ReporteDiario rpd1=new ReporteDiario("A50%",rpp);
         ReporteDiario rpd2=new ReporteDiario("A60%",rpp);

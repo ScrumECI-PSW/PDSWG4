@@ -70,6 +70,7 @@ public class Facade {
     @param: sa es el soporte academico que se hiz y se desea registrar en la base de datos
     */
     public void registrarSoporte(SoporteAcademico sa){
+        System.out.println("llego al facade");
         DaoFactory daof=DaoFactory.getInstance(properties);
         daof.beginSession();
         daof.getDaoSoporteAcademico().save(sa);

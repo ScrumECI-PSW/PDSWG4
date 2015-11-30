@@ -12,6 +12,7 @@ import edu.eci.pdsw.g4.logica.estructura.ReporteDiario;
 import edu.eci.pdsw.g4.logica.estructura.ReporteProblema;
 import edu.eci.pdsw.g4.logica.estructura.SolicitudSoftware;
 import edu.eci.pdsw.g4.logica.estructura.SoporteAcademico;
+import java.io.IOException;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -23,6 +24,7 @@ import java.util.LinkedList;
 import java.util.SortedMap;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.primefaces.context.RequestContext;
 
@@ -90,7 +92,6 @@ public class ProblemaBean {
      */
     public void setTema(String tema) {
         this.tema = tema;
-        //reportarSoporteAcademico(); falta registrar el SoporteAcademico
     }
     /**
      * 
@@ -306,9 +307,13 @@ public class ProblemaBean {
      * Registra un reporte de problema de un equipo de un laboratorio de la decanatura de sistema seleccionado
      */
     public void insertProblema() {
-        java.util.Date fecha=new java.util.Date();
+        
+        
+        java.util.Date d = new java.util.Date();
+        java.sql.Date fecha = new java.sql.Date(d.getTime());
+        
         this.equipo.setEstado(true);
-        this.prob = new ReporteProblema(equipo, this.problema, true,fecha.getDay(), fecha.getMonth(), fecha.getYear());
+        this.prob = new ReporteProblema(equipo, this.problema, true,fecha);
         f.registrarReporte(this.prob);
        
     }
@@ -332,10 +337,11 @@ public class ProblemaBean {
     /**
      * 
      */
-    public void registarSoporte(){
+    public void registarSoporte() throws IOException{
         UsernamePasswordToken monitor=new UsernamePasswordToken();
         java.util.Date d = new java.util.Date();
-        java.sql.Date fecha = new java.sql.Date(d.getDate());
+        java.sql.Date fecha = new java.sql.Date(d.getTime());
         f.registrarSoporte(new SoporteAcademico(2100772,soporteSolucionado,lenguaje,fecha,tema,comentariosSoporte));
+        FacesContext.getCurrentInstance().getExternalContext().redirect("index.xhtml");
     } 
 }
