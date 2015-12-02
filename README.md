@@ -48,5 +48,7 @@ Soporte Academico
 3. Haciendo click varias veces sobre el boton "SI/NO", indique si fue posible 
 o no dar el soporte. 
 4. Ingrese los comentarios respectivos al soporte.
-5. Finalmente, seleccione el boton "Registrar".
+5. Seleccione el boton "Registrar".
+6. Ingrese nuevamente el codigo del monitor que hizo el soporte.
+7. Finalmente, seleccione "CONFIRMAR".
 ```

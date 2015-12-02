@@ -51,14 +51,20 @@
                     <p:selectBooleanButton id="value1" value="#{problemaBean.soporteSolucionado}" onLabel="Si" offLabel="No" style="width:60px" />
                     </h:panelGrid>
                     
+                    
                     <h:outputText value="Comentarios:" />
                     
                     <p:editor id="editor" widgetVar="editorWidget" value="#{problemaBean.comentariosSoporte}" width="600" />
  
                     <h:panelGrid columns="2" style="margin-top: 10px">
-                        <p:commandButton value="REGISTRAR" oncomplete="PF('dlg').show()" icon="ui-icon-disk" actionListener="#{problemaBean.registarSoporte}" />
+                        <p:commandButton value="REGISTRAR"  onclick="PF('dialogo').show();" />
                         <p:commandButton action="index.xhtml" value="BACK" />
                     </h:panelGrid>
+                    
+                   <p:dialog id="confirmaUsuario" header="Confirme su usuario" widgetVar="dialogo" modal="true" height="100">
+                        <h:inputText   value="#{problemaBean.idMonitor}"/>
+                        <p:commandButton value="CONFIRMAR" oncomplete="PF('dlg').show()" icon="ui-icon-disk" actionListener="#{problemaBean.registarSoporte}"/>
+                    </p:dialog>   
                     
                 </h:form>
             </h:panelGrid>

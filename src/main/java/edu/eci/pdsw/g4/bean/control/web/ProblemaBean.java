@@ -5,6 +5,7 @@
  */
 package edu.eci.pdsw.g4.bean.control.web;
 
+import edu.eci.pdsw.g4.bean.control.seguridad.ShiroLoginBean;
 import edu.eci.pdsw.g4.logica.estructura.Equipo;
 import edu.eci.pdsw.g4.logica.facade.Facade;
 import edu.eci.pdsw.g4.logica.estructura.Laboratorio;
@@ -23,6 +24,7 @@ import javax.faces.bean.ManagedBean;
 import java.util.LinkedList;
 import java.util.SortedMap;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import org.apache.shiro.authc.UsernamePasswordToken;
@@ -53,70 +55,86 @@ public class ProblemaBean {
     private String tema = "";
     private LinkedList<Equipo> pv=null;
     private ReporteProblema prob=null;
-
     private boolean bandera = true;
-
     private boolean soporteSolucionado;
     private String comentariosSoporte="";
-
-
+    private int idMonitor;
     
-    public ProblemaBean() {
-     
+    
+    
+    /**
+     * Retorna el id del monitor que brindo el Soporte Academico 
+    @return idMonitor Carnet del monitor
+    */
+    public int getIdMonitor() {
+        return idMonitor;
+    }
+
+    /**
+     * Ingresa en carnet del Monitor que hace el Soporte Academico
+     * @param idMonitor Carnet del monitor
+     */
+    public void setIdMonitor(int idMonitor) {
+        this.idMonitor = idMonitor;
     }
     
     /**
-     * 
-    @return 
-    */
+     * Retorna los comentarios hechos por el monitor en el Soporte Academico
+     * @param comentariosSoporte Comentarios del Soporte Academico
+     */
     public String getComentariosSoporte() {
         return comentariosSoporte;
     }
+    
     /**
-     * 
-     * @param comentariosSoporte 
+     * Ingresa los comentarios que el Monitor hace en cada Soporte Academico 
+     * @param comentariosSoporte Comentarios de los Soportes Academicos
      */
     public void setComentariosSoporte(String comentariosSoporte) {
         this.comentariosSoporte = comentariosSoporte;
     }
+    
     /**
-     * 
-     * @return 
+     * Retorna el tema sobre el que se realizo el Soporte Academico
+     * @param tema Tema del Soporte Academico 
      */
     public String getTema() {
         return tema;
     }
+    
     /**
-     * 
-     * @param tema 
+     * Ingresa el tema por sobre el que se realizo el Soporte Academico
+     * @param tema Tema del Soporte Academico 
      */
     public void setTema(String tema) {
         this.tema = tema;
     }
+    
     /**
-     * 
-     * @return 
+     * Retorna true si esta solucionado o false si no esta solucionado el Soporte Academico
+     * @return soporteSolucionado valor con el que se sabe si esta o no solucionado el Soporte Academico 
      */
     public boolean isSoporteSolucionado() {
         return soporteSolucionado;
     }
+    
     /**
-     * 
-     * @param soporteSolucionado 
+     * Ingresa si se pudo solucionar o no el Soporte Academico asignado
+     * @param soporteSolucionado valor con el que se sabe si esta o no solucionado el Soporte Academico 
      */
     public void setSoporteSolucionado(boolean soporteSolucionado) {
         this.soporteSolucionado = soporteSolucionado;
     }
     /**
-     * 
-     * @return 
+     * Retorna el lenguaje de programacion en el que se brindo el Soporte Academico
+     * @return lenguaje Lenguaje de programacion 
      */
     public String getLenguaje() {
         return lenguaje;
     }
     /**
-     * 
-     * @param lenguaje 
+     * Ingresa el lenguaje de programacion en el que se brindo el Soporte Academico
+     * @param lenguaje Lenguaje de programacion en el que se brindo el Soporte Academico
      */
     public void setLenguaje(String lenguaje) {
         this.lenguaje = lenguaje;
@@ -338,10 +356,9 @@ public class ProblemaBean {
      * 
      */
     public void registarSoporte() throws IOException{
-        UsernamePasswordToken monitor=new UsernamePasswordToken();
         java.util.Date d = new java.util.Date();
         java.sql.Date fecha = new java.sql.Date(d.getTime());
-        f.registrarSoporte(new SoporteAcademico(2100772,soporteSolucionado,lenguaje,fecha,tema,comentariosSoporte));
+        f.registrarSoporte(new SoporteAcademico(this.getIdMonitor(),soporteSolucionado,lenguaje,fecha,tema,comentariosSoporte));
         FacesContext.getCurrentInstance().getExternalContext().redirect("index.xhtml");
     } 
 }
