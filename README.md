@@ -2,18 +2,23 @@
 ## Grupo 4
 
 #### Descripcion del Proyecto
-El proyecto consta de una aplicacion para los monitores de los diferentes labortorios de sistemas, ofreciendo cuatro servicios entre consultas y reportes:
+El proyecto consta de una aplicacion para los monitores de los diferentes labortorios de sistemas y sus usuarios, ofreciendo cuatro servicios entre consultas y reportes:
+###### Monitores:
   - Reportar un problema
   - Reportar los avances de un determinado problema
   - Registrar un soporte academico
   - Consultar actividades por hacer
-
+   
+  
+###### Usuario:
+  - Reportar un problema
+  
 Los servicios mencionados anteriormente corresponden a la atencion de tres historias de usuario. 
   - Reporte de problemas
   - Planeador para monitores
   - Gestion de la bitacora
   
-A continuacion se presentan las idicaciones de uso basicas para el desarrollo de cada historia, tenga en cuenta que todas los servicios estan restringidos para el uso de los monitores. Si desea acceder a la aplicacion debe iniciar sesion.
+A continuacion se presentan las idicaciones de uso basicas para el desarrollo de cada historia, tenga en cuenta que todas los servicios estan restringidos para el uso de los monitores y usuarios. Si desea acceder a la aplicacion debe iniciar sesion.
 ### Reporte de problemas
 ```sh
 1. Seleccione el laboratorio sobre cual quiere hacer el reporte.
