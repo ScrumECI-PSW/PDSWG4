@@ -28,10 +28,13 @@ public class ShiroLoginBean implements Serializable {
     private String password;
     private Boolean rememberMe;
 
-    public ShiroLoginBean() {
-        
+    public void doLogout() throws IOException {
+        SecurityUtils.getSubject().logout();
+        FacesContext.getCurrentInstance().getExternalContext().redirect("login.xhtml");
     }
-
+    
+    
+    
     public Subject getSubject() {
         return SecurityUtils.getSubject();
     }
@@ -48,9 +51,9 @@ public class ShiroLoginBean implements Serializable {
         
         try {
             subject.login(token);
-
-            if (subject.hasRole("employee")) {
-                FacesContext.getCurrentInstance().getExternalContext().redirect("restricted/index.xhtml");
+            System.out.println("111222333");
+            if (subject.hasRole("Usuarios")) {
+                FacesContext.getCurrentInstance().getExternalContext().redirect("Usuarios/index.xhtml");
             }
             else if(subject.hasRole("Monitores")){
                 FacesContext.getCurrentInstance().getExternalContext().redirect("Monitores/index.xhtml");

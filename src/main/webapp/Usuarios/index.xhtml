@@ -8,7 +8,7 @@
     <h:body>
         <pre> 
     
-<h:form id="Monitor">   
+<h:form>   
  
     <p:panel id="panel" header="#{loginBean.subject.principal}" style="margin-top:20px" >
         
@@ -16,17 +16,16 @@
             
             <p:graphicImage value="./imagenes/imagen.jpg" />
             <p><h:outputLabel for="panel" value="Escuela Colombiana De Ingenieria Julio Garavito"   /></p>
-            <p><h:outputLabel for="panel" value="Pagina Principal Monitor"/></p>
+            <p><h:outputLabel for="panel" value="Pagina Principal Usuarios"/></p>
             <p:commandLink  actionListener="#{loginBean.doLogout()}">
                 <h:outputText  value="Sign out" />
             </p:commandLink>
             
+            
         </h:panelGrid>
  
-        <h:panelGrid columns="2" cellpadding="5">
-                    <p:commandButton value="Reporte De Diario" action="ReporteDiario.xhtml"> </p:commandButton>
-                    <p:commandButton value="Planeador de monitores" action="planeadorMonitores.xhtml"> </p:commandButton>
-                    <p:commandButton value="Soporte Academico" action="SoporteAcademico.xhtml"> </p:commandButton>
+         <h:panelGrid columns="2" cellpadding="5">
+                    <p:commandButton value="Reporte De Problemas" action="ReportarProblema.xhtml" > </p:commandButton>  
          </h:panelGrid>           
          
        </p:panel>
