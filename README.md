@@ -4,7 +4,7 @@
 #### Descripcion del Proyecto
 El proyecto consta de una aplicacion para los monitores de los diferentes labortorios de sistemas y sus usuarios, ofreciendo cuatro servicios entre consultas y reportes:
 ###### Monitores:
-  - Reportar un problema
+
   - Reportar los avances de un determinado problema
   - Registrar un soporte academico
   - Consultar actividades por hacer
