@@ -28,11 +28,7 @@ public class ShiroLoginBean implements Serializable {
     private String password;
     private Boolean rememberMe;
 
-    public void doLogout() throws IOException {
-        SecurityUtils.getSubject().logout();
-        FacesContext.getCurrentInstance().getExternalContext().redirect("login.xhtml");
-    }
-    
+ 
     
     
     public Subject getSubject() {
@@ -86,6 +82,10 @@ public class ShiroLoginBean implements Serializable {
         finally {
             token.clear();
         }
+    }
+    public void doLogout() throws IOException {
+        SecurityUtils.getSubject().logout();
+        FacesContext.getCurrentInstance().getExternalContext().redirect("login.xhtml");
     }
 
     /**
