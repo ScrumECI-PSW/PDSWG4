@@ -10,14 +10,14 @@
     
 <h:form>   
  
-    <p:panel id="panel" header="#{loginBean.subject.principal}" style="margin-top:20px" >
+    <p:panel id="panel" header="#{shiroLoginBean.subject.principal}" style="margin-top:20px" >
         
         <h:panelGrid columns="1"  >
             
             <p:graphicImage value="./imagenes/imagen.jpg" />
             <p><h:outputLabel for="panel" value="Escuela Colombiana De Ingenieria Julio Garavito"   /></p>
             <p><h:outputLabel for="panel" value="Pagina Principal Usuarios"/></p>
-            <p:commandLink  action="#{loginBean.doLogout()}">
+            <p:commandLink  action="#{shiroLoginBean.doLogout()}">
                 <h:outputText  value="Sign out" />
             </p:commandLink>
             

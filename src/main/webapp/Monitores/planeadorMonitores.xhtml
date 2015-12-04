@@ -14,7 +14,10 @@
                 <p:graphicImage value="./imagenes/imagen.jpg" />
                 <p><h:outputLabel for="panel" value="Escuela Colombiana De Ingenieria Julio Garavito"   /></p>
                 <p><h:outputLabel for="panel" value="Planeador Monitores"/></p>
-                <p><h:outputLink value="../login.xhtml">Sign out</h:outputLink></p>
+                <p:commandLink  action="#{shiroLoginBean.doLogout()}">
+                <h:outputText  value="Sign out" />
+            </p:commandLink>
+            
                 
            </h:panelGrid>
 

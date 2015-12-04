@@ -19,7 +19,7 @@ import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 
 
-@ManagedBean(name = "loginBean")
+@ManagedBean
 @ViewScoped
 public class ShiroLoginBean implements Serializable {
     private static final Logger log = LoggerFactory.getLogger(ShiroLoginBean.class);
@@ -51,7 +51,7 @@ public class ShiroLoginBean implements Serializable {
         
         try {
             subject.login(token);
-            System.out.println("111222333");
+            
             if (subject.hasRole("Usuarios")) {
                 FacesContext.getCurrentInstance().getExternalContext().redirect("Usuarios/index.xhtml");
             }
