@@ -17,7 +17,6 @@
                 
         <h:panelGrid columns="2">
                   
-
         
             <h:outputText value="Login:"/>
             <p:inputText id="username" required="true" value="#{shiroLoginBean.username}"/>
@@ -29,7 +28,7 @@
             <p:selectBooleanCheckbox id="rememberMe" value="#{shiroLoginBean.rememberMe}"/>
 
             <h:outputText/>
-            <p:commandButton value="Login" action="#{shiroLoginBean.doLogin()}" />
+            <p:commandButton value="Login" action="#{shiroLoginBean.doLogin}" />
         </h:panelGrid>
 
         <p:messages id="messages" autoUpdate="true" closable="true" />
